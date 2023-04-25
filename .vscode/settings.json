@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "minirt.h": "c",
+        "ios": "c",
+        "__locale": "c",
+        "progress.h": "c"
+    }
+}
