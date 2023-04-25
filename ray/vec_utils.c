@@ -60,7 +60,7 @@ t_vec	div_n_vec(t_vec u, double n)
 	return (new_vec);
 }
 
-double	dot(t_vec u, t_vec v)
+double	dot_vec(t_vec u, t_vec v)
 {
 	return (u.x * v.x + u.y * v.y + u.z * v.z);
 }
@@ -88,4 +88,9 @@ t_vec	create_vector(double n)
 	new_vec.y = n;
 	new_vec.z = n;
 	return (new_vec);
+}
+
+t_vec	at(t_vec orig, t_vec dir, double t)
+{
+	return (add_vec(orig, mul_n_vec(dir, t)));
 }

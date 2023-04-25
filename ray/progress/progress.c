@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 21:12:12 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/25 22:14:12 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/25 23:06:22 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,22 @@ t_progress	create_progress(int total, int size)
 
 void	update_progress(t_progress	*progress, int x)
 {
+	long long	now;
+	double		temp;
+
+	now = get_msec_now();
+
 	progress->count++;
-	progress->total_time += ((get_msec_now() - progress->last_time) / 1000);
+	progress->total_time += ((now - progress->last_time) / 1000);
 	progress->average_time = progress->total_time / progress->count;
-	progress->last_time = get_msec_now();
-	fprintf(stdout, "\r%d%% | ",
-					(int)(((double)(x + 1) / (double)progress->total) * 100));
-	for (int i = 0; i < ((double)(x + 1) / (double)progress->total) * progress->size; i++)
+	progress->last_time = now;
+
+	temp = ((double)(x + 1) / (double)progress->total);
+
+	fprintf(stdout, "\r%d%% | ", (int)(temp * 100));
+	for (int i = 0; i < (temp * progress->size); i++)
 		fprintf(stdout, "█");
-	for (int i = 0; i < progress->size - ((double)(x + 1) / (double)progress->total) * progress->size; i++)
+	for (int i = 0; i < (progress->size - temp * progress->size); i++)
 		fprintf(stdout, " ");
 	fprintf(stdout, " | %d / %d [%.2fs<%.2fs, %.2fit/s]", x + 1, progress->total, progress->total_time,
 					progress->average_time * progress->total, 1 / progress->average_time);

@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:40:55 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/25 20:29:17 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/25 22:59:15 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,3 +33,5 @@ float	length_squared(t_vec u);
 float	length(t_vec u);
 t_vec	unit_vector(t_vec v);
 t_vec	create_vector(double n);
+double	dot_vec(t_vec u, t_vec v);
+t_vec	at(t_vec orig, t_vec dir, double t);

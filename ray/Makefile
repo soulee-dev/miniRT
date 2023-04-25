@@ -4,7 +4,6 @@ CC=cc
 
 SRCS:=
 SRCS+=main.c
-SRCS+=render.c
 SRCS+=vec_utils.c
 SRCS+=progress/progress.c
 
