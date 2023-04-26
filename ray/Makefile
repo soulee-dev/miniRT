@@ -7,16 +7,17 @@ SRCS+=main.c
 SRCS+=vec_utils.c
 SRCS+=progress/progress.c
 SRCS+=render.c
+SRCS+=utils.c
 
 OBJS = $(SRCS:.c=.o)
 
 %.o: %.c
-	$(CC) -c $(CPPFLAGS) $< -o $@ -Imlx
+	$(CC) -c $(CPPFLAGS) $< -o $@ -Imlx -O3
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(OBJS) -o $(NAME) -lmlx -framework OpenGL -framework AppKit
+	$(CC) $(OBJS) -o $(NAME) -lmlx -framework OpenGL -framework AppKit -O3
 
 clean:
 	rm -f ${OBJS}

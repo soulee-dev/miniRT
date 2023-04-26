@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 14:48:50 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/26 15:14:45 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/26 18:26:50 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,18 +126,26 @@ int	hittable_list_hit(t_ray r, double t_min, double t_max, t_hit_record rec, t_h
 }
 
 
-int	rgb_to_int(t_vec c)
+int	rgb_to_int(t_vec c, int samples_per_pixel)
 {
     int color = 0;
-	int	ir = 255.999 * c.x;
-	int	ig = 255.999 * c.y;
-	int	ib = 255.999 * c.z;
+	// int	ir = 255.999 * clamp(c.x, 0.0, 0.999);
+	// int	ig = 255.999 * clamp(c.y, 0.0, 0.999);
+	// int	ib = 255.999 * clamp(c.z, 0.0, 0.999);
+	int		ir = 255.999 * c.x;
+	int		ig = 255.999 * c.y;
+	int		ib = 255.999 * c.z;
+
+	// float	scale = 1.0 / samples_per_pixel;
+	// ir *= scale;
+	// ig *= scale;
+	// ib *= scale;
 
 	color = ir * 256 * 256 + ig * 256 + ib;
     return (color);
 }
 
-void    render(void *mlx, void *mlx_win, int image_width, int image_height, double aspect_ratio, t_vec origin)
+void    render(t_env *env)
 {
 	// World
 	t_hittable_list	world;
@@ -155,32 +163,34 @@ void    render(void *mlx, void *mlx_win, int image_width, int image_height, doub
 	// Camera
 	// viewport란 3D 에서 평면으로 보이게 되는 부분
 	double	viewport_height = 2.0;
-	double	viewport_width = aspect_ratio * viewport_height;
+	double	viewport_width = env->aspect_ratio * viewport_height;
 	double	focal_length = 1.0;
 
 	t_vec	horizontal = {viewport_width, 0, 0};
 	t_vec	vertical = {0, viewport_height, 0};
 	t_vec	any = {0, 0, focal_length};
-	t_vec	lower_left_coner = sub_vec(origin, add_vec(add_vec(div_n_vec(horizontal, 2), div_n_vec(vertical, 2)), any));
+	t_vec	lower_left_coner = sub_vec(env->origin, add_vec(add_vec(div_n_vec(horizontal, 2), div_n_vec(vertical, 2)), any));
 
-	t_progress progress = create_progress(image_height * image_width, 5);
+	t_progress progress = create_progress(env->image_height * env->image_width * env->smaples_per_pixel, 5);
 	// Render
 	printf("Render Start\n");
 	int	count = 0;
-	for (int i = 0; i < image_width; i++)
+	for (int i = 0; i < env->image_width; i++)
 	{
-		for (int j = 0; j < image_height; j++)
+		for (int j = 0; j < env->image_height; j++)
 		{
+			// t_vec	pixel_color;
 			// update_progress(&progress, count);
-			double	u = (double)i / (image_width - 1);
-			double	v = (image_height - (double)j - 1) / (image_height - 1);
+			double	u = (double)i / (env->image_width - 1);
+			double	v = (env->image_height - (double)j - 1) / (env->image_height - 1);
 
 			t_ray	r;
-			r.orig = origin;
-			r.dir = add_vec(lower_left_coner, add_vec(mul_n_vec(horizontal, u), mul_n_vec(sub_vec(vertical, origin), v)));
+			r.orig = env->origin;
+			r.dir = add_vec(lower_left_coner, add_vec(mul_n_vec(horizontal, u), mul_n_vec(sub_vec(vertical, env->origin), v)));
+			// pixel_color = add_vec(pixel_color, ray_color(r, world));
 			t_vec	pixel_color = ray_color(r, world);
-			mlx_pixel_put(mlx, mlx_win, i, j, rgb_to_int(pixel_color));
 			count++;
+			mlx_pixel_put(env->mlx, env->mlx_win, i, j, rgb_to_int(pixel_color, env->smaples_per_pixel));
 		}
 	}
 	printf("Done!\n");

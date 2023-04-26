@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:40:55 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/26 15:26:01 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/26 18:16:40 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,21 @@ typedef struct	s_hittable_list
 	t_sphere	sp[2];
 }		t_hittable_list;
 
+typedef struct	s_env
+{
+	// mlx
+	void	*mlx;
+	void	*mlx_win;
+
+	// Camera
+	t_vec	origin;
+	double	aspect_ratio;
+	int		image_width;
+	int		image_height;
+	int		smaples_per_pixel;
+}				t_env;
+
+// vec_utils.c
 t_vec	add_vec(t_vec u, t_vec v);
 t_vec	sub_vec(t_vec u, t_vec v);
 t_vec	mul_vec(t_vec u, t_vec v);
@@ -63,5 +78,8 @@ t_vec	create_vector(double n);
 double	dot_vec(t_vec u, t_vec v);
 t_vec	at(t_ray r, double t);
 
+// render.c
+void    render(t_env *env);
 
-void    render(void *mlx, void *mlx_win, int image_width, int image_height, double aspect_ratio, t_vec origin);
+// utils.c
+double  clamp(double x, double min, double max);
