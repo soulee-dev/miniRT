@@ -6,6 +6,7 @@ SRCS:=
 SRCS+=main.c
 SRCS+=vec_utils.c
 SRCS+=progress/progress.c
+SRCS+=render.c
 
 OBJS = $(SRCS:.c=.o)
 

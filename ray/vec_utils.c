@@ -90,7 +90,7 @@ t_vec	create_vector(double n)
 	return (new_vec);
 }
 
-t_vec	at(t_vec orig, t_vec dir, double t)
+t_vec	at(t_ray r, double t)
 {
-	return (add_vec(orig, mul_n_vec(dir, t)));
+	return (add_vec(r.orig, mul_n_vec(r.dir, t)));
 }
