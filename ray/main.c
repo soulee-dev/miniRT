@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:53:12 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/26 21:37:25 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/26 21:39:10 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	main(void)
 	env.image_width = 1920;
 	env.image_height = env.image_width / env.aspect_ratio;
 	env.smaples_per_pixel = 1;
-	env.max_depth = 3;
+	env.max_depth = 50;
 	// Image
 
 	// mlx

@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 14:48:50 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/26 21:35:19 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/26 21:39:53 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,9 +177,9 @@ void    render(t_env *env)
 	// Camera
 	// viewport란 3D 에서 평면으로 보이게 되는 부분
 
-	t_vec	horizontal = {env->viewport_width, 0, 0};
-	t_vec	vertical = {0, env->viewport_height, 0};
-	t_vec	any = {0, 0, env->focal_length};
+	t_vec	horizontal = {env->viewport_width, 0.0, 0.0};
+	t_vec	vertical = {0, env->viewport_height, 0.0};
+	t_vec	any = {0.0, 0.0, env->focal_length};
 	t_vec	lower_left_coner = sub_vec(env->origin, add_vec(add_vec(div_n_vec(horizontal, 2), div_n_vec(vertical, 2)), any));
 
 	t_progress progress = create_progress(env->image_height * env->image_width * env->smaples_per_pixel, 5);
