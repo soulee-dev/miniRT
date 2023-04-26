@@ -12,12 +12,12 @@ SRCS+=utils.c
 OBJS = $(SRCS:.c=.o)
 
 %.o: %.c
-	$(CC) -c $(CPPFLAGS) $< -o $@ -Imlx -O3
+	$(CC) -c $(CPPFLAGS) $< -o $@ -Imlx -O3 -g3
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(OBJS) -o $(NAME) -lmlx -framework OpenGL -framework AppKit -O3
+	$(CC) $(OBJS) -o $(NAME) -lmlx -framework OpenGL -framework AppKit -O3 -g3
 
 clean:
 	rm -f ${OBJS}

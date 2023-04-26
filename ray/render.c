@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 14:48:50 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/26 20:23:57 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/26 20:36:59 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,15 @@ t_vec	ray_color(t_ray r, t_hittable_list world)
 		t_vec	normal = unit_vector(sub_vec(at(r, t), world.sp[0].center));
 		t_vec	color;
 
-		color.x = normal.x + 1;
-		color.y = normal.y + 1;
-		color.z = normal.z + 1;
+		t_vec	target = add_vec(world.sp[0].center, normal);
+		t_ray	ray = {world.sp[0].center, sub_vec(target, world.sp[0].center)};
 
+		// color.x = normal.x + 1;
+		// color.y = normal.y + 1;
+		// color.z = normal.z + 1;
 		// n이 rec.normal
 		
-		return (mul_n_vec(color, 0.5));
+		return (mul_n_vec(ray_color(ray, world), 0.5));
 	}
 	t = hit_sphere(world.sp[1], r);
 	if (t > 0.0)
@@ -49,10 +51,14 @@ t_vec	ray_color(t_ray r, t_hittable_list world)
 		t_vec	normal = unit_vector(sub_vec(at(r, t), world.sp[1].center));
 		t_vec	color;
 
-		color.x = normal.x + 1;
-		color.y = normal.y + 1;
-		color.z = normal.z + 1;
-		return (mul_n_vec(color, 0.5));
+		t_vec	target = add_vec(world.sp[1].center, normal);
+		t_ray	ray = {world.sp[1].center, sub_vec(target, world.sp[1].center)};
+
+		// color.x = normal.x + 1;
+		// color.y = normal.y + 1;
+		// color.z = normal.z + 1;
+
+		return (mul_n_vec(ray_color(ray, world), 0.5));
 	}
 	t_vec	unit_direction = unit_vector(r.dir);
 	t = 0.5 * (unit_direction.y + 1.0);
