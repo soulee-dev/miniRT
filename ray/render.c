@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 14:48:50 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/26 21:39:53 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/26 21:41:45 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -195,11 +195,11 @@ void    render(t_env *env)
 			double	u = (double)i / (env->image_width - 1);
 			double	v = (env->image_height - (double)j - 1) / (env->image_height - 1);
 
-			t_ray	r;
-			r.orig = env->origin;
-			r.dir = add_vec(lower_left_coner, add_vec(mul_n_vec(horizontal, u), mul_n_vec(sub_vec(vertical, env->origin), v)));
+			t_ray	ray;
+			ray.orig = env->origin;
+			ray.dir = add_vec(lower_left_coner, add_vec(mul_n_vec(horizontal, u), mul_n_vec(sub_vec(vertical, env->origin), v)));
 			// pixel_color = add_vec(pixel_color, ray_color(r, world));
-			t_vec	pixel_color = ray_color(r, world, env->max_depth);
+			t_vec	pixel_color = ray_color(ray, world, env->max_depth);
 			count++;
 			mlx_pixel_put(env->mlx, env->mlx_win, i, j, rgb_to_int(pixel_color, env->smaples_per_pixel));
 		}
