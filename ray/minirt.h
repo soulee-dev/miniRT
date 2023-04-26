@@ -6,13 +6,14 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:40:55 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/26 20:38:40 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/26 21:20:27 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include <mlx.h>
 # include <stdio.h>
 # include <math.h>
+# include <stdlib.h>
 
 enum e_keys{
 	KEY_ESC = 53,
@@ -85,4 +86,7 @@ t_vec	at(t_ray r, double t);
 void    render(t_env *env);
 
 // utils.c
+double  random_double();
+double  random_double2(double min, double max);
 double  clamp(double x, double min, double max);
+

@@ -3,6 +3,8 @@
         "minirt.h": "c",
         "ios": "c",
         "__locale": "c",
-        "progress.h": "c"
+        "progress.h": "c",
+        "algorithm": "c",
+        "cstdlib": "c"
     }
 }
