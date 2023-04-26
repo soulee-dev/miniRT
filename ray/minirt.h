@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:40:55 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/26 21:20:27 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/26 21:34:18 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,15 +57,18 @@ typedef struct	s_env
 	void	*mlx;
 	void	*mlx_win;
 
-	// Camera
-	t_vec	origin;
+	// Iamge
 	double	aspect_ratio;
 	int		image_width;
 	int		image_height;
 	int		smaples_per_pixel;
-
-	// Image
 	int		max_depth;
+
+	// Camera
+	t_vec	origin;
+	double	viewport_height;
+	double	viewport_width;
+	double	focal_length;
 }				t_env;
 
 // vec_utils.c
