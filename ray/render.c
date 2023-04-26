@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 14:48:50 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/26 20:36:59 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/26 20:38:22 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,13 @@ double	hit_sphere(t_sphere s, t_ray r)
 
 }
 
-t_vec	ray_color(t_ray r, t_hittable_list world)
+t_vec	ray_color(t_ray r, t_hittable_list world, int depth)
 {
+	t_vec	color = {0.0, 0.0, 0.0};
+
+	if (depth <= 0)
+		return (color);
+
 	float	t = hit_sphere(world.sp[0], r);
 	if (t > 0.0)
 	{
@@ -43,7 +48,7 @@ t_vec	ray_color(t_ray r, t_hittable_list world)
 		// color.z = normal.z + 1;
 		// n이 rec.normal
 		
-		return (mul_n_vec(ray_color(ray, world), 0.5));
+		return (mul_n_vec(ray_color(ray, world, depth - 1), 0.5));
 	}
 	t = hit_sphere(world.sp[1], r);
 	if (t > 0.0)
@@ -58,7 +63,7 @@ t_vec	ray_color(t_ray r, t_hittable_list world)
 		// color.y = normal.y + 1;
 		// color.z = normal.z + 1;
 
-		return (mul_n_vec(ray_color(ray, world), 0.5));
+		return (mul_n_vec(ray_color(ray, world, depth - 1), 0.5));
 	}
 	t_vec	unit_direction = unit_vector(r.dir);
 	t = 0.5 * (unit_direction.y + 1.0);
@@ -197,7 +202,7 @@ void    render(t_env *env)
 			r.orig = env->origin;
 			r.dir = add_vec(lower_left_coner, add_vec(mul_n_vec(horizontal, u), mul_n_vec(sub_vec(vertical, env->origin), v)));
 			// pixel_color = add_vec(pixel_color, ray_color(r, world));
-			t_vec	pixel_color = ray_color(r, world);
+			t_vec	pixel_color = ray_color(r, world, env->max_depth);
 			count++;
 			mlx_pixel_put(env->mlx, env->mlx_win, i, j, rgb_to_int(pixel_color, env->smaples_per_pixel));
 		}

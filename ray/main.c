@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 16:53:12 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/26 18:23:18 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/26 20:56:33 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int	main(void)
 	env.image_width = 1920;
 	env.image_height = env.image_width / env.aspect_ratio;
 	env.smaples_per_pixel = 1;
+	env.max_depth = 3;
 
 	env.mlx = mlx_init();
 	env.mlx_win = mlx_new_window(env.mlx, env.image_width, env.image_height, "miniRT-practice");
