@@ -4,6 +4,7 @@ CC=cc
 
 SRCS:=
 SRCS+=main.c
+SRCS+=render.c
 
 OBJS = $(SRCS:.c=.o)
 

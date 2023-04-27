@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:42:28 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/27 17:04:27 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/27 17:25:59 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	init_img(t_env *env)
 {
-	env->img.aspect_ratio = 16.0 / 9.0;
+	env->img.aspect_ratio = 16.0 / 9.0;	
 	env->img.width = WIDTH;
 	env->img.height = env->img.width / env->img.aspect_ratio;
-	// env->img.samples_per_pixel = 1;
-	// env->img.max_depth = 50;
+	env->img.samples_per_pixel = 1;
+	env->img.max_depth = 50;
 }
 
 void	init_mlx(t_env *env)
@@ -45,7 +45,7 @@ int	main(void)
 	init_img(&env);
 	init_cam(&env);
 	init_mlx(&env);
-	// render(&env);
+	render(&env);
 	mlx_loop(env.mlx.mlx);
 	return (0);
 }
