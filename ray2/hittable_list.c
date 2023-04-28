@@ -6,13 +6,13 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 19:01:28 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/28 19:44:15 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/28 21:42:06 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-int	hittable_list_hit(t_hittable_list list, t_ray *r, double t_min, double t_max, t_hit_record *rec)
+int	hittable_list_hit(t_hittable_list world, t_ray *r, double t_min, double t_max, t_hit_record *rec)
 {
 	int				i;
 	t_hit_record	temp_rec;
@@ -22,13 +22,13 @@ int	hittable_list_hit(t_hittable_list list, t_ray *r, double t_min, double t_max
 
 	hit_anything = 0;
 	closest_so_far = t_max;
-	is_hit = 0;
 	i = 0;
-	while (i < list.size)
+	while (i < world.size)
 	{
-		if (list.objects[i].type == TYPE_SPHERE)
+		is_hit = 0;
+		if (world.objects[i].type == TYPE_SPHERE)
 			is_hit = sphere_hit(r, t_min, closest_so_far,
-					&temp_rec, list.objects[i].sphere);
+					&temp_rec, world.objects[i].sphere);
 		if (is_hit)
 		{
 			hit_anything = 1;
@@ -39,11 +39,3 @@ int	hittable_list_hit(t_hittable_list list, t_ray *r, double t_min, double t_max
 	}
 	return (hit_anything);
 }
-
-// void	add()
-// {
-	
-// }
-
-// Make a type of shape and give them a specific type like: sphere
-// and give them a function ptr?
