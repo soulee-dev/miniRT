@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:52:54 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/28 22:29:29 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/28 23:02:05 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ t_color	ray_color(t_ray *r, t_hittable_list *world)
 {
 	float			t;
 	t_vec3			unit_direction;
-	t_vec3			n;
 	t_hit_record	rec;
 
 	if (hittable_list_hit(*world, r, 0, (double)INFINITY, &rec))
