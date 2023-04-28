@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:52:54 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/28 23:02:05 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/28 23:23:28 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,23 @@ void	write_color(int x, int y, t_color color, t_env *env)
 	mlx_pixel_put(env->mlx.mlx, env->mlx.win, x, y, converted_color);
 }
 
-t_color	ray_color(t_ray *r, t_hittable_list *world)
+t_color	ray_color(t_ray *r, t_hittable_list *world, int depth)
 {
 	float			t;
 	t_vec3			unit_direction;
 	t_hit_record	rec;
+	t_ray			ray;
+	t_point3		target;
 
+	if (depth <= 0)
+		return (create_vec3_t(0.0));
 	if (hittable_list_hit(*world, r, 0, (double)INFINITY, &rec))
-		return (mul_n_vec3(add_vec3(rec.normal, create_vec3_t(1.0)), 0.5));
+	{
+		target = add_vec3(add_vec3(rec.p, rec.normal), random_in_unit_sphere());
+		ray.origin = rec.p;
+		ray.direction = sub_vec3(target, rec.p);
+		return (mul_n_vec3(ray_color(&ray, world, depth - 1), 0.5));
+	}
 	unit_direction = unit_vector(r->direction);
 	t = 0.5 * (unit_direction.y + 1.0);
 	return (add_vec3(mul_n_vec3(create_vec3_t(1.0), 1.0 - t),
@@ -69,10 +78,12 @@ void	render(t_env *env)
 			k = 0;
 			while (k < env->img.samples_per_pixel)
 			{
-				u = ((double)i) / (env->img.width);
-				v = ((env->img.height - (double)j)) / (env->img.height);
+				u = ((double)i + random_double()) / (env->img.width);
+				v = ((env->img.height - (double)j)
+						+ random_double()) / (env->img.height);
 				r = camera_get_ray(env, u, v);
-				pixel_color = add_vec3(pixel_color, ray_color(&r, &env->world));
+				pixel_color = add_vec3(pixel_color,
+						ray_color(&r, &env->world, env->img.max_depth));
 				k++;
 			}
 			write_color(i, j, pixel_color, env);
