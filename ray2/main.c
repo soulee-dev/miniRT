@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:42:28 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/28 10:23:42 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/28 10:54:17 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,27 @@ void	init_cam(t_env *env)
 	env->cam.viewport_height = 4.0;
 	env->cam.viewport_width = env->img.aspect_ratio * env->cam.viewport_height;
 	env->cam.focal_length = 1.0;
+}
+
+void	init_cam_vec3(t_env *env)
+{
+	t_vec3	u;
+
 	env->cam.origin.x = 0.0;
 	env->cam.origin.y = 0.0;
 	env->cam.origin.z = 0.0;
+	env->cam.horizontal.x = env->cam.viewport_width;
+	env->cam.horizontal.y = 0.0;
+	env->cam.horizontal.z = 0.0;
+	env->cam.vertical.x = 0.0;
+	env->cam.vertical.y = env->cam.viewport_height;
+	env->cam.vertical.z = 0.0;
+	u.x = 0.0;
+	u.y = 0.0;
+	u.z = env->cam.focal_length;
+	env->cam.lower_left_corner = sub_vec3(env->cam.origin,
+			add_vec3(add_vec3(div_n_vec3(env->cam.horizontal, 2),
+					div_n_vec3(env->cam.vertical, 2)), u));
 }
 
 int	main(void)
