@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/28 16:26:10 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/28 16:34:28 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ t_vec3	sub_vec3(t_vec3 u, t_vec3 v);
 // vec3_utils2.c
 t_vec3	div_n_vec3(t_vec3 u, double t);
 t_vec3	unit_vector(t_vec3 u);
+t_vec3	at(t_vec3 origin, t_vec3 dir, double t);
 t_vec3	create_vec3_t(double t);
 t_vec3	create_vec3_xyz(double x, double y, double z);
 
