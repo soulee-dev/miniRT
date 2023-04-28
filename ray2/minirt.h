@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/28 16:47:43 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/28 16:54:42 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ t_vec3	create_vec3_t(double t);
 t_vec3	create_vec3_xyz(double x, double y, double z);
 
 // vec3_utils3.c
-void	print_vec3(t_vec3 vec3)
+void	print_vec3(t_vec3 vec3);
 
 // inits.c
 void	init_img(t_env *env);

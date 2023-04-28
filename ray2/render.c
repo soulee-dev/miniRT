@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:52:54 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/28 16:29:45 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/28 18:19:13 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	write_color(int x, int y, t_color color, t_env *env)
 	mlx_pixel_put(env->mlx.mlx, env->mlx.win, x, y, converted_color);
 }
 
-int	hit_sphere(t_point3 center, double radius, t_ray r)
+double	hit_sphere(t_point3 center, double radius, t_ray r)
 {
 	t_vec3	oc;
 	double	a;
@@ -40,23 +40,29 @@ int	hit_sphere(t_point3 center, double radius, t_ray r)
 	b = 2.0 * dot(oc, r.direction);
 	c = dot(oc, oc) - radius * radius;
 	discriminant = b * b - 4 * a * c;
-	return (discriminant > 0);
+	if (discriminant < 0.0)
+		return (-1.0);
+	else
+		return ((-b - sqrt(discriminant)) / (2.0 * a));
 }
 
 t_color	ray_color(t_ray r)
 {
-	double		t;
+	float		t;
 	t_vec3		unit_direction;
-	t_color		color;
-	t_point3	point;
+	t_vec3		n;
 
-	point = create_vec3_xyz(0.0, 0.0, -1.0);
-	color = create_vec3_xyz(1.0, 0.0, 0.0);
-	if (hit_sphere(point, 0.5, r))
-		return (color);
+	t = hit_sphere(create_vec3_xyz(0, 0, -1), 0.5, r);
+	if (t > 0.0)
+	{
+		n = unit_vector(sub_vec3(at(r.origin, r.direction, t),
+					create_vec3_xyz(0, 0, -1)));
+		return (mul_n_vec3(create_vec3_xyz(n.x + 1.0,
+					n.y + 1.0, n.z + 1.0), 0.5));
+	}
 	unit_direction = unit_vector(r.direction);
 	t = 0.5 * (unit_direction.y + 1.0);
-	return (add_vec3(mul_n_vec3(create_vec3_t(1.0), (1.0 - t)),
+	return (add_vec3(mul_n_vec3(create_vec3_t(1.0), 1.0 - t),
 			mul_n_vec3(create_vec3_xyz(0.5, 0.7, 1.0), t)));
 }
 
