@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 19:01:28 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/28 21:42:06 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/28 21:54:26 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	hittable_list_hit(t_hittable_list world, t_ray *r, double t_min, double t_ma
 		{
 			hit_anything = 1;
 			closest_so_far = temp_rec.t;
-			rec = &temp_rec;
+			*rec = temp_rec;
 		}
 		i++;
 	}
