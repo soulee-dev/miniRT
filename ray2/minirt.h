@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/28 10:25:28 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/28 10:55:39 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,5 +107,11 @@ t_vec3	sub_vec3(t_vec3 u, t_vec3 v);
 t_vec3	add_vec3(t_vec3 u, t_vec3 v);
 t_vec3	div_n_vec3(t_vec3 u, double t);
 t_vec3	unit_vector(t_vec3 u);
+
+// inits.c
+void	init_img(t_env *env);
+void	init_mlx(t_env *env);
+void	init_cam(t_env *env);
+void	init_cam_vec3(t_env *env);
 
 #endif
