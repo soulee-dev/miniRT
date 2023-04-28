@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 19:01:28 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/28 19:27:15 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/28 19:44:15 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	hittable_list_hit(t_hittable_list list, t_ray *r, double t_min, double t_max
 		if (list.objects[i].type == TYPE_SPHERE)
 			is_hit = sphere_hit(r, t_min, closest_so_far,
 					&temp_rec, list.objects[i].sphere);
-
 		if (is_hit)
 		{
 			hit_anything = 1;
