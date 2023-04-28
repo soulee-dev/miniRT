@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:52:54 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/28 23:30:30 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/28 23:37:53 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	render(t_env *env)
 	double	v;
 	t_ray	r;
 
+	printf("Render Start\n");
 	i = 0;
 	while (i < env->img.width)
 	{
@@ -91,4 +92,5 @@ void	render(t_env *env)
 		}
 		i++;
 	}
+	printf("Done!\n");
 }
