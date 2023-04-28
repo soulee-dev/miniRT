@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:52:54 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/28 18:19:13 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/28 18:21:55 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,19 @@ double	hit_sphere(t_point3 center, double radius, t_ray r)
 {
 	t_vec3	oc;
 	double	a;
-	double	b;
+	double	half_b;
 	double	c;
 	double	discriminant;
 
 	oc = sub_vec3(r.origin, center);
-	a = dot(r.direction, r.direction);
-	b = 2.0 * dot(oc, r.direction);
-	c = dot(oc, oc) - radius * radius;
-	discriminant = b * b - 4 * a * c;
+	a = length_squared(r.direction);
+	half_b = dot(oc, r.direction);
+	c = length_squared(oc) - radius * radius;
+	discriminant = half_b * half_b - a * c;
 	if (discriminant < 0.0)
 		return (-1.0);
 	else
-		return ((-b - sqrt(discriminant)) / (2.0 * a));
+		return ((-half_b	- sqrt(discriminant)) / a);
 }
 
 t_color	ray_color(t_ray r)
