@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:52:54 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/28 16:08:25 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/28 16:27:35 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,21 +45,14 @@ int	hit_sphere(t_point3 center, double radius, t_ray r)
 
 t_color	ray_color(t_ray r)
 {
-	double	t;
-	t_vec3	unit_direction;
-	t_color	color1;
-	t_color	color2;
+	double		t;
+	t_vec3		unit_direction;
+	t_point3	point3;
 
-	if (hit_sphere)
-	color1.x = 1.0;
-	color1.y = 1.0;
-	color1.z = 1.0;
-	color2.x = 0.5;
-	color2.y = 0.7;
-	color2.z = 1.0;
-	unit_direction = unit_vector(r.dir);
+	unit_direction = unit_vector(r.direction);
 	t = 0.5 * (unit_direction.y + 1.0);
-	return (add_vec3(mul_n_vec3(color1, (1.0 - t)), mul_n_vec3(color2, t)));
+	return (add_vec3(mul_n_vec3(create_vec3_t(1.0), (1.0 - t)),
+			mul_n_vec3(create_vec3_xyz(0.5, 0.7, 1.0), t)));
 }
 
 void	render(t_env *env)

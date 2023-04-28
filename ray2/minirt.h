@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/28 11:35:57 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/28 16:26:10 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdlib.h>
 
 // Define
-# define WIDTH	400
+# define WIDTH	1080
 # define TITLE	"miniRT-practice"
 
 enum e_keys{
@@ -97,16 +97,17 @@ double	length_squared(t_vec3 u);
 double	length(t_vec3 u);
 
 // vec3_utils1.c
-t_vec3	create_vec3(double t);
+t_vec3	add_vec3(t_vec3 u, t_vec3 v);
 t_vec3	mul_n_vec3(t_vec3 u, double t);
 t_vec3	mul_vec3(t_vec3 u, t_vec3 v);
 double	dot(t_vec3 u, t_vec3 v);
 t_vec3	sub_vec3(t_vec3 u, t_vec3 v);
 
 // vec3_utils2.c
-t_vec3	add_vec3(t_vec3 u, t_vec3 v);
 t_vec3	div_n_vec3(t_vec3 u, double t);
 t_vec3	unit_vector(t_vec3 u);
+t_vec3	create_vec3_t(double t);
+t_vec3	create_vec3_xyz(double x, double y, double z);
 
 // inits.c
 void	init_img(t_env *env);
