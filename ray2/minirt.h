@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/28 23:37:03 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/29 00:30:23 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ typedef struct s_sphere
 {
 	t_point3	center;
 	double		radius;
+	t_material	mat_ptr;
 }				t_sphere;
 
 // Hit Records
@@ -67,9 +68,18 @@ typedef struct s_hit_record
 {
 	t_point3	p;
 	t_vec3		normal;
+	t_material	mat_ptr;
 	double		t;
 	int			front_face;
 }				t_hit_record;
+
+
+typedef struct s_material
+{
+	int	(*scatter)
+		(t_ray *r_in, t_hit_record *rec, t_color attenuation, t_ray *scattered);
+}				t_material;
+
 
 typedef struct s_shape
 {
@@ -146,6 +156,7 @@ t_vec3	create_vec3_xyz(double x, double y, double z);
 
 // vec3_utils3.c
 void	print_vec3(t_vec3 vec3);
+int		near_zero(t_vec3 u);
 
 // inits.c
 void	init_img(t_env *env);
