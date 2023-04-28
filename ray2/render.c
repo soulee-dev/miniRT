@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:52:54 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/28 22:13:24 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/28 22:29:29 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,23 @@
 
 void	write_color(int x, int y, t_color color, t_env *env)
 {
-	int	r;
-	int	g;
-	int	b;
-	int	converted_color;
+	double	r;
+	double	g;
+	double	b;
+	int		converted_color;
+	double	scale;
 
+	r = color.x;
+	g = color.y;
+	b = color.z;
+	scale = 1.0 / env->img.samples_per_pixel;
+	r *= scale;
+	g *= scale;
+	b *= scale;
+	r = (int)(256 * clamp(r, 0.0, 0.999));
+	g = (int)(256 * clamp(g, 0.0, 0.999));
+	b = (int)(256 * clamp(b, 0.0, 0.999));
 	converted_color = 0;
-	r = color.x * 255.999;
-	g = color.y * 255.999;
-	b = color.z * 255.999;
 	converted_color = r * 256 * 256 + g * 256 + b;
 	mlx_pixel_put(env->mlx.mlx, env->mlx.win, x, y, converted_color);
 }
@@ -46,6 +54,7 @@ void	render(t_env *env)
 {
 	int		i;
 	int		j;
+	int		k;
 	t_color	pixel_color;
 	double	u;
 	double	v;
@@ -57,10 +66,16 @@ void	render(t_env *env)
 		j = 0;
 		while (j < env->img.height)
 		{
-			u = (double)i / (env->img.width);
-			v = (env->img.height - (double)j) / (env->img.height);
-			r = camera_get_ray(env, u, v);
-			pixel_color = ray_color(&r, &env->world);
+			pixel_color = create_vec3_t(0.0);
+			k = 0;
+			while (k < env->img.samples_per_pixel)
+			{
+				u = ((double)i) / (env->img.width);
+				v = ((env->img.height - (double)j)) / (env->img.height);
+				r = camera_get_ray(env, u, v);
+				pixel_color = add_vec3(pixel_color, ray_color(&r, &env->world));
+				k++;
+			}
 			write_color(i, j, pixel_color, env);
 			j++;
 		}

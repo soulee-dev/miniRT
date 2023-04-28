@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/28 22:13:12 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/28 22:27:27 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdlib.h>
 
 // Define
-# define WIDTH	1080
+# define WIDTH	400
 # define TITLE	"miniRT-practice"
 
 enum e_keys {
@@ -129,6 +129,7 @@ void	render(t_env *env);
 // math_utils1.c
 double	length_squared(t_vec3 u);
 double	length(t_vec3 u);
+double	clamp(double x, double min, double max);
 
 // vec3_utils1.c
 t_vec3	add_vec3(t_vec3 u, t_vec3 v);
