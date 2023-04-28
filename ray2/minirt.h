@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/28 19:32:23 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/28 21:57:06 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,13 +155,15 @@ void	init_cam_vec3(t_env *env);
 void	init_world(t_env *env);
 
 // sphere.c
-double	sphere_hit(t_ray *r, double t_min, double t_max, t_hit_record *rec, t_sphere sphere);
+double	sphere_hit(t_ray *r, double t_min, double t_max,
+			t_hit_record *rec, t_sphere sphere);
 
 // hit_record.c
 void	set_face_normal(t_hit_record *hit_record,
 			t_ray *r, t_vec3 *outward_normal);
 
 // hittable_list.c
-int		hittable_list_hit(t_hittable_list list, t_ray *r, double t_min, double t_max, t_hit_record *rec);
+int		hittable_list_hit(t_hittable_list list, t_ray *r,
+			double t_min, double t_max, t_hit_record *rec);
 
 #endif
