@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/28 10:13:29 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/28 10:21:42 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ typedef struct s_cam
 	t_vec3	origin;
 	double	viewport_height;
 	double	viewport_width;
-	double	focal_lenght;
+	double	focal_length;
 }				t_cam;
 
 // Environment
