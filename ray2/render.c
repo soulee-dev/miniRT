@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:52:54 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/28 23:23:28 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/28 23:27:29 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ void	write_color(int x, int y, t_color color, t_env *env)
 	g = color.y;
 	b = color.z;
 	scale = 1.0 / env->img.samples_per_pixel;
-	r *= scale;
-	g *= scale;
-	b *= scale;
+	r = sqrt(scale * r);
+	g = sqrt(scale * g);
+	b = sqrt(scale * b);
 	r = (int)(256 * clamp(r, 0.0, 0.999));
 	g = (int)(256 * clamp(g, 0.0, 0.999));
 	b = (int)(256 * clamp(b, 0.0, 0.999));
