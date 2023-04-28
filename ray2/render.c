@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:52:54 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/28 19:48:29 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/28 22:13:24 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ void	render(t_env *env)
 	int		i;
 	int		j;
 	t_color	pixel_color;
-	t_ray	r;
 	double	u;
 	double	v;
+	t_ray	r;
 
 	i = 0;
 	while (i < env->img.width)
@@ -59,11 +59,7 @@ void	render(t_env *env)
 		{
 			u = (double)i / (env->img.width);
 			v = (env->img.height - (double)j) / (env->img.height);
-			r.origin = env->cam.origin;
-			r.direction = add_vec3(env->cam.lower_left_corner,
-					add_vec3(mul_n_vec3(env->cam.horizontal, u),
-						mul_n_vec3(sub_vec3(env->cam.vertical,
-								env->cam.origin), v)));
+			r = camera_get_ray(env, u, v);
 			pixel_color = ray_color(&r, &env->world);
 			write_color(i, j, pixel_color, env);
 			j++;

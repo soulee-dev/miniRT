@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/28 21:57:06 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/28 22:13:12 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,5 +165,8 @@ void	set_face_normal(t_hit_record *hit_record,
 // hittable_list.c
 int		hittable_list_hit(t_hittable_list list, t_ray *r,
 			double t_min, double t_max, t_hit_record *rec);
+
+// camera.c
+t_ray	camera_get_ray(t_env *env, double u, double v);
 
 #endif
