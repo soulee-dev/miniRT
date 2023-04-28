@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/28 10:55:39 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/28 11:35:57 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ typedef t_vec3	t_color;
 typedef struct s_ray
 {
 	t_point3	origin;
-	t_vec3		dir;
+	t_vec3		direction;
 }				t_ray;
 
 // Mlx
