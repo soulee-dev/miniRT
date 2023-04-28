@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:52:54 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/27 17:57:19 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/28 10:16:11 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_color	ray_color(t_ray r)
 
 	unit_direction = unit_vector(r.dir);
 	t = 0.5 * (unit_direction.y + 1.0);
-	return (add_vec3())
+	// return (add_vec3())
 }
 
 void	render(t_env *env)

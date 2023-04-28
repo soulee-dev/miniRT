@@ -5,6 +5,7 @@
         "__locale": "c",
         "progress.h": "c",
         "algorithm": "c",
-        "cstdlib": "c"
+        "cstdlib": "c",
+        "mlx.h": "c"
     }
 }
