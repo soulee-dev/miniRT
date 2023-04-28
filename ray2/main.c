@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:42:28 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/28 19:31:07 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/28 23:04:02 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	main(void)
 {
 	t_env	env;
-	// add memset for error
 
 	init_img(&env);
 	init_cam(&env);
