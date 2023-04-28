@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/28 23:19:05 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/28 23:30:06 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,6 +176,7 @@ double	random_double2(double min, double max);
 t_vec3	random_vec3(void);
 t_vec3	random_vec3_2(double min, double max);
 t_vec3	random_in_unit_sphere(void);
+t_vec3	random_unit_vector(void);
 // REMOVE BEFORE FLIGHT
 
 #endif

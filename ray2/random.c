@@ -33,4 +33,9 @@ t_vec3	random_in_unit_sphere(void)
 		return (p);
 	}
 }
+
+t_vec3	random_unit_vector(void)
+{
+	return (unit_vector(random_in_unit_sphere()));
+}
 // REMOVE BEFORE FLIGHT
