@@ -5,6 +5,10 @@ CC=cc
 SRCS:=
 SRCS+=main.c
 SRCS+=render.c
+SRCS+=vec3_utils1.c
+SRCS+=vec3_utils2.c
+SRCS+=math_utils1.c
+SRCS+=inits.c
 
 OBJS = $(SRCS:.c=.o)
 
