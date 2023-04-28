@@ -14,6 +14,9 @@ SRCS+=hit_record.c
 SRCS+=hittable_list.c
 SRCS+=inits.c
 SRCS+=camera.c
+# REMOVE BEFORE FLIGHT
+SRCS+=random.c
+# REMOVE BEFORE FLIGHT
 
 OBJS = $(SRCS:.c=.o)
 

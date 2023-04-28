@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/28 22:27:27 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/28 23:19:05 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,5 +169,13 @@ int		hittable_list_hit(t_hittable_list list, t_ray *r,
 
 // camera.c
 t_ray	camera_get_ray(t_env *env, double u, double v);
+
+// REMOVE BEFORE FLIGHT
+double	random_double(void);
+double	random_double2(double min, double max);
+t_vec3	random_vec3(void);
+t_vec3	random_vec3_2(double min, double max);
+t_vec3	random_in_unit_sphere(void);
+// REMOVE BEFORE FLIGHT
 
 #endif
