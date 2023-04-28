@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 16:46:45 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/28 16:55:17 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/28 21:48:22 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	print_vec3(t_vec3 vec3)
 {
-	printf("z:%lf y:%lf z:%lf\n", vec3.x, vec3.y, vec3.z);
+	printf("x:%lf y:%lf z:%lf\n", vec3.x, vec3.y, vec3.z);
 }
