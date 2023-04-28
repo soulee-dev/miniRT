@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   hit_record.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/27 16:42:28 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/28 19:31:07 by soulee           ###   ########.fr       */
+/*   Created: 2023/04/28 18:37:40 by soulee            #+#    #+#             */
+/*   Updated: 2023/04/28 18:47:18 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-int	main(void)
+void	set_face_normal(t_hit_record *hit_record,
+	t_ray *r, t_vec3 *outward_normal)
 {
-	t_env	env;
-	// add memset for error
+	int	front_face;
 
-	init_img(&env);
-	init_cam(&env);
-	init_mlx(&env);
-	init_cam_vec3(&env);
-	init_world(&env);
-	render(&env);
-	mlx_loop(env.mlx.mlx);
-	return (0);
+	front_face = dot(r->direction, *outward_normal) < 0;
+	if (front_face)
+		hit_record->normal = *outward_normal;
+	else
+		hit_record->normal = mul_n_vec3(*outward_normal, -1);
 }

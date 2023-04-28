@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/28 16:54:42 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/28 19:32:23 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define WIDTH	1080
 # define TITLE	"miniRT-practice"
 
-enum e_keys{
+enum e_keys {
 	KEY_ESC = 53,
 	KEY_W = 13,
 	KEY_A = 0,
@@ -32,6 +32,10 @@ enum e_keys{
 	KEY_ARROW_DOWN = 125,
 	X_EVENT_KEY_RELEASE = 3,
 	X_EVENT_KEY_EXIT = 17
+};
+
+enum e_type {
+	TYPE_SPHERE = 1
 };
 
 // Vector
@@ -51,6 +55,35 @@ typedef struct s_ray
 	t_point3	origin;
 	t_vec3		direction;
 }				t_ray;
+
+// Sphere
+typedef struct s_sphere
+{
+	t_point3	center;
+	double		radius;
+}				t_sphere;
+
+// Hit Records
+typedef struct s_hit_record
+{
+	t_point3	p;
+	t_vec3		normal;
+	double		t;
+	int			front_face;
+}				t_hit_record;
+
+typedef struct s_shape
+{
+	int			type;
+	t_sphere	sphere;
+}				t_shape;
+
+typedef struct s_hittable_list
+{
+	// Originally, objects is shared ptr of hittable
+	t_shape	objects[2];
+	size_t	size;
+}				t_hittable_list;
 
 // Mlx
 typedef struct s_mlx
@@ -84,9 +117,10 @@ typedef struct s_cam
 // Environment
 typedef struct s_env
 {
-	t_mlx	mlx;
-	t_img	img;
-	t_cam	cam;
+	t_mlx			mlx;
+	t_img			img;
+	t_cam			cam;
+	t_hittable_list	world;
 }				t_env;
 
 // render.c
@@ -118,5 +152,16 @@ void	init_img(t_env *env);
 void	init_mlx(t_env *env);
 void	init_cam(t_env *env);
 void	init_cam_vec3(t_env *env);
+void	init_world(t_env *env);
+
+// sphere.c
+double	sphere_hit(t_ray *r, double t_min, double t_max, t_hit_record *rec, t_sphere sphere);
+
+// hit_record.c
+void	set_face_normal(t_hit_record *hit_record,
+			t_ray *r, t_vec3 *outward_normal);
+
+// hittable_list.c
+int		hittable_list_hit(t_hittable_list list, t_ray *r, double t_min, double t_max, t_hit_record *rec);
 
 #endif

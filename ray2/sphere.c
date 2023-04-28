@@ -1,0 +1,47 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sphere.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/28 18:39:43 by soulee            #+#    #+#             */
+/*   Updated: 2023/04/28 19:23:58 by soulee           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "minirt.h"
+
+double	sphere_hit(t_ray *r, double t_min, double t_max, t_hit_record *rec, t_sphere sphere)
+{
+	t_vec3	oc;
+	double	a;
+	double	half_b;
+	double	c;
+	double	discriminant;
+	double	sqrtd;
+	double	root;
+	t_vec3	outward_normal;
+
+	oc = sub_vec3(r->origin, sphere.center);
+	a = length_squared(r->direction);
+	half_b = dot(oc, r->direction);
+	c = length_squared(oc) - sphere.radius * sphere.radius;
+	discriminant = half_b * half_b - a * c;
+	if (discriminant < 0)
+		return (0);
+	sqrtd = sqrt(discriminant);
+	root = (-half_b - sqrtd) / a;
+	if (root < t_min || t_max < root)
+	{
+		root = (-half_b + sqrtd) / a;
+		if (root < t_min || t_max < root)
+			return (0);
+	}
+	rec->t = root;
+	rec->p = at(r->origin, r->direction, rec->t);
+	rec->normal = div_n_vec3(sub_vec3(rec->p, sphere.center), sphere.radius);
+	outward_normal = div_n_vec3(sub_vec3(rec->p, sphere.center), sphere.radius);
+	set_face_normal(rec, r, &outward_normal);
+	return (1);
+}

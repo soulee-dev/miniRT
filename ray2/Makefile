@@ -9,6 +9,9 @@ SRCS+=vec3_utils1.c
 SRCS+=vec3_utils2.c
 SRCS+=vec3_utils3.c
 SRCS+=math_utils1.c
+SRCS+=sphere.c
+SRCS+=hit_record.c
+SRCS+=hittable_list.c
 SRCS+=inits.c
 
 OBJS = $(SRCS:.c=.o)
