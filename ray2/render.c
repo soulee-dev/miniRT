@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:52:54 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/28 16:27:35 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/28 16:29:45 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,13 @@ t_color	ray_color(t_ray r)
 {
 	double		t;
 	t_vec3		unit_direction;
-	t_point3	point3;
+	t_color		color;
+	t_point3	point;
 
+	point = create_vec3_xyz(0.0, 0.0, -1.0);
+	color = create_vec3_xyz(1.0, 0.0, 0.0);
+	if (hit_sphere(point, 0.5, r))
+		return (color);
 	unit_direction = unit_vector(r.direction);
 	t = 0.5 * (unit_direction.y + 1.0);
 	return (add_vec3(mul_n_vec3(create_vec3_t(1.0), (1.0 - t)),
