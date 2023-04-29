@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:42:28 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/30 00:24:28 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/30 01:07:49 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,22 @@ int	main(void)
 	t_cam	cam;
 	t_env	env;
 
+	t_point3	lookfrom;
+	t_point3	lookat;
+	t_vec3		vup;
+	double		dist_to_focus;
+	double		aperture;
+
 	init_img(&env);
 	init_mlx(&env);
 	init_world(&env);
-	cam = init_camera(create_vec3_xyz(-2, 2, 1), create_vec3_xyz(0, 0, -1), create_vec3_xyz(0, 1, 0), 90, env.img.aspect_ratio);
+
+	lookfrom = create_vec3_xyz(3, 3, 2);
+	lookat = create_vec3_xyz(0, 0, -1);
+	vup = create_vec3_xyz(0, 1, 0);
+	dist_to_focus = length(sub_vec3(lookfrom, lookat));
+	aperture = 2.0;
+	cam = init_camera(lookfrom, lookat, vup, 20, env.img.aspect_ratio, aperture, dist_to_focus);
 	render(&env, cam);
 	mlx_loop(env.mlx.mlx);
 	return (0);

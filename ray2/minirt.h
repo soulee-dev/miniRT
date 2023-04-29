@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/30 00:56:31 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/30 01:05:08 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,10 @@ typedef struct s_cam
 	t_vec3	lower_left_corner;
 	t_vec3	horizontal;
 	t_vec3	vertical;
+	t_vec3	u;
+	t_vec3	v;
+	t_vec3	w;
+	double	lense_radius;
 }				t_cam;
 
 // Environment
@@ -187,7 +191,8 @@ int		hittable_list_hit(t_hittable_list list, t_ray *r,
 
 // camera.c
 t_cam	init_camera(t_point3 lookfrom, t_point3 lookat, t_vec3 vup,
-			double vfov, double aspect_ratio);
+			double vfov, double aspect_ratio,
+			double aperture, double focus_dist);
 t_ray	camera_get_ray(t_cam cam, double u, double v);
 
 // materials
