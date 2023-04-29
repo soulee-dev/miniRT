@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/30 00:16:30 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/30 00:56:31 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,6 +164,9 @@ int		near_zero(t_vec3 u);
 t_vec3	reflect(t_vec3 v, t_vec3 n);
 t_vec3	refract(t_vec3 uv, t_vec3 n, double etai_over_etat);
 t_vec3	cross(t_vec3 u, t_vec3 v);
+
+// vec_utils4.c
+t_vec3	random_in_unit_disk(void);
 
 // inits.c
 void	init_img(t_env *env);

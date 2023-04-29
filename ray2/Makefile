@@ -15,6 +15,7 @@ SRCS+=shapes/sphere.c
 SRCS+=utils/vec3_utils1.c
 SRCS+=utils/vec3_utils2.c
 SRCS+=utils/vec3_utils3.c
+SRCS+=utils/vec3_utils4.c
 SRCS+=utils/math_utils1.c
 
 SRCS+=materials/lambertian.c
