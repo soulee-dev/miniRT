@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/29 22:50:54 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/29 23:20:50 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ typedef struct s_shape
 typedef struct s_hittable_list
 {
 	// Originally, objects is shared ptr of hittable
-	t_shape	objects[4];
+	t_shape	objects[100];
 	size_t	size;
 }				t_hittable_list;
 

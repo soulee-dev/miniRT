@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 10:54:38 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/29 23:15:34 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/29 23:21:02 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,9 +93,14 @@ void	init_world(t_env *env)
 	env->world.objects[2].sphere.mat_ptr = material_left;
 
 	env->world.objects[3].type = SHAPE_SPHERE;
-	env->world.objects[3].sphere.center = create_vec3_xyz(1, 0, -1);
-	env->world.objects[3].sphere.radius = 0.5;
-	env->world.objects[3].sphere.mat_ptr = material_right;
+	env->world.objects[3].sphere.center = create_vec3_xyz(-1, 0, -1);
+	env->world.objects[3].sphere.radius = -0.4;
+	env->world.objects[3].sphere.mat_ptr = material_left;
 
-	env->world.size = 4;
+	env->world.objects[4].type = SHAPE_SPHERE;
+	env->world.objects[4].sphere.center = create_vec3_xyz(1, 0, -1);
+	env->world.objects[4].sphere.radius = 0.5;
+	env->world.objects[4].sphere.mat_ptr = material_right;
+
+	env->world.size = 5;
 }
