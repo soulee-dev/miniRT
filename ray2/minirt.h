@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/29 20:02:59 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/29 22:37:28 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ typedef struct s_material
 {
 	int		type;
 	t_color	albedo;
+	double	fuzz;
 }				t_material;
 
 // Sphere
@@ -186,10 +187,10 @@ t_ray	camera_get_ray(t_env *env, double u, double v);
 
 // materials
 int		lambertian_scatter(t_ray *r_in, t_hit_record *rec,
-			t_color *attenuation, t_ray *scattered, t_color albedo);
+			t_color *attenuation, t_ray *scattered, t_material material);
 
 int		metal_scatter(t_ray *r_in, t_hit_record *rec,
-			t_color *attenuation, t_ray *scattered, t_color albedo);
+			t_color *attenuation, t_ray *scattered, t_material material);
 
 // REMOVE BEFORE FLIGHT
 double	random_double(void);

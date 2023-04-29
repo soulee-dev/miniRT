@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 10:54:38 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/29 22:02:08 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/29 22:34:45 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,11 @@ void	init_world(t_env *env)
 
 	material_left.type = MATERIAL_METAL;
 	material_left.albedo = create_vec3_xyz(0.8, 0.8, 0.8);
+	material_left.fuzz = 0.3;
 
 	material_right.type = MATERIAL_METAL;
 	material_right.albedo = create_vec3_xyz(0.8, 0.6, 0.2);
-
+	material_right.fuzz = 1.0;
 
 	env->world.objects[0].type = SHAPE_SPHERE;
 	env->world.objects[0].sphere.center = create_vec3_xyz(0, -100.5, -1);
