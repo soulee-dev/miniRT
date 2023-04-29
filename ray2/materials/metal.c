@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 19:54:45 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/29 19:58:09 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/29 20:26:02 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	metal_scatter(t_ray *r_in, t_hit_record *rec,
 	reflected = reflect(unit_vector(r_in->direction), rec->normal);
 	ray.origin = rec->p;
 	ray.direction = reflected;
+	*scattered = ray;
 	*attenuation = albedo;
 	return (dot(scattered->direction, rec->normal) > 0.0);
 }

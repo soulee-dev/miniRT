@@ -16,6 +16,10 @@ SRCS+=utils/vec3_utils1.c
 SRCS+=utils/vec3_utils2.c
 SRCS+=utils/vec3_utils3.c
 SRCS+=utils/math_utils1.c
+
+SRCS+=materials/lambertian.c
+SRCS+=materials/metal.c
+
 # REMOVE BEFORE FLIGHT
 SRCS+=utils/random.c
 # REMOVE BEFORE FLIGHT

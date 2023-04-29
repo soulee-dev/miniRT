@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:52:54 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/29 20:05:53 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/29 20:21:18 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ t_color	ray_color(t_ray *r, t_hittable_list *world, int depth)
 	float			t;
 	t_vec3			unit_direction;
 	t_hit_record	rec;
-	t_ray			ray;
-	t_point3		target;
 	t_ray			scattered;
 	t_color			attenuation;
 
@@ -57,7 +55,7 @@ t_color	ray_color(t_ray *r, t_hittable_list *world, int depth)
 						ray_color(&scattered, world, depth - 1)));
 			return (create_vec3_t(0.0));
 		}
-		else if (rec.mat_ptr.type == MATERIAL_LAMBERTIAN)
+		else if (rec.mat_ptr.type == MATERIAL_METAL)
 		{
 			if (metal_scatter(r, &rec,
 					&attenuation, &scattered, rec.mat_ptr.albedo))
