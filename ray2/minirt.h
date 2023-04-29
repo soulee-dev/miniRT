@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/29 19:54:02 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/29 19:58:48 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ enum e_shapes {
 };
 
 enum e_materials {
-	MATERIAL_LAMBERTIAN = 1
+	MATERIAL_LAMBERTIAN = 1,
+	MATERIAL_METAL = 2
 };
 
 // Vector
@@ -92,7 +93,7 @@ typedef struct s_shape
 typedef struct s_hittable_list
 {
 	// Originally, objects is shared ptr of hittable
-	t_shape	objects[2];
+	t_shape	objects[4];
 	size_t	size;
 }				t_hittable_list;
 
