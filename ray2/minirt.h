@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/29 23:20:50 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/29 23:48:01 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdlib.h>
 
 // Define
+# define PI 3.1415926535897932385
 # define TITLE	"miniRT-practice"
 
 enum e_keys {
@@ -120,6 +121,8 @@ typedef struct s_img
 // Camera
 typedef struct s_cam
 {
+	double	theta;
+	double	h;
 	double	viewport_height;
 	double	viewport_width;
 	double	focal_length;
@@ -134,17 +137,17 @@ typedef struct s_env
 {
 	t_mlx			mlx;
 	t_img			img;
-	t_cam			cam;
 	t_hittable_list	world;
 }				t_env;
 
 // render.c
-void	render(t_env *env);
+void	render(t_env *env, t_cam cam);
 
 // math_utils1.c
 double	length_squared(t_vec3 u);
 double	length(t_vec3 u);
 double	clamp(double x, double min, double max);
+double	degrees_to_radians(double degrees);
 
 // vec3_utils1.c
 t_vec3	add_vec3(t_vec3 u, t_vec3 v);
@@ -169,8 +172,6 @@ t_vec3	refract(t_vec3 uv, t_vec3 n, double etai_over_etat);
 // inits.c
 void	init_img(t_env *env);
 void	init_mlx(t_env *env);
-void	init_cam(t_env *env);
-void	init_cam_vec3(t_env *env);
 void	init_world(t_env *env);
 
 // sphere.c
@@ -186,7 +187,8 @@ int		hittable_list_hit(t_hittable_list list, t_ray *r,
 			double t_min, double t_max, t_hit_record *rec);
 
 // camera.c
-t_ray	camera_get_ray(t_env *env, double u, double v);
+t_cam	init_camera(double vfov, double aspect_ratio);
+t_ray	camera_get_ray(t_cam cam, double u, double v);
 
 // materials
 int		lambertian_scatter(t_ray *r_in, t_hit_record *rec,

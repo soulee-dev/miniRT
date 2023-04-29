@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:52:54 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/29 22:51:45 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/29 23:47:07 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ t_color	ray_color(t_ray *r, t_hittable_list *world, int depth)
 			mul_n_vec3(create_vec3_xyz(0.5, 0.7, 1.0), t)));
 }
 
-void	render(t_env *env)
+void	render(t_env *env, t_cam cam)
 {
 	int		i;
 	int		j;
@@ -91,7 +91,7 @@ void	render(t_env *env)
 				u = ((double)i + random_double()) / (env->img.width);
 				v = ((env->img.height - (double)j)
 						+ random_double()) / (env->img.height);
-				r = camera_get_ray(env, u, v);
+				r = camera_get_ray(cam, u, v);
 				pixel_color = add_vec3(pixel_color,
 						ray_color(&r, &env->world, env->img.max_depth));
 				k++;

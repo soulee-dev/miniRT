@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 17:45:27 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/29 19:35:00 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/29 23:35:01 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,9 @@ double	clamp(double x, double min, double max)
 	if (x > max)
 		return (max);
 	return (x);
+}
+
+double	degrees_to_radians(double degrees)
+{
+	return (degrees * PI / 180.0);
 }
