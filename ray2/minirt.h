@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/29 19:58:48 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/29 20:02:59 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,6 +183,13 @@ int		hittable_list_hit(t_hittable_list list, t_ray *r,
 
 // camera.c
 t_ray	camera_get_ray(t_env *env, double u, double v);
+
+// materials
+int		lambertian_scatter(t_ray *r_in, t_hit_record *rec,
+			t_color *attenuation, t_ray *scattered, t_color albedo);
+
+int		metal_scatter(t_ray *r_in, t_hit_record *rec,
+			t_color *attenuation, t_ray *scattered, t_color albedo);
 
 // REMOVE BEFORE FLIGHT
 double	random_double(void);
