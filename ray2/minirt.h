@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/29 19:48:59 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/29 19:54:02 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ enum e_shapes {
 
 enum e_materials {
 	MATERIAL_LAMBERTIAN = 1
-}
+};
 
 // Vector
 typedef struct s_vec3
@@ -159,6 +159,7 @@ t_vec3	create_vec3_xyz(double x, double y, double z);
 // vec3_utils3.c
 void	print_vec3(t_vec3 vec3);
 int		near_zero(t_vec3 u);
+t_vec3	reflect(t_vec3 v, t_vec3 n);
 
 // inits.c
 void	init_img(t_env *env);
