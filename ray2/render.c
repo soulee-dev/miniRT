@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:52:54 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/29 22:05:25 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/29 22:29:31 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	write_color(int x, int y, t_color color, t_env *env)
 
 t_color	ray_color(t_ray *r, t_hittable_list *world, int depth)
 {
-	float			t;
+	double			t;
 	t_vec3			unit_direction;
 	t_hit_record	rec;
 	t_ray			scattered;
