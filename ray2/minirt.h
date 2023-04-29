@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/29 19:46:36 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/29 19:48:59 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,12 @@ enum e_keys {
 };
 
 enum e_shapes {
-	TYPE_SPHERE = 1
+	SHAPE_SPHERE = 1
 };
+
+enum e_materials {
+	MATERIAL_LAMBERTIAN = 1
+}
 
 // Vector
 typedef struct s_vec3
