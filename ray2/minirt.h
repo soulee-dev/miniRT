@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/29 23:48:01 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/30 00:16:30 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,15 +121,10 @@ typedef struct s_img
 // Camera
 typedef struct s_cam
 {
-	double	theta;
-	double	h;
-	double	viewport_height;
-	double	viewport_width;
-	double	focal_length;
 	t_vec3	origin;
+	t_vec3	lower_left_corner;
 	t_vec3	horizontal;
 	t_vec3	vertical;
-	t_vec3	lower_left_corner;
 }				t_cam;
 
 // Environment
@@ -168,6 +163,7 @@ void	print_vec3(t_vec3 vec3);
 int		near_zero(t_vec3 u);
 t_vec3	reflect(t_vec3 v, t_vec3 n);
 t_vec3	refract(t_vec3 uv, t_vec3 n, double etai_over_etat);
+t_vec3	cross(t_vec3 u, t_vec3 v);
 
 // inits.c
 void	init_img(t_env *env);
@@ -187,7 +183,8 @@ int		hittable_list_hit(t_hittable_list list, t_ray *r,
 			double t_min, double t_max, t_hit_record *rec);
 
 // camera.c
-t_cam	init_camera(double vfov, double aspect_ratio);
+t_cam	init_camera(t_point3 lookfrom, t_point3 lookat, t_vec3 vup,
+			double vfov, double aspect_ratio);
 t_ray	camera_get_ray(t_cam cam, double u, double v);
 
 // materials
