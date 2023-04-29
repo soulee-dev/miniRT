@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 18:39:43 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/29 19:34:24 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/29 19:41:29 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,6 @@ double	sphere_hit(t_ray *r, double t_min, double t_max, t_hit_record *rec, t_sph
 	rec->normal = div_n_vec3(sub_vec3(rec->p, sphere.center), sphere.radius);
 	outward_normal = div_n_vec3(sub_vec3(rec->p, sphere.center), sphere.radius);
 	set_face_normal(rec, r, &outward_normal);
+	rec->mat_ptr = sphere.mat_ptr;
 	return (1);
 }

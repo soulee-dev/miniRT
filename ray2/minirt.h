@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/29 11:09:57 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/29 19:46:36 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ enum e_keys {
 	X_EVENT_KEY_EXIT = 17
 };
 
-enum e_type {
+enum e_shapes {
 	TYPE_SPHERE = 1
 };
 
@@ -185,6 +185,7 @@ t_vec3	random_vec3(void);
 t_vec3	random_vec3_2(double min, double max);
 t_vec3	random_in_unit_sphere(void);
 t_vec3	random_unit_vector(void);
+t_vec3	random_in_hemisphere(t_vec3 normal);
 // REMOVE BEFORE FLIGHT
 
 #endif
