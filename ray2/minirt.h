@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/29 00:30:23 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/29 11:09:57 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,12 @@ typedef struct s_ray
 	t_vec3		direction;
 }				t_ray;
 
+typedef struct s_material
+{
+	int		type;
+	t_color	albedo;
+}				t_material;
+
 // Sphere
 typedef struct s_sphere
 {
@@ -72,14 +78,6 @@ typedef struct s_hit_record
 	double		t;
 	int			front_face;
 }				t_hit_record;
-
-
-typedef struct s_material
-{
-	int	(*scatter)
-		(t_ray *r_in, t_hit_record *rec, t_color attenuation, t_ray *scattered);
-}				t_material;
-
 
 typedef struct s_shape
 {
