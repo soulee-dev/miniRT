@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:52:54 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/29 22:29:31 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/29 22:31:47 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,35 +38,28 @@ void	write_color(int x, int y, t_color color, t_env *env)
 t_color	ray_color(t_ray *r, t_hittable_list *world, int depth)
 {
 	double			t;
-	t_vec3			unit_direction;
 	t_hit_record	rec;
 	t_ray			scattered;
 	t_color			attenuation;
+	int				is_hit;
 
 	if (depth <= 0)
 		return (create_vec3_t(0.0));
 	if (hittable_list_hit(*world, r, 0.001, (double)INFINITY, &rec))
 	{
+		is_hit = 0;
 		if (rec.mat_ptr.type == MATERIAL_LAMBERTIAN)
-		{
-			if (lambertian_scatter(r, &rec,
-					&attenuation, &scattered, rec.mat_ptr.albedo))
-				return (mul_vec3(attenuation,
-						ray_color(&scattered, world, depth - 1)));
-		}
+			is_hit = lambertian_scatter(r, &rec,
+					&attenuation, &scattered, rec.mat_ptr.albedo);
 		else if (rec.mat_ptr.type == MATERIAL_METAL)
-		{
-			if (metal_scatter(r, &rec,
-					&attenuation, &scattered, rec.mat_ptr.albedo))
-			{
-				return (mul_vec3(attenuation,
-						ray_color(&scattered, world, depth - 1)));
-			}
-		}
+			is_hit = metal_scatter(r, &rec,
+					&attenuation, &scattered, rec.mat_ptr.albedo);
+		if (is_hit)
+			return (mul_vec3(attenuation,
+					ray_color(&scattered, world, depth - 1)));
 		return (create_vec3_t(0.0));
 	}
-	unit_direction = unit_vector(r->direction);
-	t = 0.5 * (unit_direction.y + 1.0);
+	t = 0.5 * (unit_vector(r->direction).y + 1.0);
 	return (add_vec3(mul_n_vec3(create_vec3_t(1.0), 1.0 - t),
 			mul_n_vec3(create_vec3_xyz(0.5, 0.7, 1.0), t)));
 }
