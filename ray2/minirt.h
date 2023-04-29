@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/29 22:37:28 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/29 22:50:54 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ enum e_shapes {
 
 enum e_materials {
 	MATERIAL_LAMBERTIAN = 1,
-	MATERIAL_METAL = 2
+	MATERIAL_METAL = 2,
+	MATERIAL_DIELECTRIC = 3
 };
 
 // Vector
@@ -65,6 +66,7 @@ typedef struct s_material
 	int		type;
 	t_color	albedo;
 	double	fuzz;
+	double	ir;
 }				t_material;
 
 // Sphere
@@ -162,6 +164,7 @@ t_vec3	create_vec3_xyz(double x, double y, double z);
 void	print_vec3(t_vec3 vec3);
 int		near_zero(t_vec3 u);
 t_vec3	reflect(t_vec3 v, t_vec3 n);
+t_vec3	refract(t_vec3 uv, t_vec3 n, double etai_over_etat);
 
 // inits.c
 void	init_img(t_env *env);
@@ -188,8 +191,9 @@ t_ray	camera_get_ray(t_env *env, double u, double v);
 // materials
 int		lambertian_scatter(t_ray *r_in, t_hit_record *rec,
 			t_color *attenuation, t_ray *scattered, t_material material);
-
 int		metal_scatter(t_ray *r_in, t_hit_record *rec,
+			t_color *attenuation, t_ray *scattered, t_material material);
+int		dielectric_scatter(t_ray *r_in, t_hit_record *rec,
 			t_color *attenuation, t_ray *scattered, t_material material);
 
 // REMOVE BEFORE FLIGHT

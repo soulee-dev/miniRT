@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 16:46:45 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/29 22:08:41 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/29 22:43:26 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,18 @@ int	near_zero(t_vec3 u)
 t_vec3	reflect(t_vec3 v, t_vec3 n)
 {
 	return (sub_vec3(v, mul_n_vec3(n, 2.0 * dot(v, n))));
+}
+
+t_vec3	refract(t_vec3 uv, t_vec3 n, double etai_over_etat)
+{
+	double	cos_theta;
+	t_vec3	r_out_perp;
+	t_vec3	r_out_parallel;
+
+	cos_theta = fmin(dot(mul_n_vec3(uv, -1), n), 1.0);
+	r_out_perp = mul_n_vec3(add_vec3(uv,
+				mul_n_vec3(n, cos_theta)), etai_over_etat);
+	r_out_parallel = mul_n_vec3(n,
+			-sqrt(fabs(1.0 - length_squared(r_out_perp))));
+	return (add_vec3(r_out_perp, r_out_parallel));
 }

@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:52:54 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/29 22:38:19 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/29 22:51:45 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,9 @@ t_color	ray_color(t_ray *r, t_hittable_list *world, int depth)
 					&attenuation, &scattered, rec.mat_ptr);
 		else if (rec.mat_ptr.type == MATERIAL_METAL)
 			is_hit = metal_scatter(r, &rec,
+					&attenuation, &scattered, rec.mat_ptr);
+		else if (rec.mat_ptr.type == MATERIAL_DIELECTRIC)
+			is_hit = dielectric_scatter(r, &rec,
 					&attenuation, &scattered, rec.mat_ptr);
 		if (is_hit)
 			return (mul_vec3(attenuation,

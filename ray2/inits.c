@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 10:54:38 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/29 22:34:45 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/29 22:52:37 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,11 @@ void	init_world(t_env *env)
 	material_ground.type = MATERIAL_LAMBERTIAN;
 	material_ground.albedo = create_vec3_xyz(0.8, 0.8, 0.0);
 
-	material_center.type = MATERIAL_LAMBERTIAN;
-	material_center.albedo = create_vec3_xyz(0.7, 0.3, 0.3);
+	material_center.type = MATERIAL_DIELECTRIC;
+	material_center.ir = 1.5;
 
-	material_left.type = MATERIAL_METAL;
-	material_left.albedo = create_vec3_xyz(0.8, 0.8, 0.8);
-	material_left.fuzz = 0.3;
+	material_left.type = MATERIAL_DIELECTRIC;
+	material_left.ir = 1.5;
 
 	material_right.type = MATERIAL_METAL;
 	material_right.albedo = create_vec3_xyz(0.8, 0.6, 0.2);
