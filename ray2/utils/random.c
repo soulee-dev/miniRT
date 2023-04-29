@@ -38,4 +38,15 @@ t_vec3	random_unit_vector(void)
 {
 	return (unit_vector(random_in_unit_sphere()));
 }
+
+t_vec3	random_in_hemisphere(t_vec3 normal)
+{
+	t_vec3	in_unit_sphere;
+
+	in_unit_sphere = random_in_unit_sphere();
+	if (dot(in_unit_sphere, normal) > 0.0)
+		return (in_unit_sphere);
+	else
+		return (mul_n_vec3(in_unit_sphere, -1));
+}
 // REMOVE BEFORE FLIGHT
