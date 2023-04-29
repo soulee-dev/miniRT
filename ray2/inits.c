@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 10:54:38 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/29 20:29:37 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/29 22:02:08 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	init_mlx(t_env *env)
 
 void	init_cam(t_env *env)
 {
-	env->cam.viewport_height = 4.0;
+	env->cam.viewport_height = 2.0;
 	env->cam.viewport_width = env->img.aspect_ratio * env->cam.viewport_height;
 	env->cam.focal_length = 1.0;
 }

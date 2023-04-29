@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:52:54 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/29 20:21:18 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/29 20:46:31 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ t_color	ray_color(t_ray *r, t_hittable_list *world, int depth)
 
 	if (depth <= 0)
 		return (create_vec3_t(0.0));
-	if (hittable_list_hit(*world, r, 0, (double)INFINITY, &rec))
+	if (hittable_list_hit(*world, r, 0.001, (double)INFINITY, &rec))
 	{
 		if (rec.mat_ptr.type == MATERIAL_LAMBERTIAN)
 		{
@@ -53,15 +53,16 @@ t_color	ray_color(t_ray *r, t_hittable_list *world, int depth)
 					&attenuation, &scattered, rec.mat_ptr.albedo))
 				return (mul_vec3(attenuation,
 						ray_color(&scattered, world, depth - 1)));
-			return (create_vec3_t(0.0));
 		}
 		else if (rec.mat_ptr.type == MATERIAL_METAL)
 		{
 			if (metal_scatter(r, &rec,
 					&attenuation, &scattered, rec.mat_ptr.albedo))
+			{
+				printf("metal\n");
 				return (mul_vec3(attenuation,
 						ray_color(&scattered, world, depth - 1)));
-			return (create_vec3_t(0.0));
+			}
 		}
 		return (create_vec3_t(0.0));
 	}
