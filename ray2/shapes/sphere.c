@@ -6,11 +6,11 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 18:39:43 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/28 19:23:58 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/29 19:34:24 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "../minirt.h"
 
 double	sphere_hit(t_ray *r, double t_min, double t_max, t_hit_record *rec, t_sphere sphere)
 {

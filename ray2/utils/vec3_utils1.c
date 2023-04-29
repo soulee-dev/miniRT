@@ -6,11 +6,11 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 17:31:28 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/28 16:23:14 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/29 19:34:31 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "../minirt.h"
 
 t_vec3	add_vec3(t_vec3 u, t_vec3 v)
 {

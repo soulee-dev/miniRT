@@ -1,4 +1,4 @@
-#include "minirt.h"
+#include "../minirt.h"
 // REMOVE BEFORE FLIGHT
 double	random_double(void)
 {

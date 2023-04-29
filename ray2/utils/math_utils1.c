@@ -6,11 +6,11 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 17:45:27 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/28 22:21:31 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/29 19:35:00 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "../minirt.h"
 
 double	length_squared(t_vec3 u)
 {

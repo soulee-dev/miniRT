@@ -6,11 +6,11 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 17:31:30 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/28 16:58:51 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/29 19:34:35 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "../minirt.h"
 
 t_vec3	div_n_vec3(t_vec3 u, double t)
 {

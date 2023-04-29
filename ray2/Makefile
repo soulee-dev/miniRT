@@ -5,17 +5,19 @@ CC=cc
 SRCS:=
 SRCS+=main.c
 SRCS+=render.c
-SRCS+=vec3_utils1.c
-SRCS+=vec3_utils2.c
-SRCS+=vec3_utils3.c
-SRCS+=math_utils1.c
-SRCS+=sphere.c
 SRCS+=hit_record.c
 SRCS+=hittable_list.c
 SRCS+=inits.c
 SRCS+=camera.c
+
+SRCS+=shapes/sphere.c
+
+SRCS+=utils/vec3_utils1.c
+SRCS+=utils/vec3_utils2.c
+SRCS+=utils/vec3_utils3.c
+SRCS+=utils/math_utils1.c
 # REMOVE BEFORE FLIGHT
-SRCS+=random.c
+SRCS+=utils/random.c
 # REMOVE BEFORE FLIGHT
 
 OBJS = $(SRCS:.c=.o)
