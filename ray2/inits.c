@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 10:54:38 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/28 23:37:10 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/29 20:00:08 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,11 @@ void	init_cam_vec3(t_env *env)
 
 void	init_world(t_env *env)
 {
-	env->world.objects[0].type = TYPE_SPHERE;
+	env->world.objects[0].type = SHAPE_SPHERE;
 	env->world.objects[0].sphere.center = create_vec3_xyz(0, 0, -1);
 	env->world.objects[0].sphere.radius = 0.5;
 
-	env->world.objects[1].type = TYPE_SPHERE;
+	env->world.objects[1].type = SHAPE_SPHERE;
 	env->world.objects[1].sphere.center = create_vec3_xyz(0, -100.5, -1);
 	env->world.objects[1].sphere.radius = 100;
 

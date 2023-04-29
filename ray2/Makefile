@@ -1,6 +1,6 @@
 NAME=minirt-practice
 CC=cc
-# CFLAGS=-Wall -Wextra -Werror
+CFLAGS=-Wall -Wextra -Werror
 
 SRCS:=
 SRCS+=main.c
