@@ -31,12 +31,12 @@ SRCS+=progress/progress.c
 OBJS = $(SRCS:.c=.o)
 
 %.o: %.c
-	$(CC) -c $(CFLAGS) $< -o $@ -I./mlx -O3 -g3
+	$(CC) -c $(CFLAGS) $< -o $@ -Imlx -O3 -g3
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(OBJS) -o $(NAME) -L./mlx -lmlx -framework OpenGL -framework AppKit -O3 -g3
+	$(CC) $(OBJS) -o $(NAME) -lmlx -framework OpenGL -framework AppKit -O3 -g3
 
 clean:
 	rm -f ${OBJS}
