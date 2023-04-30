@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:52:54 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/29 23:47:07 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/30 01:48:52 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,11 +77,13 @@ void	render(t_env *env, t_cam cam)
 	double	v;
 	t_ray	r;
 
+	t_progress progress = create_progress(env->img.width, 30);
 	printf("Render Start\n");
 	i = 0;
 	while (i < env->img.width)
 	{
 		j = 0;
+		update_progress(&progress, i);
 		while (j < env->img.height)
 		{
 			pixel_color = create_vec3_t(0.0);

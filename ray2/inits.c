@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 10:54:38 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/30 00:23:14 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/30 13:34:44 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	init_img(t_env *env)
 {
-	env->img.aspect_ratio = 16.0 / 9.0;
+	env->img.aspect_ratio = 3.0 / 2.0;
 	env->img.width = 400;
 	env->img.height = env->img.width / env->img.aspect_ratio;
 	env->img.samples_per_pixel = 100;

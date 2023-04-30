@@ -6,13 +6,16 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/30 01:05:08 by soulee           ###   ########.fr       */
+/*   Updated: 2023/04/30 01:43:20 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_H
 # define MINIRT_H
 
+// REMOVE BEFORE FLIGHT
+# include "progress/progress.h"
+// REMOVE BEFORE FLIGHT
 # include "mlx/mlx.h"
 # include <stdio.h>
 # include <math.h>
@@ -97,7 +100,7 @@ typedef struct s_shape
 typedef struct s_hittable_list
 {
 	// Originally, objects is shared ptr of hittable
-	t_shape	objects[100];
+	t_shape	objects[1024];
 	size_t	size;
 }				t_hittable_list;
 
@@ -203,7 +206,7 @@ int		metal_scatter(t_ray *r_in, t_hit_record *rec,
 int		dielectric_scatter(t_ray *r_in, t_hit_record *rec,
 			t_color *attenuation, t_ray *scattered, t_material material);
 
-// REMOVE BEFORE FLIGHT
+// random
 double	random_double(void);
 double	random_double2(double min, double max);
 t_vec3	random_vec3(void);
@@ -211,6 +214,10 @@ t_vec3	random_vec3_2(double min, double max);
 t_vec3	random_in_unit_sphere(void);
 t_vec3	random_unit_vector(void);
 t_vec3	random_in_hemisphere(t_vec3 normal);
+
+
+// REMOVE BEFORE FLIGHT
+t_hittable_list random_scene(void);
 // REMOVE BEFORE FLIGHT
 
 #endif

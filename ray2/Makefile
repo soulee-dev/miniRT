@@ -17,13 +17,15 @@ SRCS+=utils/vec3_utils2.c
 SRCS+=utils/vec3_utils3.c
 SRCS+=utils/vec3_utils4.c
 SRCS+=utils/math_utils1.c
+SRCS+=utils/random.c
 
 SRCS+=materials/lambertian.c
 SRCS+=materials/metal.c
 SRCS+=materials/dielectric.c
 
 # REMOVE BEFORE FLIGHT
-SRCS+=utils/random.c
+SRCS+=random_scene.c
+SRCS+=progress/progress.c
 # REMOVE BEFORE FLIGHT
 
 OBJS = $(SRCS:.c=.o)

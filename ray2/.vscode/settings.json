@@ -1,5 +1,15 @@
 {
 	"files.associations": {
-		"minirt.h": "c"
+		"minirt.h": "c",
+		"time.h": "c",
+		"chrono": "c",
+		"__hash_table": "c",
+		"__split_buffer": "c",
+		"array": "c",
+		"bitset": "c",
+		"initializer_list": "c",
+		"unordered_map": "c",
+		"vector": "c",
+		"__bit_reference": "c"
 	}
 }
