@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:42:28 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/30 13:41:21 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/01 11:18:31 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(void)
 	vup = create_vec3_xyz(0, 1, 0);
 	dist_to_focus = 10.0;
 	aperture = 0.1;
-	cam = init_camera(lookfrom, lookat, vup, 20, env.img.aspect_ratio, aperture, dist_to_focus);
+	cam = init_camera(lookfrom, lookat, vup, 20, env.img.aspect_ratio, aperture, dist_to_focus, 0.0, 1.0);
 	render(&env, cam);
 	mlx_loop(env.mlx.mlx);
 	return (0);
