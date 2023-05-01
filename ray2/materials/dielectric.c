@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dielectric.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 22:45:03 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/29 23:18:45 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/01 11:09:29 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int	dielectric_scatter(t_ray *r_in, t_hit_record *rec,
 		direction = refract(unit_direction, rec->normal, refraction_ratio);
 	ray.origin = rec->p;
 	ray.direction = direction;
+	ray.time = r_in->time;
 	*scattered = ray;
 	return (1);
 }

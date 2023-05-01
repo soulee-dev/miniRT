@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lambertian.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 19:47:06 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/29 22:37:45 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/01 11:08:49 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	lambertian_scatter(t_ray *r_in, t_hit_record *rec,
 		scatter_direction = rec->normal;
 	ray.origin = rec->p;
 	ray.direction = scatter_direction;
+	ray.time = r_in->time;
 	*scattered = ray;
 	*attenuation = material.albedo;
 	return (1);

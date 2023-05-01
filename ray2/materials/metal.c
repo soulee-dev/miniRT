@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   metal.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 19:54:45 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/29 22:38:04 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/01 11:09:06 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	metal_scatter(t_ray *r_in, t_hit_record *rec,
 	ray.origin = rec->p;
 	ray.direction = add_vec3(reflected,
 			mul_n_vec3(random_in_unit_sphere(), material.fuzz));
+	ray.time = r_in->time;
 	*scattered = ray;
 	*attenuatiton = material.albedo;
 	return (dot(scattered->direction, rec->normal) > 0);
