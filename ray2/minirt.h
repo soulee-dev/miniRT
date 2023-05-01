@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/01 10:58:42 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/01 11:12:25 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,8 +105,9 @@ typedef struct s_hit_record
 
 typedef struct s_shape
 {
-	int			type;
-	t_sphere	sphere;
+	int				type;
+	t_sphere		sphere;
+	t_moving_sphere	moving_sphere;
 }				t_shape;
 
 typedef struct s_hittable_list
@@ -194,9 +195,12 @@ void	init_img(t_env *env);
 void	init_mlx(t_env *env);
 void	init_world(t_env *env);
 
-// sphere.c
-int	sphere_hit(t_ray *r, double t_min, double t_max,
+// Shapes
+int		sphere_hit(t_ray *r, double t_min, double t_max, \
 			t_hit_record *rec, t_sphere sphere);
+
+int		moving_sphere_hit(t_ray *r, double t_min, double t_max, \
+			t_hit_record *rec, t_moving_sphere moving_sphere);
 
 // hit_record.c
 void	set_face_normal(t_hit_record *hit_record,
