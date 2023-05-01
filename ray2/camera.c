@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 22:11:17 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/01 10:45:26 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/01 11:17:54 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,6 @@ t_ray	camera_get_ray(t_cam cam, double s, double t)
 	ray.direction = sub_vec3(sub_vec3(add_vec3(cam.lower_left_corner,
 					add_vec3(mul_n_vec3(cam.horizontal, s),
 						mul_n_vec3(cam.vertical, t))), cam.origin), offset);
-	ray.tm = random_double2(cam.time0, cam.time1);
+	ray.time = random_double2(cam.time0, cam.time1);
 	return (ray);
 }
