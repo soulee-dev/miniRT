@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/01 11:17:43 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/01 11:32:52 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -203,8 +203,8 @@ int		moving_sphere_hit(t_ray *r, double t_min, double t_max, \
 			t_hit_record *rec, t_moving_sphere moving_sphere);
 
 // hit_record.c
-void	set_face_normal(t_hit_record *hit_record,
-			t_ray *r, t_vec3 *outward_normal);
+void	set_face_normal(t_hit_record *rec, \
+	t_ray *r, t_vec3 *outward_normal);
 
 // hittable_list.c
 int		hittable_list_hit(t_hittable_list list, t_ray *r,
