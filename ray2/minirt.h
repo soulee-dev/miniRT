@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/01 10:41:33 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/01 10:43:25 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ typedef struct s_ray
 {
 	t_point3	origin;
 	t_vec3		direction;
+	double		tm;
 }				t_ray;
 
 typedef struct s_material
@@ -131,6 +132,8 @@ typedef struct s_cam
 	t_vec3	u;
 	t_vec3	v;
 	t_vec3	w;
+	double	time0;
+	double	time1;
 	double	lense_radius;
 }				t_cam;
 
