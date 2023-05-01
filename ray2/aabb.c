@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 12:38:25 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/01 12:50:59 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/01 16:03:39 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,23 @@ int	aabb_hit(t_aabb aabb, t_ray *r, double t_min, double t_max)
 		i++;
 	}
 	return (1);
+}
+
+t_aabb	surrounding_box(t_aabb box0, t_aabb box1)
+{
+	t_aabb		aabb;
+	t_point3	small;
+	t_point3	big;
+
+	small = create_vec3_xyz(\
+		(fmin(box0.minimum.x, box1.minimum.x)), \
+		(fmin(box0.minimum.y, box1.minimum.y)), \
+		(fmin(box0.minimum.z, box1.minimum.z)));
+	big = create_vec3_xyz(\
+		(fmax(box0.maximum.x, box1.maximum.x)), \
+		(fmax(box0.maximum.y, box1.maximum.y)), \
+		(fmax(box0.maximum.z, box1.maximum.z)));
+	aabb.minimum = small;
+	aabb.maximum = big;
+	return (aabb);
 }

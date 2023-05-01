@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/01 13:15:54 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/01 16:05:14 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -213,6 +213,8 @@ int		sphere_bounding_box(t_sphere sphere, double time0, \
 int		moving_sphere_bounding_box(t_moving_sphere moving_sphere, \
 			double _time0, double _time1, t_aabb *output_box);
 
+// aabb
+t_aabb	surrounding_box(t_aabb box0, t_aabb box1);
 
 // hit_record.c
 void	set_face_normal(t_hit_record *rec, \
