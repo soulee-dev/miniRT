@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec3_utils2.c                                      :+:      :+:    :+:   */
+/*   vec2.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 17:31:30 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/29 19:34:35 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/01 11:34:03 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ t_vec3	unit_vector(t_vec3 u)
 	return (div_n_vec3(u, length(u)));
 }
 
-t_vec3	at(t_vec3 origin, t_vec3 direction, double t)
+t_vec3	at(t_ray r, double t)
 {
-	return (add_vec3(origin, mul_n_vec3(direction, t)));
+	return (add_vec3(r.origin, mul_n_vec3(r.direction, t)));
 }
 
 t_vec3	create_vec3_t(double t)
