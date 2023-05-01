@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/01 10:43:25 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/01 10:47:21 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,22 @@ typedef struct s_material
 	double	ir;
 }				t_material;
 
-// Sphere
+// Shapes
 typedef struct s_sphere
 {
 	t_point3	center;
 	double		radius;
 	t_material	mat_ptr;
 }				t_sphere;
+
+typedef struct s_moving_sphere
+{
+	t_point3	center0;
+	t_point3	center1;
+	double		time0;
+	double		time1;
+	t_material	mat_ptr;
+}				t_moving_sphere;
 
 // Hit Records
 typedef struct s_hit_record
