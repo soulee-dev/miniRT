@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/01 11:33:37 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/01 12:45:40 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,12 @@ typedef struct s_shape
 	t_moving_sphere	moving_sphere;
 }				t_shape;
 
+typedef struct s_aabb
+{
+	t_point3	minimum;
+	t_point3	maximum;
+}				t_aabb;
+
 typedef struct s_hittable_list
 {
 	// Originally, objects is shared ptr of hittable
@@ -189,6 +195,7 @@ t_vec3	cross(t_vec3 u, t_vec3 v);
 
 // vec4.c
 t_vec3	random_in_unit_disk(void);
+double	nth_vec3(t_vec3 u, int n);
 
 // inits.c
 void	init_img(t_env *env);
