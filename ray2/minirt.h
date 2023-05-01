@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/01 10:49:41 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/01 10:58:42 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ typedef struct s_ray
 {
 	t_point3	origin;
 	t_vec3		direction;
-	double		tm;
+	double		time;
 }				t_ray;
 
 typedef struct s_material
@@ -89,6 +89,7 @@ typedef struct s_moving_sphere
 	t_point3	center1;
 	double		time0;
 	double		time1;
+	double		radius;
 	t_material	mat_ptr;
 }				t_moving_sphere;
 
