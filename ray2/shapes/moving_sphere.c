@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:47:52 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/01 11:34:21 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/01 12:58:49 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,17 @@ int	moving_sphere_hit(t_ray *r, double t_min, double t_max, \
 	set_face_normal(rec, r, &outward_normal);
 	rec->mat_ptr = moving_sphere.mat_ptr;
 	return (1);
+}
 
+int	moving_sphere_bounding_box(t_moving_sphere moving_sphere, double _time0, double _time1, t_aabb *output_box)
+{
+	t_aabb	box0;
+	t_aabb	box1;
+
+	box0.minimum = sub_vec3(center(moving_sphere, _time0), create_vec3_t(moving_sphere.radius));
+	box0.maximum = add_vec3(center(moving_sphere, _time0), create_vec3_t(moving_sphere.radius));
+	box1.minimum = sub_vec3(center(moving_sphere, _time1), create_vec3_t(moving_sphere.radius));
+	box1.maximum = add_vec3(center(moving_sphere, _time1), create_vec3_t(moving_sphere.radius));
+	*output_box = surrounding_box(box0, box1);
+	return (1);
 }
