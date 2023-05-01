@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/01 10:47:21 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/01 10:48:04 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ enum e_keys {
 };
 
 enum e_shapes {
-	SHAPE_SPHERE = 1
+	SHAPE_SPHERE = 1,
+	SHAPE_MOVING_SPHERE = 2
 };
 
 enum e_materials {
