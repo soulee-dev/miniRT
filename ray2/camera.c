@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   camera.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 22:11:17 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/30 01:04:24 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/01 10:45:26 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 t_cam	init_camera(t_point3 lookfrom, t_point3 lookat, t_vec3 vup,
-		double vfov, double aspect_ratio, double aperture, double focus_dist)
+		double vfov, double aspect_ratio, double aperture, double focus_dist, double _time0, double _time1)
 {
 	t_cam	cam;
 	double	theta;
@@ -36,6 +36,8 @@ t_cam	init_camera(t_point3 lookfrom, t_point3 lookat, t_vec3 vup,
 					div_n_vec3(cam.vertical, 2)),
 				mul_n_vec3(cam.w, focus_dist)));
 	cam.lense_radius = aperture / 2.0;
+	cam.time0 = _time0;
+	cam.time1 = _time1;
 	return (cam);
 }
 
@@ -52,5 +54,6 @@ t_ray	camera_get_ray(t_cam cam, double s, double t)
 	ray.direction = sub_vec3(sub_vec3(add_vec3(cam.lower_left_corner,
 					add_vec3(mul_n_vec3(cam.horizontal, s),
 						mul_n_vec3(cam.vertical, t))), cam.origin), offset);
+	ray.tm = random_double2(cam.time0, cam.time1);
 	return (ray);
 }
