@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 19:01:28 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/01 11:12:37 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/01 11:29:08 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	hittable_list_hit(t_hittable_list world, t_ray *r,
 		if (world.objects[i].type == SHAPE_SPHERE)
 			is_hit = sphere_hit(r, t_min, closest_so_far, \
 				&temp_rec, world.objects[i].sphere);
-		if (world.objects[i].type == SHAPE_MOVING_SPHERE)
+		else if (world.objects[i].type == SHAPE_MOVING_SPHERE)
 			is_hit = moving_sphere_hit(r, t_min, closest_so_far, \
 				&temp_rec, world.objects[i].moving_sphere);
 		if (is_hit)
