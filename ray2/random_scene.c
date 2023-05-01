@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   random_scene.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 01:14:05 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/30 13:55:26 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/01 11:15:51 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,17 @@ t_hittable_list random_scene(void)
 					// diffuse
 					t_color		albedo = mul_vec3(random_vec3(), random_vec3());
 					t_material	sphere_material;
+					t_vec3		center2 = add_vec3(center, create_vec3_xyz(0, random_double2(0, 0.5), 0));
 					sphere_material.type = MATERIAL_LAMBERTIAN;
 					sphere_material.albedo = albedo;
 
-					world.objects[world.size].type = SHAPE_SPHERE;
-					world.objects[world.size].sphere.center = center;
-					world.objects[world.size].sphere.radius = 0.2;
-					world.objects[world.size].sphere.mat_ptr = sphere_material;
+					world.objects[world.size].type = SHAPE_MOVING_SPHERE;
+					world.objects[world.size].moving_sphere.center0 = center;
+					world.objects[world.size].moving_sphere.center1 = center2;
+					world.objects[world.size].moving_sphere.time0 = 0.0;
+					world.objects[world.size].moving_sphere.time1 = 1.0;
+					world.objects[world.size].moving_sphere.radius = 0.2;
+					world.objects[world.size].moving_sphere.mat_ptr = sphere_material;
 					world.size++;
 				}
 				else if (choose_mat < 0.95)
