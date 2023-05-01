@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   sphere.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 18:39:43 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/29 19:41:29 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/01 10:49:09 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minirt.h"
 
-double	sphere_hit(t_ray *r, double t_min, double t_max, t_hit_record *rec, t_sphere sphere)
+int	sphere_hit(t_ray *r, double t_min, double t_max, t_hit_record *rec, t_sphere sphere)
 {
 	t_vec3	oc;
 	double	a;

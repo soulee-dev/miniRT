@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/01 10:48:04 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/01 10:49:41 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,7 +194,7 @@ void	init_mlx(t_env *env);
 void	init_world(t_env *env);
 
 // sphere.c
-double	sphere_hit(t_ray *r, double t_min, double t_max,
+int	sphere_hit(t_ray *r, double t_min, double t_max,
 			t_hit_record *rec, t_sphere sphere);
 
 // hit_record.c
