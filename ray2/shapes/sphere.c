@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 18:39:43 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/01 12:55:19 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/01 13:15:47 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ int	sphere_hit(t_ray *r, double t_min, double t_max, t_hit_record *rec, t_sphere
 	return (1);
 }
 
-int	sphere_bounding_box(t_sphere sphere, double time0, double time1, t_aabb *output_box)
+int	sphere_bounding_box(t_sphere sphere, double time0, \
+		double time1, t_aabb *output_box)
 {
 	output_box->minimum = sub_vec3(sphere.center, create_vec3_t(sphere.radius));
 	output_box->maximum = add_vec3(sphere.center, create_vec3_t(sphere.radius));
