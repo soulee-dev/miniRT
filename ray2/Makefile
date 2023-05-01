@@ -10,15 +10,19 @@ SRCS+=hittable_list.c
 SRCS+=inits.c
 SRCS+=camera.c
 
+# Shapes
 SRCS+=shapes/sphere.c
 
-SRCS+=utils/vec3_utils1.c
-SRCS+=utils/vec3_utils2.c
-SRCS+=utils/vec3_utils3.c
-SRCS+=utils/vec3_utils4.c
-SRCS+=utils/math_utils1.c
-SRCS+=utils/random.c
+# Utils
+SRCS+=utils/vec1.c
+SRCS+=utils/vec2.c
+SRCS+=utils/vec3.c
+SRCS+=utils/vec4.c
+SRCS+=utils/math1.c
+SRCS+=utils/random1.c
+SRCS+=utils/random2.c
 
+# Materials
 SRCS+=materials/lambertian.c
 SRCS+=materials/metal.c
 SRCS+=materials/dielectric.c

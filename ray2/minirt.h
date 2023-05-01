@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minirt.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/30 01:43:20 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/01 10:41:33 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,34 +145,34 @@ typedef struct s_env
 // render.c
 void	render(t_env *env, t_cam cam);
 
-// math_utils1.c
+// math1.c
 double	length_squared(t_vec3 u);
 double	length(t_vec3 u);
 double	clamp(double x, double min, double max);
 double	degrees_to_radians(double degrees);
 
-// vec3_utils1.c
+// vec1.c
 t_vec3	add_vec3(t_vec3 u, t_vec3 v);
 t_vec3	mul_n_vec3(t_vec3 u, double t);
 t_vec3	mul_vec3(t_vec3 u, t_vec3 v);
 double	dot(t_vec3 u, t_vec3 v);
 t_vec3	sub_vec3(t_vec3 u, t_vec3 v);
 
-// vec3_utils2.c
+// vec2.c
 t_vec3	div_n_vec3(t_vec3 u, double t);
 t_vec3	unit_vector(t_vec3 u);
 t_vec3	at(t_vec3 origin, t_vec3 dir, double t);
 t_vec3	create_vec3_t(double t);
 t_vec3	create_vec3_xyz(double x, double y, double z);
 
-// vec3_utils3.c
+// vec3.c
 void	print_vec3(t_vec3 vec3);
 int		near_zero(t_vec3 u);
 t_vec3	reflect(t_vec3 v, t_vec3 n);
 t_vec3	refract(t_vec3 uv, t_vec3 n, double etai_over_etat);
 t_vec3	cross(t_vec3 u, t_vec3 v);
 
-// vec_utils4.c
+// vec4.c
 t_vec3	random_in_unit_disk(void);
 
 // inits.c
@@ -206,12 +206,14 @@ int		metal_scatter(t_ray *r_in, t_hit_record *rec,
 int		dielectric_scatter(t_ray *r_in, t_hit_record *rec,
 			t_color *attenuation, t_ray *scattered, t_material material);
 
-// random
+// random1
 double	random_double(void);
 double	random_double2(double min, double max);
 t_vec3	random_vec3(void);
 t_vec3	random_vec3_2(double min, double max);
 t_vec3	random_in_unit_sphere(void);
+
+// random2
 t_vec3	random_unit_vector(void);
 t_vec3	random_in_hemisphere(t_vec3 normal);
 
