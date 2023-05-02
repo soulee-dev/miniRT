@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/01 17:40:28 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/02 18:35:17 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,13 @@ typedef struct s_aabb
 	t_point3	minimum;
 	t_point3	maximum;
 }				t_aabb;
+
+typedef struct s_bvh_node
+{
+	t_shape	left;
+	t_shape	right;
+	t_aabb	box;
+}				t_bvh_node;
 
 typedef struct s_hittable_list
 {
