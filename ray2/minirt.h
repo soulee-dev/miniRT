@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/02 18:53:22 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/02 19:02:52 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -220,6 +220,11 @@ int		sphere_bounding_box(t_sphere sphere, double time0, \
 int		moving_sphere_bounding_box(t_moving_sphere moving_sphere, \
 			double _time0, double _time1, t_aabb *output_box);
 
+// Shape Utils
+int		hit(t_shape shape, t_ray *r, double t_min, \
+			double t_max, t_hit_record *rec);
+int		bounding_box(t_shape shape, t_ray *r, double time0, \
+			double time1, t_aabb *output_box);
 // aabb
 t_aabb	surrounding_box(t_aabb box0, t_aabb box1);
 
