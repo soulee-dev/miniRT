@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:47:52 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/01 13:15:30 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/02 18:53:18 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ t_point3	center(t_moving_sphere moving_sphere, double time)
 	);
 }
 
-int	moving_sphere_hit(t_ray *r, double t_min, double t_max, \
-	t_hit_record *rec, t_moving_sphere moving_sphere)
+int	moving_sphere_hit(t_moving_sphere moving_sphere, t_ray *r, \
+	double t_min, double t_max, t_hit_record *rec)
 {
 	t_vec3	oc;
 	double	a;
