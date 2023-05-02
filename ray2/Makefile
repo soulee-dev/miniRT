@@ -9,7 +9,10 @@ SRCS+=hit_record.c
 SRCS+=hittable_list.c
 SRCS+=inits.c
 SRCS+=camera.c
-SRCS+=aabb.c
+
+# Box
+SRCS+=box/aabb.c
+SRCS+=box/box_utils.c
 
 # Shapes
 SRCS+=shapes/sphere.c
