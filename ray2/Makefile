@@ -14,6 +14,7 @@ SRCS+=aabb.c
 # Shapes
 SRCS+=shapes/sphere.c
 SRCS+=shapes/moving_sphere.c
+SRCS+=shapes/shape_utils.c
 
 # Utils
 SRCS+=utils/vec1.c

@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 18:48:52 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/02 18:58:32 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/02 19:08:00 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	hit(t_shape shape, t_ray *r, double t_min, \
 	return (is_hit);
 }
 
-int	bounding_box(t_shape shape, t_ray *r, double time0, \
+int	bounding_box(t_shape shape, double time0, \
 	double time1, t_aabb *output_box)
 {
 	int	is_bounding_box;
