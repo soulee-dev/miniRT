@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/02 18:35:17 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/02 18:40:06 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -256,6 +256,9 @@ t_vec3	random_in_unit_sphere(void);
 t_vec3	random_unit_vector(void);
 t_vec3	random_in_hemisphere(t_vec3 normal);
 
+// aabb
+int		aabb_hit(t_aabb aabb, t_ray *r, double t_min, double t_max);
+t_aabb	surrounding_box(t_aabb box0, t_aabb box1);
 
 // REMOVE BEFORE FLIGHT
 t_hittable_list random_scene(void);
