@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/03 18:52:28 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/03 19:26:29 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,11 @@ enum e_materials {
 	MATERIAL_LAMBERTIAN = 1,
 	MATERIAL_METAL = 2,
 	MATERIAL_DIELECTRIC = 3
+};
+
+enum e_textures {
+	TEXTURE_SOLID_COLOR = 1,
+	TEXTURE_CHECKER = 2
 };
 
 // Vector
@@ -111,6 +116,12 @@ typedef struct s_shape
 	t_sphere		sphere;
 	t_moving_sphere	moving_sphere;
 }				t_shape;
+
+typedef struct s_texture
+{
+	int		type;
+	t_color	color_value;
+}				t_texture;
 
 typedef struct s_aabb
 {
@@ -216,6 +227,7 @@ int		sphere_hit(t_sphere sphere, t_ray *r, double t_min, \
 			double t_max, t_hit_record *rec);
 int		moving_sphere_hit(t_moving_sphere moving_sphere, t_ray *r, \
 			double t_min, double t_max, t_hit_record *rec);
+void	sphere_get_uv(t_point3 *p, double *u, double *v);
 
 int		sphere_bounding_box(t_sphere sphere, double time0, \
 			double time1, t_aabb *output_box);
