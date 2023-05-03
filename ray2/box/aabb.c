@@ -6,11 +6,11 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 12:38:25 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/02 20:05:50 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/03 19:20:33 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "../minirt.h"
 
 int	aabb_hit(t_aabb aabb, t_ray *r, double t_min, double t_max)
 {
