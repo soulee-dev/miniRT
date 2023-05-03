@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 18:39:43 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/02 18:55:25 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/03 19:00:52 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int	sphere_hit(t_sphere sphere, t_ray *r, double t_min, double t_max, t_hit_reco
 	rec->p = at(*r, rec->t);
 	outward_normal = div_n_vec3(sub_vec3(rec->p, sphere.center), sphere.radius);
 	set_face_normal(rec, r, &outward_normal);
+	sphere_get_uv(&outward_normal, &rec->u, &rec->v);
 	rec->mat_ptr = sphere.mat_ptr;
 	return (1);
 }
@@ -56,3 +57,13 @@ int	sphere_bounding_box(t_sphere sphere, double time0, \
 	return (1);
 }
 
+void	sphere_get_uv(t_point3 *p, double *u, double *v)
+{
+	double	theta;
+	double	phi;
+
+	theta = acos(-p->y);
+	phi = atan2(-p->z, p->x + PI);
+	*u = phi / (2 * PI);
+	*v = theta / PI;
+}

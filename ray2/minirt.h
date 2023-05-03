@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/03 19:26:29 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/03 19:57:56 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,17 @@ typedef struct s_moving_sphere
 	t_material	mat_ptr;
 }				t_moving_sphere;
 
+typedef struct s_shape
+{
+	int				type;
+	t_sphere		sphere;
+	t_moving_sphere	moving_sphere;
+}				t_shape;
+
+
+// Textures
+
+
 // Hit Records
 typedef struct s_hit_record
 {
@@ -110,18 +121,25 @@ typedef struct s_hit_record
 	int			front_face;
 }				t_hit_record;
 
-typedef struct s_shape
+typedef struct s_solid_color
 {
-	int				type;
-	t_sphere		sphere;
-	t_moving_sphere	moving_sphere;
-}				t_shape;
+	double	red;
+	double	green;
+	double	blue;
+}			t_solid_color;
 
 typedef struct s_texture
 {
-	int		type;
-	t_color	color_value;
+	int				type;
+	t_solid_color	solid_color;
+	t_checker		checker;
 }				t_texture;
+
+typedef struct s_checker
+{
+	t_texture	odd;
+	t_texture	even;
+}				t_checker;
 
 typedef struct s_aabb
 {
@@ -239,6 +257,14 @@ int		hit(t_shape shape, t_ray *r, double t_min, \
 			double t_max, t_hit_record *rec);
 int		bounding_box(t_shape shape, double time0, \
 			double time1, t_aabb *output_box);
+
+// Textures
+t_color	solid_color_value(t_solid_color solid_color);
+t_color	checker_value(t_checker checker, double u, double v, t_point3 *p);
+
+// Texture Utils
+t_color	value(t_texture texture, double u, double v, t_vec3 *p);
+
 // aabb
 t_aabb	surrounding_box(t_aabb box0, t_aabb box1);
 
