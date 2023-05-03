@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 18:35:42 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/03 17:05:36 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/03 17:09:21 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,10 @@ int	bvh_node_bounding_box(t_bvh_node bvh_node, double time0, double time1, \
 {
 	*output_box = bvh_node.box;
 	return (1);
+}
+
+
+t_bvh_node	create_bvh_node()
+{
+
 }
