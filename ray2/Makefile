@@ -32,6 +32,7 @@ SRCS+=utils/random2.c
 SRCS+=materials/lambertian.c
 SRCS+=materials/metal.c
 SRCS+=materials/dielectric.c
+SRCS+=materials/material_utils.c
 
 # REMOVE BEFORE FLIGHT
 SRCS+=random_scene.c

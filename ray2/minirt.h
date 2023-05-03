@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/03 19:57:56 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/03 20:29:27 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,29 @@ typedef struct s_ray
 	double		time;
 }				t_ray;
 
-typedef struct s_material
+typedef struct s_lambertian
 {
-	int		type;
+	t_color	albedo;
+}				t_lambertian;
+
+typedef struct s_metal
+{
 	t_color	albedo;
 	double	fuzz;
+}				t_metal;
+
+typedef struct s_dielectric
+{
 	double	ir;
+}				t_dielectric;
+
+
+typedef struct s_material
+{
+	int				type;
+	t_lambertian	lambertian;
+	t_metal			metal;
+	t_dielectric	dielectric;
 }				t_material;
 
 // Shapes
@@ -128,18 +145,20 @@ typedef struct s_solid_color
 	double	blue;
 }			t_solid_color;
 
+typedef struct s_texture	t_texture;
+
+typedef struct s_checker
+{
+	t_texture	*odd;
+	t_texture	*even;
+}				t_checker;
+
 typedef struct s_texture
 {
 	int				type;
 	t_solid_color	solid_color;
 	t_checker		checker;
 }				t_texture;
-
-typedef struct s_checker
-{
-	t_texture	odd;
-	t_texture	even;
-}				t_checker;
 
 typedef struct s_aabb
 {
@@ -253,7 +272,7 @@ int		moving_sphere_bounding_box(t_moving_sphere moving_sphere, \
 			double _time0, double _time1, t_aabb *output_box);
 
 // Shape Utils
-int		hit(t_shape shape, t_ray *r, double t_min, \
+int		hit_shape(t_shape shape, t_ray *r, double t_min, \
 			double t_max, t_hit_record *rec);
 int		bounding_box(t_shape shape, double time0, \
 			double time1, t_aabb *output_box);
@@ -282,13 +301,17 @@ t_cam	init_camera(t_point3 lookfrom, t_point3 lookat, t_vec3 vup, \
 				double focus_dist, double _time0, double _time1);
 t_ray	camera_get_ray(t_cam cam, double u, double v);
 
-// materials
-int		lambertian_scatter(t_ray *r_in, t_hit_record *rec,
-			t_color *attenuation, t_ray *scattered, t_material material);
+// Materials
+int		lambertian_scatter(t_ray *r_in, t_hit_record *rec, \
+			t_color *attenuation, t_ray *scattered, t_lambertian lambertian);
 int		metal_scatter(t_ray *r_in, t_hit_record *rec,
-			t_color *attenuation, t_ray *scattered, t_material material);
+			t_color *attenuation, t_ray *scattered, t_metal metal);
 int		dielectric_scatter(t_ray *r_in, t_hit_record *rec,
-			t_color *attenuation, t_ray *scattered, t_material material);
+			t_color *attenuation, t_ray *scattered, t_dielectric dielectric);
+
+// Material Utils
+int		hit_material(t_ray *r_in, t_hit_record *rec, \
+			t_color *attenuation, t_ray *scattered);
 
 // random1
 double	random_double(void);

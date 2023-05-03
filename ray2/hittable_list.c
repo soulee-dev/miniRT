@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 19:01:28 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/02 19:04:57 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/03 20:29:24 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	hittable_list_hit(t_hittable_list world, t_ray *r,
 	i = 0;
 	while (i < world.size)
 	{
-		is_hit = hit(world.objects[i], r, t_min, closest_so_far, \
+		is_hit = hit_shape(world.objects[i], r, t_min, closest_so_far, \
 			&temp_rec);
 		if (is_hit)
 		{

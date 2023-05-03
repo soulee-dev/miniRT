@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 10:54:38 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/01 11:20:39 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/03 20:15:34 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,18 +35,26 @@ void	init_world(t_env *env)
 	t_material	material_left;
 	t_material	material_right;
 
+	t_lambertian	lambertian_ground;
 	material_ground.type = MATERIAL_LAMBERTIAN;
-	material_ground.albedo = create_vec3_xyz(0.8, 0.8, 0.0);
+	lambertian_ground.albedo = create_vec3_xyz(0.8, 0.8, 0.0);
+	material_ground.lambertian = lambertian_ground;
 
+	t_lambertian	lambertian_center;
 	material_center.type = MATERIAL_LAMBERTIAN;
-	material_center.albedo = create_vec3_xyz(0.1, 0.2, 0.5);
+	lambertian_center.albedo = create_vec3_xyz(0.1, 0.2, 0.5);
+	material_center.lambertian = lambertian_center;
 
+	t_dielectric	dielectric_left;
 	material_left.type = MATERIAL_DIELECTRIC;
-	material_left.ir = 1.5;
+	dielectric_left.ir = 1.5;
+	material_left.dielectric = dielectric_left;
 
+	t_metal	metal_right;
 	material_right.type = MATERIAL_METAL;
-	material_right.albedo = create_vec3_xyz(0.8, 0.6, 0.2);
-	material_right.fuzz = 0.0;
+	metal_right.albedo = create_vec3_xyz(0.8, 0.6, 0.2);
+	metal_right.fuzz = 0.0;
+	material_right.metal = metal_right;
 
 	env->world.objects[0].type = SHAPE_SPHERE;
 	env->world.objects[0].sphere.center = create_vec3_xyz(0.0, -100.5, -1.0);

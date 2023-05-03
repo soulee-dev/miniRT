@@ -6,13 +6,13 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 18:48:52 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/02 19:08:00 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/03 20:29:18 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minirt.h"
 
-int	hit(t_shape shape, t_ray *r, double t_min, \
+int	hit_shape(t_shape shape, t_ray *r, double t_min, \
 	double t_max, t_hit_record *rec)
 {
 	int	is_hit;

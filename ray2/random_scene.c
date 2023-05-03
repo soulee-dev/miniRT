@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 01:14:05 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/01 11:15:51 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/03 20:26:43 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@ t_hittable_list random_scene(void)
 	t_hittable_list	world;
 	t_material		ground_material;
 
+	t_lambertian	lambertian_ground;
 	ground_material.type = MATERIAL_LAMBERTIAN;
-	ground_material.albedo = create_vec3_t(0.5);
+	lambertian_ground.albedo = create_vec3_t(0.5);
+	ground_material.lambertian = lambertian_ground;
 
 	world.objects[0].type = SHAPE_SPHERE;
 	world.objects[0].sphere.center = create_vec3_xyz(0, -1000, 0);
@@ -41,8 +43,11 @@ t_hittable_list random_scene(void)
 					t_color		albedo = mul_vec3(random_vec3(), random_vec3());
 					t_material	sphere_material;
 					t_vec3		center2 = add_vec3(center, create_vec3_xyz(0, random_double2(0, 0.5), 0));
+					
+					t_lambertian	lambertian_sphere;
 					sphere_material.type = MATERIAL_LAMBERTIAN;
-					sphere_material.albedo = albedo;
+					lambertian_sphere.albedo = albedo;
+					sphere_material.lambertian = lambertian_sphere;
 
 					world.objects[world.size].type = SHAPE_MOVING_SPHERE;
 					world.objects[world.size].moving_sphere.center0 = center;
@@ -57,9 +62,11 @@ t_hittable_list random_scene(void)
 				{
 					// metal
 					t_material	sphere_material;
+					t_metal		metal_sphere;
 					sphere_material.type = MATERIAL_METAL;
-					sphere_material.albedo = random_vec3_2(0.5, 1);
-					sphere_material.fuzz = random_double2(0, 0.5);
+					metal_sphere.albedo = random_vec3_2(0.5, 1);
+					metal_sphere.fuzz = random_double2(0, 0.5);
+					sphere_material.metal = metal_sphere;
 
 					world.objects[world.size].type = SHAPE_SPHERE;
 					world.objects[world.size].sphere.center = center;
@@ -70,8 +77,10 @@ t_hittable_list random_scene(void)
 				else
 				{
 					t_material	sphere_material;
+					t_dielectric	dielectric_sphere;
 					sphere_material.type = MATERIAL_DIELECTRIC;
-					sphere_material.ir = 1.5;
+					dielectric_sphere.ir = 1.5;
+					sphere_material.dielectric = dielectric_sphere;
 
 					world.objects[world.size].type = SHAPE_SPHERE;
 					world.objects[world.size].sphere.center = center;
@@ -82,9 +91,11 @@ t_hittable_list random_scene(void)
 			}
 		}
 	}
+	t_dielectric	dielectric_material1;
 	t_material	material1;
 	material1.type = MATERIAL_DIELECTRIC;
-	material1.ir = 1.5;
+	dielectric_material1.ir = 1.5;
+	material1.dielectric = dielectric_material1;
 
 	world.objects[world.size - 1].type = SHAPE_SPHERE;
 	world.objects[world.size - 1].sphere.center = create_vec3_xyz(0, 1, 0);
@@ -93,8 +104,10 @@ t_hittable_list random_scene(void)
 	world.size++;
 
 	t_material	material2;
+	t_lambertian	lambertian_material2;
 	material2.type = MATERIAL_LAMBERTIAN;
-	material2.albedo = create_vec3_xyz(0.4, 0.2, 0.1);
+	lambertian_material2.albedo = create_vec3_xyz(0.4, 0.2, 0.1);
+	material2.lambertian = lambertian_material2;
 
 	world.objects[world.size - 1].type = SHAPE_SPHERE;
 	world.objects[world.size - 1].sphere.center = create_vec3_xyz(-4, 1, 0);
@@ -102,10 +115,12 @@ t_hittable_list random_scene(void)
 	world.objects[world.size - 1].sphere.mat_ptr = material2;
 	world.size++;
 
+	t_metal		metal_material3;
 	t_material	material3;
 	material3.type = MATERIAL_METAL;
-	material3.albedo = create_vec3_xyz(0.7, 0.6, 0.5);
-	material3.fuzz = 0.0;
+	metal_material3.albedo = create_vec3_xyz(0.7, 0.6, 0.5);
+	metal_material3.fuzz = 0.0;
+	material3.metal = metal_material3;
 
 	world.objects[world.size - 1].type = SHAPE_SPHERE;
 	world.objects[world.size - 1].sphere.center = create_vec3_xyz(4, 1, 0);

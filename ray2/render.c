@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:52:54 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/30 01:48:52 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/03 20:27:57 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,23 +41,12 @@ t_color	ray_color(t_ray *r, t_hittable_list *world, int depth)
 	t_hit_record	rec;
 	t_ray			scattered;
 	t_color			attenuation;
-	int				is_hit;
 
 	if (depth <= 0)
 		return (create_vec3_t(0.0));
 	if (hittable_list_hit(*world, r, 0.001, (double)INFINITY, &rec))
 	{
-		is_hit = 0;
-		if (rec.mat_ptr.type == MATERIAL_LAMBERTIAN)
-			is_hit = lambertian_scatter(r, &rec,
-					&attenuation, &scattered, rec.mat_ptr);
-		else if (rec.mat_ptr.type == MATERIAL_METAL)
-			is_hit = metal_scatter(r, &rec,
-					&attenuation, &scattered, rec.mat_ptr);
-		else if (rec.mat_ptr.type == MATERIAL_DIELECTRIC)
-			is_hit = dielectric_scatter(r, &rec,
-					&attenuation, &scattered, rec.mat_ptr);
-		if (is_hit)
+		if (hit_material(r, &rec, &attenuation, &scattered))
 			return (mul_vec3(attenuation,
 					ray_color(&scattered, world, depth - 1)));
 		return (create_vec3_t(0.0));
