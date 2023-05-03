@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/02 20:05:06 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/03 18:52:28 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,8 @@ typedef struct s_hit_record
 	t_vec3		normal;
 	t_material	mat_ptr;
 	double		t;
+	double		u;
+	double		v;
 	int			front_face;
 }				t_hit_record;
 
