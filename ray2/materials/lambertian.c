@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 19:47:06 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/03 20:11:54 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/04 14:16:29 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ int	lambertian_scatter(t_ray *r_in, t_hit_record *rec,
 	ray.direction = scatter_direction;
 	ray.time = r_in->time;
 	*scattered = ray;
-	*attenuation = lambertian.albedo;
+	*attenuation = value(lambertian.albedo, rec->u, rec->v, &rec->p);
 	return (1);
 }

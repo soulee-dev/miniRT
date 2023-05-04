@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/03 20:29:27 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/04 16:36:04 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,29 @@ typedef struct s_ray
 	double		time;
 }				t_ray;
 
+// Textures
+typedef struct s_checker
+{
+	t_color		odd;
+	t_color		even;
+}				t_checker;
+
+typedef struct s_solid_color
+{
+	t_color	color;
+}			t_solid_color;
+
+typedef struct s_texture
+{
+	int				type;
+	t_solid_color	solid_color;
+	t_checker		checker;
+}				t_texture;
+
+// Materials
 typedef struct s_lambertian
 {
-	t_color	albedo;
+	t_texture	albedo;
 }				t_lambertian;
 
 typedef struct s_metal
@@ -122,10 +142,6 @@ typedef struct s_shape
 	t_moving_sphere	moving_sphere;
 }				t_shape;
 
-
-// Textures
-
-
 // Hit Records
 typedef struct s_hit_record
 {
@@ -137,28 +153,6 @@ typedef struct s_hit_record
 	double		v;
 	int			front_face;
 }				t_hit_record;
-
-typedef struct s_solid_color
-{
-	double	red;
-	double	green;
-	double	blue;
-}			t_solid_color;
-
-typedef struct s_texture	t_texture;
-
-typedef struct s_checker
-{
-	t_texture	*odd;
-	t_texture	*even;
-}				t_checker;
-
-typedef struct s_texture
-{
-	int				type;
-	t_solid_color	solid_color;
-	t_checker		checker;
-}				t_texture;
 
 typedef struct s_aabb
 {

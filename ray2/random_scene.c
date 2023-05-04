@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 01:14:05 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/03 20:26:43 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/04 16:39:29 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,12 @@ t_hittable_list random_scene(void)
 	t_material		ground_material;
 
 	t_lambertian	lambertian_ground;
+	t_texture		texture_ground;
 	ground_material.type = MATERIAL_LAMBERTIAN;
-	lambertian_ground.albedo = create_vec3_t(0.5);
+	texture_ground.type = TEXTURE_CHECKER;
+	texture_ground.checker.odd = create_vec3_xyz(0.2, 0.3, 0.1);
+	texture_ground.checker.even = create_vec3_t(0.9);
+	lambertian_ground.albedo = texture_ground;
 	ground_material.lambertian = lambertian_ground;
 
 	world.objects[0].type = SHAPE_SPHERE;
@@ -45,8 +49,11 @@ t_hittable_list random_scene(void)
 					t_vec3		center2 = add_vec3(center, create_vec3_xyz(0, random_double2(0, 0.5), 0));
 					
 					t_lambertian	lambertian_sphere;
+					t_texture		texture_sphere;
 					sphere_material.type = MATERIAL_LAMBERTIAN;
-					lambertian_sphere.albedo = albedo;
+					texture_sphere.type = TEXTURE_SOLID_COLOR;
+					texture_sphere.solid_color.color = albedo;								
+					lambertian_sphere.albedo = texture_sphere;
 					sphere_material.lambertian = lambertian_sphere;
 
 					world.objects[world.size].type = SHAPE_MOVING_SPHERE;
@@ -105,8 +112,11 @@ t_hittable_list random_scene(void)
 
 	t_material	material2;
 	t_lambertian	lambertian_material2;
+	t_texture		texture_2;
 	material2.type = MATERIAL_LAMBERTIAN;
-	lambertian_material2.albedo = create_vec3_xyz(0.4, 0.2, 0.1);
+	texture_2.type = TEXTURE_SOLID_COLOR;
+	texture_2.solid_color.color = create_vec3_xyz(0.4, 0.2, 0.1);
+	lambertian_material2.albedo = texture_2;
 	material2.lambertian = lambertian_material2;
 
 	world.objects[world.size - 1].type = SHAPE_SPHERE;

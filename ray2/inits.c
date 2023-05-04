@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 10:54:38 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/03 20:15:34 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/04 16:37:03 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	init_img(t_env *env)
 	env->img.width = 200;
 	env->img.height = (int)(env->img.width / env->img.aspect_ratio);
 	env->img.samples_per_pixel = 50;
-	env->img.max_depth = 25;
+	env->img.max_depth = 10;
 }
 
 void	init_mlx(t_env *env)
@@ -35,14 +35,20 @@ void	init_world(t_env *env)
 	t_material	material_left;
 	t_material	material_right;
 
+	t_texture		texture_ground;
 	t_lambertian	lambertian_ground;
 	material_ground.type = MATERIAL_LAMBERTIAN;
-	lambertian_ground.albedo = create_vec3_xyz(0.8, 0.8, 0.0);
+	texture_ground.type = TEXTURE_SOLID_COLOR;
+	texture_ground.solid_color.color = create_vec3_xyz(0.8, 0.8, 0.0);
+	lambertian_ground.albedo = texture_ground;
 	material_ground.lambertian = lambertian_ground;
 
+	t_texture		texture_center;
 	t_lambertian	lambertian_center;
 	material_center.type = MATERIAL_LAMBERTIAN;
-	lambertian_center.albedo = create_vec3_xyz(0.1, 0.2, 0.5);
+	texture_center.type = TEXTURE_SOLID_COLOR;
+	texture_center.solid_color.color = create_vec3_xyz(0.1, 0.2, 0.5);
+	lambertian_center.albedo = texture_center;
 	material_center.lambertian = lambertian_center;
 
 	t_dielectric	dielectric_left;

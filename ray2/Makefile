@@ -34,6 +34,11 @@ SRCS+=materials/metal.c
 SRCS+=materials/dielectric.c
 SRCS+=materials/material_utils.c
 
+# Textures
+SRCS+=textures/solid_color.c
+SRCS+=textures/checker.c
+SRCS+=textures/texture_utils.c
+
 # REMOVE BEFORE FLIGHT
 SRCS+=random_scene.c
 SRCS+=progress/progress.c
