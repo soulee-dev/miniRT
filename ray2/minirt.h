@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/04 16:36:04 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/04 18:37:46 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ enum e_shapes {
 enum e_materials {
 	MATERIAL_LAMBERTIAN = 1,
 	MATERIAL_METAL = 2,
-	MATERIAL_DIELECTRIC = 3
+	MATERIAL_DIELECTRIC = 3,
+	MATERIAL_DIFFUSE_LIGHT = 4
 };
 
 enum e_textures {
@@ -108,6 +109,10 @@ typedef struct s_dielectric
 	double	ir;
 }				t_dielectric;
 
+typedef struct s_diffuse_light
+{
+	t_color	emit;
+}				t_diffuse_light;
 
 typedef struct s_material
 {
@@ -115,6 +120,7 @@ typedef struct s_material
 	t_lambertian	lambertian;
 	t_metal			metal;
 	t_dielectric	dielectric;
+	t_diffuse_light	diffuse_light;
 }				t_material;
 
 // Shapes
@@ -302,10 +308,11 @@ int		metal_scatter(t_ray *r_in, t_hit_record *rec,
 			t_color *attenuation, t_ray *scattered, t_metal metal);
 int		dielectric_scatter(t_ray *r_in, t_hit_record *rec,
 			t_color *attenuation, t_ray *scattered, t_dielectric dielectric);
-
+t_color	diffuse_light_emitted(t_color color);
 // Material Utils
 int		hit_material(t_ray *r_in, t_hit_record *rec, \
 			t_color *attenuation, t_ray *scattered);
+t_color	material_emitted(t_material material, double u, double v, t_point3 *p);
 
 // random1
 double	random_double(void);

@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:52:54 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/03 20:27:57 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/04 18:11:00 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,25 +35,26 @@ void	write_color(int x, int y, t_color color, t_env *env)
 	mlx_pixel_put(env->mlx.mlx, env->mlx.win, x, y, converted_color);
 }
 
-t_color	ray_color(t_ray *r, t_hittable_list *world, int depth)
+t_color	ray_color(t_ray *r, t_color background, \
+	t_hittable_list *world, int depth)
 {
-	double			t;
 	t_hit_record	rec;
 	t_ray			scattered;
 	t_color			attenuation;
+	t_color			emitted;
 
 	if (depth <= 0)
 		return (create_vec3_t(0.0));
-	if (hittable_list_hit(*world, r, 0.001, (double)INFINITY, &rec))
-	{
-		if (hit_material(r, &rec, &attenuation, &scattered))
-			return (mul_vec3(attenuation,
-					ray_color(&scattered, world, depth - 1)));
-		return (create_vec3_t(0.0));
-	}
-	t = 0.5 * (unit_vector(r->direction).y + 1.0);
-	return (add_vec3(mul_n_vec3(create_vec3_t(1.0), 1.0 - t),
-			mul_n_vec3(create_vec3_xyz(0.5, 0.7, 1.0), t)));
+	if (!hittable_list_hit(*world, r, 0.001, (double)INFINITY, &rec))
+		return (background);
+	emitted = material_emitted(rec.mat_ptr, rec.u, rec.v, &rec.p);
+	if (!hit_material(r, &rec, &attenuation, &scattered))
+		return (emitted);
+	return (
+		add_vec3(emitted, \
+			mul_vec3(attenuation, \
+				ray_color(&scattered, background, world, depth - 1)))
+	);
 }
 
 void	render(t_env *env, t_cam cam)
@@ -84,7 +85,7 @@ void	render(t_env *env, t_cam cam)
 						+ random_double()) / (env->img.height);
 				r = camera_get_ray(cam, u, v);
 				pixel_color = add_vec3(pixel_color,
-						ray_color(&r, &env->world, env->img.max_depth));
+						ray_color(&r, create_vec3_t(0.0), &env->world, env->img.max_depth));
 				k++;
 			}
 			write_color(i, j, pixel_color, env);

@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 20:16:25 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/03 20:28:38 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/04 18:38:11 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,15 @@ int	hit_material(t_ray *r_in, t_hit_record *rec, \
 		is_hit = dielectric_scatter(r_in, rec, \
 			attenuation, scattered, rec->mat_ptr.dielectric);
 	return (is_hit);
+}
+
+t_color	material_emitted(t_material material, double u, double v, t_point3 *p)
+{
+	(void) u;
+	(void) v;
+	(void) p;
+	if (material.type == MATERIAL_DIFFUSE_LIGHT)
+		return (diffuse_light_emitted(material.diffuse_light.emit));
+	else
+		return (create_vec3_t(0.0));
 }

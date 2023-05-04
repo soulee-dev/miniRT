@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 01:14:05 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/04 16:39:29 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/04 18:37:34 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,6 +136,18 @@ t_hittable_list random_scene(void)
 	world.objects[world.size - 1].sphere.center = create_vec3_xyz(4, 1, 0);
 	world.objects[world.size - 1].sphere.radius = 1.0;
 	world.objects[world.size - 1].sphere.mat_ptr = material3;
+	world.size++;
+
+	t_diffuse_light		metal_material4;
+	t_material	material4;
+	material4.type = MATERIAL_DIFFUSE_LIGHT;
+	metal_material4.emit = create_vec3_t(7.0);
+	material4.diffuse_light = metal_material4;
+
+	world.objects[world.size - 1].type = SHAPE_SPHERE;
+	world.objects[world.size - 1].sphere.center = create_vec3_xyz(4, 1, 0);
+	world.objects[world.size - 1].sphere.radius = 1.0;
+	world.objects[world.size - 1].sphere.mat_ptr = material4;
 	world.size++;
 	return world;
 }
