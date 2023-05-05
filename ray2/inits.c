@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 10:54:38 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/05 15:00:34 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/05 15:17:49 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,5 @@ void	init_world(t_env *env)
 	env->world.objects[env->world.size].xy_rect.y1 = 3;
 	env->world.objects[env->world.size].xy_rect.k = -2;
 	env->world.objects[env->world.size].xy_rect.mat_ptr = material_light;
+	env->world.size++;
 }
