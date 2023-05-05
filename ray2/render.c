@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:52:54 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/05 15:24:04 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/05 16:21:39 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,17 @@ t_color	ray_color(t_ray *r, t_color background, \
 	t_ray			scattered;
 	t_color			attenuation;
 	t_color			emitted;
+	t_color			ambient = create_vec3_t(0.01);
 
 	if (depth <= 0)
-		return (create_vec3_t(0.0));
+		return (ambient);
 	if (!hittable_list_hit(world, r, 0.001, (double)INFINITY, &rec))
-		return (background);
+		return (add_vec3(background, ambient));
 	emitted = material_emitted(rec.mat_ptr, rec.u, rec.v, &rec.p);
 	if (!hit_material(r, &rec, &attenuation, &scattered))
-		return (emitted);
+		return (add_vec3(emitted, ambient));
 	return (
-		add_vec3(emitted, \
+		add_vec3(add_vec3(emitted, ambient),\
 			mul_vec3(attenuation, \
 				ray_color(&scattered, background, world, depth - 1)))
 	);
