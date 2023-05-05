@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/04 18:37:46 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/05 13:45:12 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ enum e_keys {
 
 enum e_shapes {
 	SHAPE_SPHERE = 1,
-	SHAPE_MOVING_SPHERE = 2
+	SHAPE_MOVING_SPHERE = 2,
+	SHAPE_XY_RECT = 3
 };
 
 enum e_materials {
@@ -141,11 +142,22 @@ typedef struct s_moving_sphere
 	t_material	mat_ptr;
 }				t_moving_sphere;
 
+typedef struct s_xy_rect
+{
+	double		x0;
+	double		x1;
+	double		y0;
+	double		y1;
+	double		k;
+	t_material	mat_ptr;
+}				t_xy_rect;	
+
 typedef struct s_shape
 {
 	int				type;
 	t_sphere		sphere;
 	t_moving_sphere	moving_sphere;
+	t_xy_rect		xy_rect;
 }				t_shape;
 
 // Hit Records
@@ -265,6 +277,8 @@ int		sphere_hit(t_sphere sphere, t_ray *r, double t_min, \
 int		moving_sphere_hit(t_moving_sphere moving_sphere, t_ray *r, \
 			double t_min, double t_max, t_hit_record *rec);
 void	sphere_get_uv(t_point3 *p, double *u, double *v);
+int		xy_rect_hit(t_xy_rect xy_rect, t_ray *r, double t_min, \
+			double t_max, t_hit_record *rec);
 
 int		sphere_bounding_box(t_sphere sphere, double time0, \
 			double time1, t_aabb *output_box);

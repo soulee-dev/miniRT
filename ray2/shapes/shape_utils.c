@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 18:48:52 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/03 20:29:18 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/05 13:44:45 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	hit_shape(t_shape shape, t_ray *r, double t_min, \
 		is_hit = sphere_hit(shape.sphere, r, t_min, t_max, rec);
 	else if (shape.type == SHAPE_MOVING_SPHERE)
 		is_hit = moving_sphere_hit(shape.moving_sphere, r, t_min, t_max, rec);
+	else if (shape.type == SHAPE_XY_RECT)
+		is_hit = xy_rect_hit(shape.xy_rect, r, t_min, t_max, rec);
 	return (is_hit);
 }
 
