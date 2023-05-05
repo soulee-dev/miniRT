@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:52:54 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/04 18:11:00 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/05 15:18:45 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	render(t_env *env, t_cam cam)
 						+ random_double()) / (env->img.height);
 				r = camera_get_ray(cam, u, v);
 				pixel_color = add_vec3(pixel_color,
-						ray_color(&r, create_vec3_t(0.0), &env->world, env->img.max_depth));
+						ray_color(&r, env->background, &env->world, env->img.max_depth));
 				k++;
 			}
 			write_color(i, j, pixel_color, env);
