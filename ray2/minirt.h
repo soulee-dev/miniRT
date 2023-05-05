@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/05 15:18:27 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/05 15:24:15 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -287,7 +287,7 @@ int		moving_sphere_bounding_box(t_moving_sphere moving_sphere, \
 			double _time0, double _time1, t_aabb *output_box);
 
 // Shape Utils
-int		hit_shape(t_shape shape, t_ray *r, double t_min, \
+int		hit_shape(t_shape *shape, t_ray *r, double t_min, \
 			double t_max, t_hit_record *rec);
 int		bounding_box(t_shape shape, double time0, \
 			double time1, t_aabb *output_box);
@@ -307,7 +307,7 @@ void	set_face_normal(t_hit_record *rec, \
 	t_ray *r, t_vec3 *outward_normal);
 
 // hittable_list.c
-int		hittable_list_hit(t_hittable_list list, t_ray *r,
+int		hittable_list_hit(t_hittable_list *world, t_ray *r,
 			double t_min, double t_max, t_hit_record *rec);
 
 // camera.c

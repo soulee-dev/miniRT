@@ -6,13 +6,13 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 19:01:28 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/03 20:29:24 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/05 15:24:24 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-int	hittable_list_hit(t_hittable_list world, t_ray *r,
+int	hittable_list_hit(t_hittable_list *world, t_ray *r,
 		double t_min, double t_max, t_hit_record *rec)
 {
 	size_t			i;
@@ -24,9 +24,9 @@ int	hittable_list_hit(t_hittable_list world, t_ray *r,
 	hit_anything = 0;
 	closest_so_far = t_max;
 	i = 0;
-	while (i < world.size)
+	while (i < world->size)
 	{
-		is_hit = hit_shape(world.objects[i], r, t_min, closest_so_far, \
+		is_hit = hit_shape(&world->objects[i], r, t_min, closest_so_far, \
 			&temp_rec);
 		if (is_hit)
 		{
