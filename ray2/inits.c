@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 10:54:38 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/05 15:55:24 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/05 16:34:20 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	init_img(t_env *env)
 	env->img.aspect_ratio = 16.0 / 9.0;
 	env->img.width = 400;
 	env->img.height = (int)(env->img.width / env->img.aspect_ratio);
-	env->img.samples_per_pixel = 50;
+	env->img.samples_per_pixel = 100;
 	env->img.max_depth = 50;
 }
 
@@ -61,11 +61,11 @@ void	init_world(t_env *env)
 	material_light.type = MATERIAL_DIFFUSE_LIGHT;
 	material_light.diffuse_light.emit = create_vec3_xyz(4, 4, 4);
 	env->world.objects[env->world.size].type = SHAPE_XY_RECT;
-	env->world.objects[env->world.size].xy_rect.x0 = 3;
-	env->world.objects[env->world.size].xy_rect.x1 = 5;
-	env->world.objects[env->world.size].xy_rect.y0 = 1;
-	env->world.objects[env->world.size].xy_rect.y1 = 3;
-	env->world.objects[env->world.size].xy_rect.k = -2;
+	env->world.objects[env->world.size].xy_rect.x0 = 0;
+	env->world.objects[env->world.size].xy_rect.x1 = 555;
+	env->world.objects[env->world.size].xy_rect.y0 = 0;
+	env->world.objects[env->world.size].xy_rect.y1 = 555;
+	env->world.objects[env->world.size].xy_rect.k = 555;
 	env->world.objects[env->world.size].xy_rect.mat_ptr = material_light;
 	env->world.size++;
 }
