@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:42:28 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/05 15:20:28 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/07 14:48:18 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int	main(void)
 	env.background = create_vec3_t(0.0);
 	// env.world = random_scene();
 
-	lookfrom = create_vec3_xyz(26, 3, 6);
-	lookat = create_vec3_xyz(0, 2, 0);
+	lookfrom = create_vec3_xyz(26, 10, 6);
+	lookat = create_vec3_xyz(0, -2, 0);
 	vup = create_vec3_xyz(0, 1, 0);
 	dist_to_focus = 10.0;
 	aperture = 0.1;

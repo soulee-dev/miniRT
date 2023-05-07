@@ -18,6 +18,7 @@ SRCS+=box/box_utils.c
 SRCS+=shapes/sphere.c
 SRCS+=shapes/moving_sphere.c
 SRCS+=shapes/xy_rect.c
+SRCS+=shapes/cylinder.c
 SRCS+=shapes/shape_utils.c
 
 # Utils

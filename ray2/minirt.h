@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/05 15:24:15 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/07 13:39:20 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ enum e_keys {
 enum e_shapes {
 	SHAPE_SPHERE = 1,
 	SHAPE_MOVING_SPHERE = 2,
-	SHAPE_XY_RECT = 3
+	SHAPE_XY_RECT = 3,
+	SHAPE_CYLINDER = 4
 };
 
 enum e_materials {
@@ -150,7 +151,16 @@ typedef struct s_xy_rect
 	double		y1;
 	double		k;
 	t_material	mat_ptr;
-}				t_xy_rect;	
+}				t_xy_rect;
+
+typedef struct s_cylinder
+{
+	t_vec3		center;
+	t_vec3		direction;
+	double		diameter;
+	double		height;
+	t_material	mat_ptr;
+}				t_cylinder;
 
 typedef struct s_shape
 {
@@ -158,6 +168,7 @@ typedef struct s_shape
 	t_sphere		sphere;
 	t_moving_sphere	moving_sphere;
 	t_xy_rect		xy_rect;
+	t_cylinder		cylinder;
 }				t_shape;
 
 // Hit Records
@@ -279,6 +290,8 @@ int		moving_sphere_hit(t_moving_sphere moving_sphere, t_ray *r, \
 			double t_min, double t_max, t_hit_record *rec);
 void	sphere_get_uv(t_point3 *p, double *u, double *v);
 int		xy_rect_hit(t_xy_rect xy_rect, t_ray *r, double t_min, \
+			double t_max, t_hit_record *rec);
+int		cylinder_hit(t_cylinder cylinder, t_ray *ray, double t_min, \
 			double t_max, t_hit_record *rec);
 
 int		sphere_bounding_box(t_sphere sphere, double time0, \
