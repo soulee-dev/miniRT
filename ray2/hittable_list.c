@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 19:01:28 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/05 15:24:24 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/08 14:15:42 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,23 +42,23 @@ int	hittable_list_hit(t_hittable_list *world, t_ray *r,
 int	hittable_list_bounding_box(t_hittable_list world, t_shape shape, \
 	double time0, double time1, t_aabb *output_box)
 {
-	int		is_bounding_box;
+	int		is_box;
 	size_t	i;
 	t_aabb	temp_box;
 	int		first_box;
 
 	if (world.size < 1)
 		return (0);
-
 	i = 0;
 	while (i < world.size)
 	{
-		is_bounding_box	= 0;
+		is_box = 0;
 		if (world.objects[i].type == SHAPE_SPHERE)
-			is_bounding_box = sphere_bounding_box(shape.sphere, time0, time1, &temp_box);
+			is_box = sphere_bounding_box(shape.sphere, time0, time1, &temp_box);
 		else if (world.objects[i].type == SHAPE_MOVING_SPHERE)
-			is_bounding_box = moving_sphere_bounding_box(shape.moving_sphere, time0, time1, &temp_box);
-		if (!is_bounding_box)
+			is_box = moving_sphere_bounding_box(shape.moving_sphere, \
+				time0, time1, &temp_box);
+		if (!is_box)
 			return (0);
 		if (first_box)
 			*output_box = temp_box;
@@ -66,6 +66,5 @@ int	hittable_list_bounding_box(t_hittable_list world, t_shape shape, \
 			*output_box = surrounding_box(*output_box, temp_box);
 		first_box = 0;
 	}
-
 	return (1);
 }

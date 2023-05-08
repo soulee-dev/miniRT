@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 22:11:17 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/01 11:17:54 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/08 14:14:57 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ t_ray	camera_get_ray(t_cam cam, double s, double t)
 
 	rd = mul_n_vec3(random_in_unit_disk(), cam.lense_radius);
 	offset = add_vec3(mul_n_vec3(cam.u, rd.x), mul_n_vec3(cam.v, rd.y));
-
 	ray.origin = add_vec3(cam.origin, offset);
 	ray.direction = sub_vec3(sub_vec3(add_vec3(cam.lower_left_corner,
 					add_vec3(mul_n_vec3(cam.horizontal, s),
