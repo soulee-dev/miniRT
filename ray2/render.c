@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:52:54 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/07 15:10:10 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/11 17:42:37 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,17 +58,36 @@ t_color	ray_color(t_ray *r, t_color background, \
 	);
 }
 
-void	render(t_env *env, t_cam cam)
+void	render2(t_env *env, t_cam *cam, int i, int j)
 {
-	int		i;
-	int		j;
-	int		k;
 	t_color	pixel_color;
+	int		k;
 	double	u;
 	double	v;
 	t_ray	r;
 
+	pixel_color = create_vec3_t(0.0);
+	k = 0;
+	while (k < env->img.samples_per_pixel)
+	{
+		u = ((double)i + random_double()) / (env->img.width);
+		v = ((env->img.height - (double)j)
+				+ random_double()) / (env->img.height);
+		r = camera_get_ray(cam, u, v);
+		pixel_color = add_vec3(pixel_color, \
+			ray_color(&r, env->background, \
+				&env->world, env->img.max_depth));
+		k++;
+	}
+	write_color(i, j, pixel_color, env);
+}
+
+void	render(t_env *env, t_cam *cam)
+{
+	int		i;
+	int		j;
 	t_progress progress = create_progress(env->img.width, 30);
+
 	printf("Render Start\n");
 	i = 0;
 	while (i < env->img.width)
@@ -77,20 +96,7 @@ void	render(t_env *env, t_cam cam)
 		update_progress(&progress, i);
 		while (j < env->img.height)
 		{
-			pixel_color = create_vec3_t(0.0);
-			k = 0;
-			while (k < env->img.samples_per_pixel)
-			{
-				u = ((double)i + random_double()) / (env->img.width);
-				v = ((env->img.height - (double)j)
-						+ random_double()) / (env->img.height);
-				r = camera_get_ray(cam, u, v);
-				pixel_color = add_vec3(pixel_color, \
-					ray_color(&r, env->background, \
-						&env->world, env->img.max_depth));
-				k++;
-			}
-			write_color(i, j, pixel_color, env);
+			render2(env, cam, i, j);
 			j++;
 		}
 		i++;

@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 22:11:17 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/11 17:31:10 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/11 17:41:38 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,18 +40,18 @@ t_cam	init_camera(t_cam_env cam_env)
 	return (cam);
 }
 
-t_ray	camera_get_ray(t_cam cam, double s, double t)
+t_ray	camera_get_ray(t_cam *cam, double s, double t)
 {
 	t_vec3	rd;
 	t_vec3	offset;
 	t_ray	ray;
 
-	rd = mul_n_vec3(random_in_unit_disk(), cam.lense_radius);
-	offset = add_vec3(mul_n_vec3(cam.u, rd.x), mul_n_vec3(cam.v, rd.y));
-	ray.origin = add_vec3(cam.origin, offset);
-	ray.direction = sub_vec3(sub_vec3(add_vec3(cam.lower_left_corner,
-					add_vec3(mul_n_vec3(cam.horizontal, s),
-						mul_n_vec3(cam.vertical, t))), cam.origin), offset);
-	ray.time = random_double2(cam.time0, cam.time1);
+	rd = mul_n_vec3(random_in_unit_disk(), cam->lense_radius);
+	offset = add_vec3(mul_n_vec3(cam->u, rd.x), mul_n_vec3(cam->v, rd.y));
+	ray.origin = add_vec3(cam->origin, offset);
+	ray.direction = sub_vec3(sub_vec3(add_vec3(cam->lower_left_corner,
+					add_vec3(mul_n_vec3(cam->horizontal, s),
+						mul_n_vec3(cam->vertical, t))), cam->origin), offset);
+	ray.time = random_double2(cam->time0, cam->time1);
 	return (ray);
 }

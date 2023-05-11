@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:42:28 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/11 17:30:28 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/11 17:42:21 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(void)
 	cam_env.time0 = 0.0;
 	cam_env.time1 = 1.0;
 	cam = init_camera(cam_env);
-	render(&env, cam);
+	render(&env, &cam);
 	mlx_loop(env.mlx.mlx);
 	return (0);
 }
