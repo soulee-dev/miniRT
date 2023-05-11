@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:40:38 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/01 10:40:38 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/11 16:35:16 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 double	random_double(void)
 {
-	return (rand() / (RAND_MAX + 1.0));
+	static unsigned int	rseed = 0;
+
+	rseed = (rseed * 1103515245 + 12345) & RAND_MAX;
+	return (rseed / (RAND_MAX + 1.0));
 }
 
 double	random_double2(double min, double max)
