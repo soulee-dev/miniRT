@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:52:54 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/11 17:42:37 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/11 17:46:35 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,26 +35,26 @@ void	write_color(int x, int y, t_color color, t_env *env)
 	mlx_pixel_put(env->mlx.mlx, env->mlx.win, x, y, converted_color);
 }
 
-t_color	ray_color(t_ray *r, t_color background, \
+t_color	ray_color(t_ray *r, t_env *env, \
 	t_hittable_list *world, int depth)
 {
 	t_hit_record	rec;
 	t_ray			scattered;
 	t_color			attenuation;
 	t_color			emitted;
-	t_color			ambient = create_vec3_t(0.05);
+	// t_color			ambient = create_vec3_t(0.05);
 
 	if (depth <= 0)
-		return (ambient);
+		return (env->img.ambient);
 	if (!hittable_list_hit(world, r, 0.001, (double)INFINITY, &rec))
-		return (add_vec3(background, ambient));
+		return (add_vec3(env->img.background, env->img.ambient));
 	emitted = material_emitted(rec.mat_ptr, rec.u, rec.v, &rec.p);
 	if (!hit_material(r, &rec, &attenuation, &scattered))
-		return (add_vec3(emitted, ambient));
+		return (add_vec3(emitted, env->img.ambient));
 	return (
-		add_vec3(add_vec3(emitted, ambient), \
+		add_vec3(add_vec3(emitted, env->img.ambient), \
 			mul_vec3(attenuation, \
-				ray_color(&scattered, background, world, depth - 1)))
+				ray_color(&scattered, env, world, depth - 1)))
 	);
 }
 
@@ -75,7 +75,7 @@ void	render2(t_env *env, t_cam *cam, int i, int j)
 				+ random_double()) / (env->img.height);
 		r = camera_get_ray(cam, u, v);
 		pixel_color = add_vec3(pixel_color, \
-			ray_color(&r, env->background, \
+			ray_color(&r, env, \
 				&env->world, env->img.max_depth));
 		k++;
 	}

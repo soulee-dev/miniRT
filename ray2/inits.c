@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 10:54:38 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/11 17:31:48 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/11 17:46:02 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	init_img(t_env *env)
 	env->img.height = (int)(env->img.width / env->img.aspect_ratio);
 	env->img.samples_per_pixel = 100;
 	env->img.max_depth = 50;
+	env->img.background = create_vec3_t(0.0);
+	env->img.ambient = create_vec3_t(0.01);
 }
 
 void	init_mlx(t_env *env)
