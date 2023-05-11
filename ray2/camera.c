@@ -6,14 +6,13 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 22:11:17 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/08 14:14:57 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/11 17:31:10 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_cam	init_camera(t_point3 lookfrom, t_point3 lookat, t_vec3 vup,
-		double vfov, double aspect_ratio, double aperture, double focus_dist, double _time0, double _time1)
+t_cam	init_camera(t_cam_env cam_env)
 {
 	t_cam	cam;
 	double	theta;
@@ -21,23 +20,23 @@ t_cam	init_camera(t_point3 lookfrom, t_point3 lookat, t_vec3 vup,
 	double	viewport_height;
 	double	viewport_width;
 
-	theta = degrees_to_radians(vfov);
+	theta = degrees_to_radians(cam_env.vfov);
 	h = tan(theta / 2);
 	viewport_height = 2.0 * h;
-	viewport_width = aspect_ratio * viewport_height;
-	cam.w = unit_vector(sub_vec3(lookfrom, lookat));
-	cam.u = unit_vector(cross(vup, cam.w));
+	viewport_width = cam_env.aspect_ratio * viewport_height;
+	cam.w = unit_vector(sub_vec3(cam_env.lookfrom, cam_env.lookat));
+	cam.u = unit_vector(cross(cam_env.vup, cam.w));
 	cam.v = cross(cam.w, cam.u);
-	cam.origin = lookfrom;
-	cam.horizontal = mul_n_vec3(cam.u, focus_dist * viewport_width);
-	cam.vertical = mul_n_vec3(cam.v, focus_dist * viewport_height);
+	cam.origin = cam_env.lookfrom;
+	cam.horizontal = mul_n_vec3(cam.u, cam_env.dist_to_focus * viewport_width);
+	cam.vertical = mul_n_vec3(cam.v, cam_env.dist_to_focus * viewport_height);
 	cam.lower_left_corner = sub_vec3(cam.origin,
 			add_vec3(add_vec3(div_n_vec3(cam.horizontal, 2),
 					div_n_vec3(cam.vertical, 2)),
-				mul_n_vec3(cam.w, focus_dist)));
-	cam.lense_radius = aperture / 2.0;
-	cam.time0 = _time0;
-	cam.time1 = _time1;
+				mul_n_vec3(cam.w, cam_env.dist_to_focus)));
+	cam.lense_radius = cam_env.aperture / 2.0;
+	cam.time0 = cam_env.time0;
+	cam.time1 = cam_env.time1;
 	return (cam);
 }
 
