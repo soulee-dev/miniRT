@@ -13,6 +13,8 @@
 		"__bit_reference": "c",
 		"string": "c",
 		"string_view": "c",
-		"get_next_line.h": "c"
+		"get_next_line.h": "c",
+		"__config": "c",
+		"locale": "c"
 	}
 }

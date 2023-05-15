@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/15 14:07:47 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/15 16:59:57 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include "../libft/libft.h"
 # include "../get_next_line/get_next_line.h"
 # include "mlx/mlx.h"
+# include <fcntl.h>
 # include <stdio.h>
 # include <math.h>
 # include <stdlib.h>
@@ -372,6 +373,15 @@ int		random_int(int min, int max);
 // aabb
 int		aabb_hit(t_aabb aabb, t_ray *r, double t_min, double t_max);
 t_aabb	surrounding_box(t_aabb box0, t_aabb box1);
+
+// parser
+void	check_error(int argc, char *argv[]);
+void	scan_file(char *file_name);
+void	exit_error(char *s);
+
+// parser_utils.c
+size_t	count_strings(char **strs);
+void	free_strs(char ***strs);
 
 // REMOVE BEFORE FLIGHT
 t_hittable_list random_scene(void);
