@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/15 16:59:57 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/15 18:11:25 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -376,7 +376,7 @@ t_aabb	surrounding_box(t_aabb box0, t_aabb box1);
 
 // parser
 void	check_error(int argc, char *argv[]);
-void	scan_file(char *file_name);
+void	read_file(char *file_name);
 void	exit_error(char *s);
 
 // parser_utils.c

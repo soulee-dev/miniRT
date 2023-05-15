@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 16:33:23 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/15 16:59:28 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/15 18:25:58 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,26 @@ void	check_error(int argc, char *argv[])
 
 void	parse_line(char *line)
 {
-	size_t	i;
+	// size_t	i;
 	size_t	len;
 	char	**strs;
 
 	strs = ft_split(line, ' ');
 	len = count_strings(strs);
-	if (count_strings(strs) == 0)
+	if (len == 0)
 		exit_error("error: Invalid file format");
-	i = 0;
-	while (i < len)
-	{
-		printf("%s ", strs[i]);
-	}
-	printf("\n");
+	if (!ft_strncmp(strs[0], "A", ft_strlen(strs[0])))
+		printf("Ambient Light\n");
+	else if (!ft_strncmp(strs[0], "C", ft_strlen(strs[0])))
+		printf("Camera\n");
+	else if (!ft_strncmp(strs[0], "L", ft_strlen(strs[0])))
+		printf("Light\n"); 
+	else if (!ft_strncmp(strs[0], "sp", ft_strlen(strs[0])))
+		printf("Sphere\n"); 
+	else if (!ft_strncmp(strs[0], "pl", ft_strlen(strs[0])))
+		printf("Plane\n"); 
+	else if (!ft_strncmp(strs[0], "cy", ft_strlen(strs[0])))
+		printf("Cylinder\n"); 
 	free_strs(&strs);
 }
 

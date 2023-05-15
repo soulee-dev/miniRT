@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:42:28 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/15 16:34:01 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/15 17:02:59 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,5 @@ int	main(int argc, char *argv[])
 	// t_env	env;
 
 	check_error(argc, argv);
+	read_file(argv[1]);
 }
