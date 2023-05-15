@@ -47,20 +47,27 @@ SRCS+=random_scene.c
 SRCS+=progress/progress.c
 # REMOVE BEFORE FLIGHT
 
+LIBFT=./libft/libft.a
+
 OBJS = $(SRCS:.c=.o)
 
 %.o: %.c
 	$(CC) -c $(CFLAGS) $< -o $@ -Imlx -O3 -g3
 
-all: $(NAME)
+all: $(LIBFT) $(NAME)
 
-$(NAME): $(OBJS)
-	$(CC) $(OBJS) -o $(NAME) -lmlx -framework OpenGL -framework AppKit -O3 -g3
+$(NAME): $(OBJS) $(LIBFT)
+	$(CC) $(OBJS) -o $(NAME) -Llibft -lft -lmlx -framework OpenGL -framework AppKit -O3 -g3
+
+$(LIBFT):
+	make -C ./libft bonus
 
 clean:
+	make clean -C ./libft
 	rm -f ${OBJS}
 
 fclean: clean
+	make fclean -C ./libft
 	rm -f ${NAME}
 
 re:

@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/11 17:46:08 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/15 14:02:04 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 // REMOVE BEFORE FLIGHT
 # include "progress/progress.h"
 // REMOVE BEFORE FLIGHT
+# include "../libft/libft.h"
 # include "mlx/mlx.h"
 # include <stdio.h>
 # include <math.h>
