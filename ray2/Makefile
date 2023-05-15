@@ -42,6 +42,10 @@ SRCS+=textures/solid_color.c
 SRCS+=textures/checker.c
 SRCS+=textures/texture_utils.c
 
+# Get Next Line
+SRCS+=get_next_line/get_next_line.c
+SRCS+=get_next_line/get_next_line_utils.c
+
 # REMOVE BEFORE FLIGHT
 SRCS+=random_scene.c
 SRCS+=progress/progress.c
