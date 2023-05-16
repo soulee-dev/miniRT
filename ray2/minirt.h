@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/15 18:11:25 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/16 16:42:12 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 // Define
 # define PI 3.1415926535897932385
 # define TITLE	"miniRT-practice"
+# define CODE_SIZE 256
 
 enum e_keys {
 	KEY_ESC = 53,
@@ -376,12 +377,13 @@ t_aabb	surrounding_box(t_aabb box0, t_aabb box1);
 
 // parser
 void	check_error(int argc, char *argv[]);
-void	read_file(char *file_name);
+void	read_file(t_env *env, char *file_name);
 void	exit_error(char *s);
 
 // parser_utils.c
 size_t	count_strings(char **strs);
 void	free_strs(char ***strs);
+char	**ft_split2(char const *s, const char *set);
 
 // REMOVE BEFORE FLIGHT
 t_hittable_list random_scene(void);

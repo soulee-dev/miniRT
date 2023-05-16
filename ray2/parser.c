@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 16:33:23 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/15 18:25:58 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/16 16:42:51 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	parse_line(char *line)
 	size_t	len;
 	char	**strs;
 
-	strs = ft_split(line, ' ');
+	strs = ft_split2(line, " \t\n\v\f\r");
 	len = count_strings(strs);
 	if (len == 0)
 		exit_error("error: Invalid file format");
@@ -52,7 +52,7 @@ void	parse_line(char *line)
 	free_strs(&strs);
 }
 
-void	read_file(char *file_name)
+void	read_file(t_env *env, char *file_name)
 {
 	int		fd;
 	char	*line;

@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:52:54 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/13 19:52:16 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/15 19:28:51 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,15 @@ t_color	ray_color(t_ray *r, t_env *env, \
 	t_ray			scattered;
 	t_color			attenuation;
 	t_color			emitted;
+	t_color			ambinet_light = create_vec3_t(0.02);
 
 	if (depth <= 0)
-		return (create_vec3_t(0.0));
+		return (ambinet_light);
 	if (!hittable_list_hit(world, r, 0.001, (double)INFINITY, &rec))
-		return (env->img.background);
+		return (ambinet_light);
 	emitted = material_emitted(rec.mat_ptr, rec.u, rec.v, &rec.p);
 	if (!hit_material(r, &rec, &attenuation, &scattered))
-		return (emitted);
+		return (add_vec3(emitted, ambinet_light));
 	return (
 		add_vec3(emitted, \
 			mul_vec3(attenuation, \
