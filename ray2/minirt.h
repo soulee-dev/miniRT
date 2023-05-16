@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/16 17:09:39 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/16 19:43:51 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -228,6 +228,7 @@ typedef struct s_img
 // Camera
 typedef struct s_cam_env
 {
+	int			flag;
 	t_point3	lookfrom;
 	t_point3	lookat;
 	t_vec3		vup;
@@ -259,6 +260,7 @@ typedef struct s_env
 {
 	t_mlx			mlx;
 	t_img			img;
+	t_cam_env		cam_env;
 	t_hittable_list	world;
 }				t_env;
 
@@ -379,10 +381,26 @@ void	check_error(int argc, char *argv[]);
 void	read_file(t_env *env, char *file_name);
 void	exit_error(char *s);
 
-// parser_utils.c
+// parser_utils
 size_t	count_strings(char **strs);
 void	free_strs(char ***strs);
 char	**ft_split2(char const *s, const char *set);
+
+// parser_utils2
+void	add_ambient_light(t_env *env, char **strs);
+void	add_camera(t_env *env, char **strs);
+void	add_light(t_env *env, char **strs);
+void	add_sphere(t_env *env, char **strs);
+
+
+// parser_utils3
+void	add_plane(t_env *env, char **strs);
+void	add_cylinder(t_env *env, char **strs);
+void	check_valid(double val, double min, double max);
+void	check_valid_vec3(t_vec3 vec3, double min, double max);
+
+// string_utils
+double	ft_atof(const char *str);
 
 // REMOVE BEFORE FLIGHT
 t_hittable_list random_scene(void);

@@ -43,8 +43,11 @@ SRCS+=textures/checker.c
 SRCS+=textures/texture_utils.c
 
 # Parser
-# SRCS+=parser.c
-# SRCS+=parser_utils.c
+SRCS+=parser.c
+SRCS+=parser_utils.c
+SRCS+=parser_utils2.c
+SRCS+=parser_utils3.c
+SRCS+=string_utils.c
 
 # Get Next Line
 SRCS+=get_next_line/get_next_line.c
