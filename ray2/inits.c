@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 10:54:38 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/16 20:24:53 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/16 20:29:52 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,12 @@ void	init_world(t_env *env)
 	env->world.objects[env->world.size].sphere.radius = 1000;
 	env->world.objects[env->world.size].sphere.mat_ptr = material_sphere;
 
-	// env->world.size++;
+	env->world.size++;
 
-	// env->world.objects[env->world.size].type = SHAPE_SPHERE;
-	// env->world.objects[env->world.size].sphere.center = create_vec3_xyz(10, 2, 0);
-	// env->world.objects[env->world.size].sphere.radius = 1;
-	// env->world.objects[env->world.size].sphere.mat_ptr = material_sphere;
+	env->world.objects[env->world.size].type = SHAPE_SPHERE;
+	env->world.objects[env->world.size].sphere.center = create_vec3_xyz(15, 4, 2);
+	env->world.objects[env->world.size].sphere.radius = 1;
+	env->world.objects[env->world.size].sphere.mat_ptr = material_sphere;
 
 	// env->world.objects[env->world.size].type = SHAPE_CYLINDER;
 	// env->world.objects[env->world.size].cylinder.center = create_vec3_xyz(10, 2, 0);
@@ -69,12 +69,16 @@ void	init_world(t_env *env)
 	env->world.size++;
 	material_light.type = MATERIAL_DIFFUSE_LIGHT;
 	material_light.diffuse_light.emit = create_vec3_xyz(4, 4, 4);
-	env->world.objects[env->world.size].type = SHAPE_XY_RECT;
-	env->world.objects[env->world.size].xy_rect.x0 = 11;
-	env->world.objects[env->world.size].xy_rect.x1 = 13;
-	env->world.objects[env->world.size].xy_rect.y0 = 1;
-	env->world.objects[env->world.size].xy_rect.y1 = 3;
-	env->world.objects[env->world.size].xy_rect.k = -2;
-	env->world.objects[env->world.size].xy_rect.mat_ptr = material_light;
+	env->world.objects[env->world.size].type = SHAPE_SPHERE;
+	env->world.objects[env->world.size].sphere.center = create_vec3_xyz(10, 2, 0);
+	env->world.objects[env->world.size].sphere.radius = 1;
+	env->world.objects[env->world.size].sphere.mat_ptr = material_light;
+	// env->world.objects[env->world.size].type = SHAPE_XY_RECT;
+	// env->world.objects[env->world.size].xy_rect.x0 = 11;
+	// env->world.objects[env->world.size].xy_rect.x1 = 13;
+	// env->world.objects[env->world.size].xy_rect.y0 = 1;
+	// env->world.objects[env->world.size].xy_rect.y1 = 3;
+	// env->world.objects[env->world.size].xy_rect.k = -2;
+	// env->world.objects[env->world.size].xy_rect.mat_ptr = material_light;
 	env->world.size++;
 }

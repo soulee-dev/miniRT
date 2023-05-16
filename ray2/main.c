@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:42:28 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/16 20:20:06 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/16 20:30:36 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	main(int argc, char *argv[])
 	init_env(&env);
 	read_file(&env, argv[1]);
 	cam = init_camera(env.cam_env);
-	init_world(&env);
+	// init_world(&env);
 	render(&env, &cam);
 	mlx_loop(env.mlx.mlx);
 	return (0);
