@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 01:14:05 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/05 14:55:05 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/16 17:07:04 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ t_hittable_list random_scene(void)
 	world.objects[0].sphere.mat_ptr = ground_material;
 
 	world.size = 1;
-	for (int i = 0; i < 22; i++)
+	for (int i = 0; i < 11; i++)
 	{
-		for (int j = 0; j < 22; j++)
+		for (int j = 0; j < 11; j++)
 		{
 			double		choose_mat = random_double();
 			t_point3	center = create_vec3_xyz((i - 11) + 0.9 * random_double(), 0.2, (j - 11) + 0.9 * random_double());

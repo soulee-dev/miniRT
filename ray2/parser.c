@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 16:33:23 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/16 16:42:51 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/16 16:57:43 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,12 @@ void	check_error(int argc, char *argv[])
 		exit_error("error: Invalid file name");
 }
 
-void	parse_line(char *line)
+void	parse_line(t_env *env, char *line)
 {
 	// size_t	i;
 	size_t	len;
 	char	**strs;
+	(void) env;
 
 	strs = ft_split2(line, " \t\n\v\f\r");
 	len = count_strings(strs);
@@ -66,7 +67,7 @@ void	read_file(t_env *env, char *file_name)
 		if (!line)
 			break ;
 		if (line[0] != '\0')
-			parse_line(line);
+			parse_line(env, line);
 		free(line);
 	}
 }

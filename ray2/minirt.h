@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/16 16:42:12 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/16 17:09:39 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -222,7 +222,6 @@ typedef struct s_img
 	int			height;
 	int			samples_per_pixel;
 	int			max_depth;
-	t_color		background;
 	t_color		ambient;
 }				t_img;
 

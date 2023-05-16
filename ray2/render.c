@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:52:54 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/15 19:28:51 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/16 17:25:00 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,9 @@ void	write_color(int x, int y, t_color color, t_env *env)
 	r = sqrt(scale * r);
 	g = sqrt(scale * g);
 	b = sqrt(scale * b);
-	r = (int)(256 * clamp(r, 0.0, 0.999));
-	g = (int)(256 * clamp(g, 0.0, 0.999));
-	b = (int)(256 * clamp(b, 0.0, 0.999));
-	converted_color = 0;
+	r = (int)(256 * clamp(r, 0.01, 0.999));
+	g = (int)(256 * clamp(g, 0.01, 0.999));
+	b = (int)(256 * clamp(b, 0.01, 0.999));
 	converted_color = r * 256 * 256 + g * 256 + b;
 	mlx_pixel_put(env->mlx.mlx, env->mlx.win, x, y, converted_color);
 }
@@ -42,15 +41,15 @@ t_color	ray_color(t_ray *r, t_env *env, \
 	t_ray			scattered;
 	t_color			attenuation;
 	t_color			emitted;
-	t_color			ambinet_light = create_vec3_t(0.02);
+	t_color			ambient_light = create_vec3_t(0.0);
 
 	if (depth <= 0)
-		return (ambinet_light);
+		return (ambient_light);
 	if (!hittable_list_hit(world, r, 0.001, (double)INFINITY, &rec))
-		return (ambinet_light);
+		return (ambient_light);
 	emitted = material_emitted(rec.mat_ptr, rec.u, rec.v, &rec.p);
 	if (!hit_material(r, &rec, &attenuation, &scattered))
-		return (add_vec3(emitted, ambinet_light));
+		return (add_vec3(emitted, ambient_light));
 	return (
 		add_vec3(emitted, \
 			mul_vec3(attenuation, \
