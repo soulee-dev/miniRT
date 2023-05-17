@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/16 19:43:51 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/17 15:58:45 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -239,7 +239,6 @@ typedef struct s_cam_env
 	double		time0;
 	double		time1;
 }				t_cam_env;
-
 
 typedef struct s_cam
 {
