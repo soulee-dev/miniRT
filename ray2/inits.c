@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 10:54:38 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/16 20:29:52 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/17 16:01:43 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,17 +53,17 @@ void	init_world(t_env *env)
 
 	env->world.size++;
 
-	env->world.objects[env->world.size].type = SHAPE_SPHERE;
-	env->world.objects[env->world.size].sphere.center = create_vec3_xyz(15, 4, 2);
-	env->world.objects[env->world.size].sphere.radius = 1;
-	env->world.objects[env->world.size].sphere.mat_ptr = material_sphere;
+	// env->world.objects[env->world.size].type = SHAPE_SPHERE;
+	// env->world.objects[env->world.size].sphere.center = create_vec3_xyz(15, 4, 2);
+	// env->world.objects[env->world.size].sphere.radius = 1;
+	// env->world.objects[env->world.size].sphere.mat_ptr = material_sphere;
 
-	// env->world.objects[env->world.size].type = SHAPE_CYLINDER;
-	// env->world.objects[env->world.size].cylinder.center = create_vec3_xyz(10, 2, 0);
-	// env->world.objects[env->world.size].cylinder.direction = create_vec3_xyz(0, 1, 0);
-	// env->world.objects[env->world.size].cylinder.diameter = 1;
-	// env->world.objects[env->world.size].cylinder.height = 5;
-	// env->world.objects[env->world.size].cylinder.mat_ptr = material_sphere;
+	env->world.objects[env->world.size].type = SHAPE_CYLINDER;
+	env->world.objects[env->world.size].cylinder.center = create_vec3_xyz(10, 2, 0);
+	env->world.objects[env->world.size].cylinder.direction = create_vec3_xyz(0, 1, 0);
+	env->world.objects[env->world.size].cylinder.diameter = 1;
+	env->world.objects[env->world.size].cylinder.height = 5;
+	env->world.objects[env->world.size].cylinder.mat_ptr = material_sphere;
 
 	t_material	material_light;
 	env->world.size++;
