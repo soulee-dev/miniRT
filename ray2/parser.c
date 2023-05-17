@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 16:33:23 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/16 19:44:02 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/17 16:04:04 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	parse_line(t_env *env, char *line)
 	else if (!ft_strncmp(strs[0], "pl", ft_strlen(strs[0])))
 		printf("Plane\n"); 
 	else if (!ft_strncmp(strs[0], "cy", ft_strlen(strs[0])))
-		printf("Cylinder\n"); 
+		add_cylinder(env, strs); 
 	free_strs(&strs);
 }
 
