@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 00:54:56 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/01 12:45:29 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/18 15:06:35 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,15 @@ double	nth_vec3(t_vec3 u, int n)
 	else if (n == 2)
 		return (u.z);
 	return (0);
+}
+
+t_vec3	min_vec3(t_vec3 u, t_vec3 v)
+{
+	if (u.x > v.x)
+		u.x = v.x;
+	if (u.y > v.y)
+		u.y = v.y;
+	if (u.z > v.z)
+		u.z = v.z;
+	return (u);
 }
