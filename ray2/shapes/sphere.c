@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 18:39:43 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/03 19:00:52 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/18 15:18:33 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	sphere_get_uv(t_point3 *p, double *u, double *v)
 	double	phi;
 
 	theta = acos(-p->y);
-	phi = atan2(-p->z, p->x + PI);
-	*u = phi / (2 * PI);
-	*v = theta / PI;
+	phi = atan2(-p->z, p->x + M_PI);
+	*u = phi / (2 * M_PI);
+	*v = theta / M_PI;
 }

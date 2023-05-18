@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   math_utils1.c                                      :+:      :+:    :+:   */
+/*   math1.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 17:45:27 by soulee            #+#    #+#             */
-/*   Updated: 2023/04/29 23:35:01 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/18 15:17:44 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ double	clamp(double x, double min, double max)
 
 double	degrees_to_radians(double degrees)
 {
-	return (degrees * PI / 180.0);
+	return (degrees * M_PI / 180.0);
 }
