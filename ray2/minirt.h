@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:59:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/18 15:06:59 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/18 15:17:47 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # include <stdlib.h>
 
 // Define
-# define PI 3.1415926535897932385
+# define EPSILON 1e-6
 # define TITLE	"miniRT-practice"
 # define CODE_SIZE 256
 
@@ -174,6 +174,13 @@ typedef struct s_shape
 	t_xy_rect		xy_rect;
 	t_cylinder		cylinder;
 }				t_shape;
+
+typedef struct s_light
+{
+	t_point3	center;
+	t_color		light_color;
+	double		bright_ratio;
+}				t_light;
 
 // Hit Records
 typedef struct s_hit_record
