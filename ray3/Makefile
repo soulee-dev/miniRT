@@ -1,12 +1,14 @@
 NAME=minirt-practice
 CC=cc
 
-LIBFT_DIR=./lib/libft/
+LIBS_DIR=./libs
+LIBFT_DIR=$(LIBS_DIR)/libft
+SRC_DIR=./srcs/
+INCLUDES_DIR = ./includes/
 
-CFLAGS=-Wall -Wextra -Werror -Imlx -Iinclude -O3 -g3
+CFLAGS=-Wall -Wextra -Werror -I$(INCLUDES_DIR) -Imlx -O3 -g3
 LIB=-L$(LIBFT_DIR) -lft -lmlx -framework OpenGL -framework AppKit -O3 -g3
 
-SRC_DIR = ./src/
 
 SRCS:=
 SRCS+=main.c
@@ -26,13 +28,13 @@ SRCS+=utils/vec2.c
 SRCS+=utils/vec3.c
 SRCS+=utils/vec4.c
 
-LIBFT=$(LIBFT_DIR)libft.a
+LIBFT=$(LIBFT_DIR)/libft.a
 
 SRC=$(addprefix $(SRC_DIR), $(SRCS))
 
 # Get Next Line
-SRC+=lib/get_next_line/get_next_line.c
-SRC+=lib/get_next_line/get_next_line_utils.c
+SRC+=$(LIBS_DIR)/get_next_line/get_next_line.c
+SRC+=$(LIBS_DIR)/get_next_line/get_next_line_utils.c
 
 OBJS = $(SRC:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:47:17 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/20 13:46:22 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/20 13:57:57 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define UTILS_H
 
 # include "structures.h"
-# include "../lib/libft/libft.h"
-# include "../lib/get_next_line/get_next_line.h"
+# include "../libs/libft/libft.h"
+# include "../libs/get_next_line/get_next_line.h"
 # include "mlx.h"
 # include <fcntl.h>
 # include <stdio.h>
