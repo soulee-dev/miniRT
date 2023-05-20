@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:47:17 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/20 13:57:57 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/20 14:19:17 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ t_vec3		sub_vec3(t_vec3 u, t_vec3 v);
 // utils/vec2.c
 t_vec3		div_n_vec3(t_vec3 u, double t);
 t_vec3		unit_vector(t_vec3 u);
-t_vec3		at(t_ray r, double t);
+t_vec3		at(t_ray *r, double t);
 t_vec3		vec3(double x, double y, double z);
 t_color		color(double x, double y, double z);
 t_point3	point3(double x, double y, double z);
