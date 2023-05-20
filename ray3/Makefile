@@ -6,15 +6,7 @@ LIBFT_DIR=./lib/libft/
 CFLAGS=-Wall -Wextra -Werror -Imlx -Iinclude -O3 -g3
 LIB=-L$(LIBFT_DIR) -lft -lmlx -framework OpenGL -framework AppKit -O3 -g3
 
-DEP_DIR = ./include/
 SRC_DIR = ./src/
-
-DEPS:=
-DEPS+=render.h
-DEPS+=scene.h
-DEPS+=structures.h
-DEPS+=trace.h
-DEPS+=utils.h
 
 SRCS:=
 SRCS+=main.c
@@ -37,7 +29,6 @@ SRCS+=utils/vec4.c
 LIBFT=$(LIBFT_DIR)libft.a
 
 SRC=$(addprefix $(SRC_DIR), $(SRCS))
-DEP=$(addprefix $(DEP_DIR), $(DEPS))
 
 # Get Next Line
 SRC+=lib/get_next_line/get_next_line.c
