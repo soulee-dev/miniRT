@@ -1,79 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt.h                                           :+:      :+:    :+:   */
+/*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/18 18:14:10 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/20 12:41:09 by soulee           ###   ########.fr       */
+/*   Created: 2023/05/20 12:47:17 by soulee            #+#    #+#             */
+/*   Updated: 2023/05/20 13:46:22 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
+#ifndef UTILS_H
+# define UTILS_H
 
-# include "../libft/libft.h"
-# include "../get_next_line/get_next_line.h"
-# include "mlx/mlx.h"
+# include "structures.h"
+# include "../lib/libft/libft.h"
+# include "../lib/get_next_line/get_next_line.h"
+# include "mlx.h"
 # include <fcntl.h>
 # include <stdio.h>
 # include <math.h>
 # include <stdlib.h>
-
-# define TITLE	"miniRT-practice"
-
-// Vector
-typedef struct s_vec3
-{
-	double	x;
-	double	y;
-	double	z;
-}				t_vec3;
-
-typedef t_vec3	t_point3;
-typedef t_vec3	t_color;
-
-// Ray
-typedef struct s_ray
-{
-	t_point3	orig;
-	t_vec3		dir;
-	double		time;
-}				t_ray;
-
-// Camera
-typedef struct s_camera
-{
-	t_point3	orig;
-	double		viewport_h;
-	double		viewport_w;
-	t_vec3		horizontal;
-	t_vec3		vertical;
-	double		focal_len;
-	t_point3	left_bottom;
-}				t_camera;
-
-// Canvas
-typedef struct s_canvas
-{
-	int		width;
-	int		height;
-	double	aspect_ratio;
-}				t_canvas;
-
-// Sphere
-typedef struct s_sphere
-{
-	t_point3	center;
-	double		radius;
-}				t_sphere;
-
-// camera.c
-t_camera	camera(t_canvas *canvas, t_point3 orig);
-
-// cnavas.c
-t_canvas	canvas(int width, int height);
 
 // utils/random1.c
 double		random_double(void);
@@ -119,13 +66,4 @@ t_vec3		cross(t_vec3 u, t_vec3 v);
 t_vec3		random_in_unit_disk(void);
 double		nth_vec3(t_vec3 u, int n);
 t_vec3		min_vec3(t_vec3 u, t_vec3 v);
-
-// utils/ray1.c
-t_ray		ray(t_point3 orig, t_vec3 dir);
-
-// render.c
-t_ray		ray_primary(t_camera *cam, double u, double v);
-t_color		ray_color(t_ray *r);
-void	render(t_canvas *canv, t_camera *cam, void *mlx, void *mlx_win);
-
 #endif

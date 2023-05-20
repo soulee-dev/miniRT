@@ -6,11 +6,12 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 00:54:56 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/20 12:29:41 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/20 13:49:30 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minirt.h"
+#include "structures.h"
+#include "utils.h"
 
 t_vec3	random_in_unit_disk(void)
 {

@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ray.c                                              :+:      :+:    :+:   */
+/*   scene.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/18 18:22:48 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/20 12:28:24 by soulee           ###   ########.fr       */
+/*   Created: 2023/05/20 13:01:08 by soulee            #+#    #+#             */
+/*   Updated: 2023/05/20 13:46:41 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#ifndef SCENE_H
+# define SCENE_H
 
-t_ray	ray(t_point3 orig, t_vec3 dir)
-{
-	t_ray	ray;
+# include "structures.h"
+# include "utils.h"
 
-	ray.orig = orig;
-	ray.dir = dir;
-	return (ray);
-}
+t_camera	camera(t_canvas *canvas, t_point3 orig);
+t_canvas	canvas(int width, int height);
+
+#endif
+

@@ -6,6 +6,11 @@
         "progress.h": "c",
         "algorithm": "c",
         "cstdlib": "c",
-        "mlx.h": "c"
+        "mlx.h": "c",
+        "trace.h": "c",
+        "scene.h": "c",
+        "libft.h": "c",
+        "get_next_line.h": "c",
+        "structures.h": "c"
     }
 }

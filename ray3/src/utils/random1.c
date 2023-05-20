@@ -6,11 +6,13 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:40:38 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/20 12:29:24 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/20 13:48:17 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minirt.h"
+
+#include "structures.h"
+#include "utils.h"
 
 double	random_double(void)
 {

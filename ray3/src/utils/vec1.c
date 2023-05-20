@@ -6,11 +6,11 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 17:31:28 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/20 12:13:40 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/20 13:48:53 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minirt.h"
+#include "structures.h"
 
 t_vec3	vec3(double x, double y, double z)
 {

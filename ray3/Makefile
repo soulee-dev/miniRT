@@ -1,14 +1,29 @@
 NAME=minirt-practice
 CC=cc
-CFLAGS=-Wall -Wextra -Werror
+
+LIBFT_DIR=./lib/libft/
+
+CFLAGS=-Wall -Wextra -Werror -Imlx -Iinclude -O3 -g3
+LIB=-L$(LIBFT_DIR) -lft -lmlx -framework OpenGL -framework AppKit -O3 -g3
+
+DEP_DIR = ./include/
+SRC_DIR = ./src/
+
+DEPS:=
+DEPS+=render.h
+DEPS+=scene.h
+DEPS+=structures.h
+DEPS+=trace.h
+DEPS+=utils.h
 
 SRCS:=
 SRCS+=main.c
 SRCS+=render.c
 
-SRCS+=camera.c
-SRCS+=canvas.c
-SRCS+=ray.c
+SRCS+=scene/scene.c
+SRCS+=scene/canvas.c
+
+SRCS+=trace/ray.c
 
 # Utils
 SRCS+=utils/math1.c
@@ -19,31 +34,34 @@ SRCS+=utils/vec2.c
 SRCS+=utils/vec3.c
 SRCS+=utils/vec4.c
 
+LIBFT=$(LIBFT_DIR)libft.a
+
+SRC=$(addprefix $(SRC_DIR), $(SRCS))
+DEP=$(addprefix $(DEP_DIR), $(DEPS))
+
 # Get Next Line
-SRCS+=get_next_line/get_next_line.c
-SRCS+=get_next_line/get_next_line_utils.c
+SRC+=lib/get_next_line/get_next_line.c
+SRC+=lib/get_next_line/get_next_line_utils.c
 
-LIBFT=./libft/libft.a
-
-OBJS = $(SRCS:.c=.o)
+OBJS = $(SRC:.c=.o)
 
 %.o: %.c
-	$(CC) -c $(CFLAGS) $< -o $@ -Imlx -O3 -g3
+	$(CC) -c $(CFLAGS) $< -o $@
 
 all: $(LIBFT) $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT)
-	$(CC) $(OBJS) -o $(NAME) -Llibft -lft -lmlx -framework OpenGL -framework AppKit -O3 -g3
+	$(CC) $(OBJS) -o $(NAME) $(LIB)
 
 $(LIBFT):
-	make -C ./libft bonus
+	make -C $(LIBFT_DIR) bonus
 
 clean:
-	make clean -C ./libft
+	make clean -C $(LIBFT_DIR)
 	rm -f ${OBJS}
 
 fclean: clean
-	make fclean -C ./libft
+	make fclean -C $(LIBFT_DIR)
 	rm -f ${NAME}
 
 re:
