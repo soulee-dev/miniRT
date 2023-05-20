@@ -6,27 +6,42 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 14:03:00 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/20 14:15:57 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/20 14:34:20 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "structures.h"
+#include "trace.h"
 #include "utils.h"
 
-double	hit_sphere(t_sphere *sp, t_ray *ray)
+int	hit_sphere(t_sphere *sp, t_ray *ray, t_hit_record *rec)
 {
 	t_vec3	oc;
 	double	a;
-	double	b;
+	double	half_b;
 	double	c;
 	double	discriminant;
+	double	sqrtd;
+	double	root;
 
 	oc = sub_vec3(ray->orig, sp->center);
-	a = dot(ray->dir, ray->dir);
-	b = 2.0 * dot(oc, ray->dir);
-	c = dot(oc, oc) - sp->radius * sp->radius;
-	discriminant = b * b - 4 * a * c;
+	a = length_squared(ray->dir);
+	half_b = dot(oc, ray->dir);
+	c = length_squared(oc) - sp->radius * sp->radius;
+	discriminant = half_b * half_b - a * c;
 	if (discriminant < 0)
-		return (-1.0);
-	return ((-b - sqrt(discriminant)) / (2.0 * a));
+		return (0);
+	sqrtd = sqrt(discriminant);
+	root = (-half_b - sqrtd) / a;
+	if (root < rec->tmin || rec->tmax < root)
+	{
+		root = (-half_b + sqrtd) / a;
+		if (root < rec->tmin || rec->tmax < root)
+			return (0);
+	}
+	rec->t = root;
+	rec->p = at(ray, root);
+	rec->normal = div_n_vec3(sub_vec3(rec->p, sp->center), sp->radius);
+	set_face_normal(ray, rec);
+	return (1);
 }

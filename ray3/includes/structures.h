@@ -6,14 +6,13 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:46:22 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/20 14:01:50 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/20 14:26:27 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTURES_H
 # define STRUCTURES_H
 
-// Vector
 typedef struct s_vec3
 {
 	double	x;
@@ -24,7 +23,6 @@ typedef struct s_vec3
 typedef t_vec3	t_point3;
 typedef t_vec3	t_color;
 
-// Ray
 typedef struct s_ray
 {
 	t_point3	orig;
@@ -32,7 +30,6 @@ typedef struct s_ray
 	double		time;
 }				t_ray;
 
-// Camera
 typedef struct s_camera
 {
 	t_point3	orig;
@@ -44,7 +41,6 @@ typedef struct s_camera
 	t_point3	left_bottom;
 }				t_camera;
 
-// Canvas
 typedef struct s_canvas
 {
 	int		width;
@@ -52,11 +48,19 @@ typedef struct s_canvas
 	double	aspect_ratio;
 }				t_canvas;
 
-// Sphere
 typedef struct s_sphere
 {
 	t_point3	center;
 	double		radius;
 }				t_sphere;
 
+typedef struct s_hit_record
+{
+	t_point3	p;
+	t_vec3		normal;
+	double		tmin;
+	double		tmax;
+	double		t;
+	int			front_face;
+}				t_hit_record;
 #endif

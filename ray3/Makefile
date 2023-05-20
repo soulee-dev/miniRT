@@ -21,6 +21,7 @@ SRCS+=scene/scene.c
 # trace
 SRCS+=trace/ray.c
 SRCS+=trace/hit/hit_sphere.c
+SRCS+=trace/hit/normal.c
 
 # utils
 SRCS+=utils/math1.c
