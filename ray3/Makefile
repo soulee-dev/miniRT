@@ -1,13 +1,16 @@
 NAME=minirt-practice
 CC=cc
 
+MLX_DIR=./libs/mlx
+MLX=$(MLX_DIR)/libmlx.a
+
 LIBS_DIR=./libs
 LIBFT_DIR=$(LIBS_DIR)/libft
 SRC_DIR=./srcs/
 INCLUDES_DIR = ./includes/
 
 CFLAGS=-Wall -Wextra -Werror -I$(INCLUDES_DIR) -Imlx -O3 -g3
-LIB=-L$(LIBFT_DIR) -lft -lmlx -framework OpenGL -framework AppKit -O3 -g3
+LIB=-L$(LIBFT_DIR) -L$(MLX_DIR) -lft -lmlx -framework OpenGL -framework AppKit -O3 -g3
 
 SRCS:=
 SRCS+=main.c
@@ -47,21 +50,25 @@ OBJS = $(SRC:.c=.o)
 %.o: %.c
 	$(CC) -c $(CFLAGS) $< -o $@
 
-all: $(LIBFT) $(NAME)
+all: $(NAME)
 
-$(NAME): $(OBJS) $(LIBFT)
+$(NAME): $(OBJS) $(LIBFT) $(MLX)
 	$(CC) $(OBJS) -o $(NAME) $(LIB)
 
 $(LIBFT):
 	make -C $(LIBFT_DIR) bonus
 
+$(MLX):
+	make -C $(MLX_DIR)
+
 clean:
 	make clean -C $(LIBFT_DIR)
+	make clean -C $(MLX_DIR)
 	rm -f ${OBJS}
 
 fclean: clean
 	make fclean -C $(LIBFT_DIR)
-	rm -f ${NAME}
+	rm -f ${NAME} $(MLX)
 
 re:
 	make fclean
