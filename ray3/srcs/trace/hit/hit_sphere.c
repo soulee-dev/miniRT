@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   hit_sphere.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/18 18:24:44 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/20 14:12:33 by soulee           ###   ########.fr       */
+/*   Created: 2023/05/20 14:03:00 by soulee            #+#    #+#             */
+/*   Updated: 2023/05/20 14:04:37 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "scene.h"
-#include "render.h"
+#include "structures.h"
+#include "utils.h"
 
-int	main(void)
+int	hit_sphere(t_sphere *sp, t_ray *ray)
 {
-	t_canvas	canv;
-	t_camera	cam;
-	void		*mlx;
-	void		*mlx_win;
-	t_sphere	sp;
+	t_vec3	oc;
+	double	a;
+	double	b;
+	double	c;
+	double	discriminant;
 
-	sp = sphere(point3(0, 0, -5), 2);
-	canv = canvas(400, 300);
-	cam = camera(&canv, point3(0, 0, 0));
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, canv.width, canv.height, "Ray3");
-	render(&canv, &cam, mlx, mlx_win);
-	mlx_loop(mlx);
-	return (0);
+	oc = sub_vec3(ray->orig, sp->center);
+	a = dot(ray->dir, ray->dir);
+	b = 2.0 * dot(oc, ray->dir);
+	c = dot(oc, oc) - sp->radius * sp->radius;
+	discriminant = b * b - 4 * a * c;
+	return (discriminant > 0);
 }

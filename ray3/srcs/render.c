@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:01:26 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/20 13:47:11 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/20 14:11:48 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	render(t_canvas *canv, t_camera *cam, void *mlx, void *mlx_win)
 	double		v;
 	t_color		pixel_color;
 	t_ray		ray;
+	t_sphere	sp = sphere(point3(0, 0, -5), 2);
 
 	i = 0;
 	while (i < canv->width)
@@ -45,7 +46,7 @@ void	render(t_canvas *canv, t_camera *cam, void *mlx, void *mlx_win)
 			u = (double)i / canv->width;
 			v = (double)(canv->height - j) / canv->height;
 			ray = ray_primary(cam, u, v);
-			pixel_color = ray_color(&ray);
+			pixel_color = ray_color(&ray, &sp);
 			write_color(i, j, pixel_color, mlx, mlx_win);
 			j++;
 		}

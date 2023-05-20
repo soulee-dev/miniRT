@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:57:29 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/20 13:03:30 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/20 14:11:31 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,14 @@ t_ray	ray_primary(t_camera *cam, double u, double v)
 	return (ray);
 }
 
-t_color	ray_color(t_ray *r)
+t_color	ray_color(t_ray *ray, t_sphere *sp)
 {
 	double	t;
 
-	t = 0.5 * (r->dir.y + 1.0);
+	if (hit_sphere(sp, ray))
+		return (color(1, 0, 0));
+
+	t = 0.5 * (ray->dir.y + 1.0);
 	return (add_vec3(mul_n_vec3(color(1, 1, 1), 1.0 - t), \
 		mul_n_vec3(color(0.5, 0.7, 1.0), t)));
 }

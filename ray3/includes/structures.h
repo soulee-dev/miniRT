@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:46:22 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/20 12:51:38 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/20 14:01:50 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,11 @@ typedef struct s_canvas
 	double	aspect_ratio;
 }				t_canvas;
 
+// Sphere
 typedef struct s_sphere
 {
 	t_point3	center;
 	double		radius;
 }				t_sphere;
-
 
 #endif

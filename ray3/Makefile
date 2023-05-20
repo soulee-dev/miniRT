@@ -9,17 +9,20 @@ INCLUDES_DIR = ./includes/
 CFLAGS=-Wall -Wextra -Werror -I$(INCLUDES_DIR) -Imlx -O3 -g3
 LIB=-L$(LIBFT_DIR) -lft -lmlx -framework OpenGL -framework AppKit -O3 -g3
 
-
 SRCS:=
 SRCS+=main.c
 SRCS+=render.c
 
-SRCS+=scene/scene.c
+# scene
 SRCS+=scene/canvas.c
+SRCS+=scene/object_create.c
+SRCS+=scene/scene.c
 
+# trace
 SRCS+=trace/ray.c
+SRCS+=trace/hit/hit_sphere.c
 
-# Utils
+# utils
 SRCS+=utils/math1.c
 SRCS+=utils/random1.c
 SRCS+=utils/random2.c
@@ -32,7 +35,7 @@ LIBFT=$(LIBFT_DIR)/libft.a
 
 SRC=$(addprefix $(SRC_DIR), $(SRCS))
 
-# Get Next Line
+# get_next_line
 SRC+=$(LIBS_DIR)/get_next_line/get_next_line.c
 SRC+=$(LIBS_DIR)/get_next_line/get_next_line_utils.c
 
