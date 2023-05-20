@@ -15,6 +15,7 @@
 		"typeinfo": "c",
 		"unordered_map": "c",
 		"vector": "c",
-		"utils.h": "c"
+		"utils.h": "c",
+		"structures.h": "c"
 	}
 }

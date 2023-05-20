@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 14:03:00 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/20 14:34:20 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/20 15:05:26 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "trace.h"
 #include "utils.h"
 
-int	hit_sphere(t_sphere *sp, t_ray *ray, t_hit_record *rec)
+int	hit_sphere(t_object *world, t_ray *ray, t_hit_record *rec)
 {
 	t_vec3	oc;
 	double	a;
@@ -23,7 +23,9 @@ int	hit_sphere(t_sphere *sp, t_ray *ray, t_hit_record *rec)
 	double	discriminant;
 	double	sqrtd;
 	double	root;
+	t_sphere	*sp;
 
+	sp = world->element;
 	oc = sub_vec3(ray->orig, sp->center);
 	a = length_squared(ray->dir);
 	half_b = dot(oc, ray->dir);

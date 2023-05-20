@@ -6,12 +6,16 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:46:22 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/20 14:26:27 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/20 14:55:15 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTURES_H
 # define STRUCTURES_H
+
+enum e_shapes {
+	SHAPE_SPHERE = 1,
+};
 
 typedef struct s_vec3
 {
@@ -63,4 +67,11 @@ typedef struct s_hit_record
 	double		t;
 	int			front_face;
 }				t_hit_record;
+
+typedef struct s_object
+{
+	int		type;
+	void	*element;
+	void	*next;
+}			t_object;
 #endif

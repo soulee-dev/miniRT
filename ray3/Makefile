@@ -21,6 +21,7 @@ SRCS+=scene/scene.c
 # trace
 SRCS+=trace/ray.c
 SRCS+=trace/hit/hit_sphere.c
+SRCS+=trace/hit/hit.c
 SRCS+=trace/hit/normal.c
 
 # utils
@@ -31,6 +32,7 @@ SRCS+=utils/vec1.c
 SRCS+=utils/vec2.c
 SRCS+=utils/vec3.c
 SRCS+=utils/vec4.c
+SRCS+=utils/object1.c
 
 LIBFT=$(LIBFT_DIR)/libft.a
 
