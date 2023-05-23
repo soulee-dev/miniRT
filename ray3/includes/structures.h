@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structures.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:46:22 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/21 15:53:42 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/23 19:25:47 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@
 # define LUMEN 3
 
 enum e_object_type {
-	SPHERE = 1,
-	LIGHT_POINT = 2
+	SP = 1,
+	CY = 2,
+	LIGHT_POINT = 3
 };
 
 typedef struct s_vec3
@@ -61,6 +62,14 @@ typedef struct s_sphere
 	t_point3	center;
 	double		radius;
 }				t_sphere;
+
+typedef struct s_cylinder
+{
+	t_point3	center;
+	t_vec3		dir;
+	double		diameter;
+	double		height;
+}				t_cylinder;
 
 typedef struct s_light
 {

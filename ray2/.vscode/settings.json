@@ -15,6 +15,7 @@
 		"string_view": "c",
 		"get_next_line.h": "c",
 		"__config": "c",
-		"locale": "c"
+		"locale": "c",
+		"stdlib.h": "c"
 	}
 }

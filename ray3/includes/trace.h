@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:52:22 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/23 17:49:14 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/23 19:26:55 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ int		in_shadow(t_object *objs, t_ray light_ray, double light_len);
 int		hit(t_object *objs, t_ray *ray, t_hit_record *rec);
 int		hit_obj(t_object *objs, t_ray *ray, t_hit_record *rec);
 int		hit_sphere(t_object *obj, t_ray *ray, t_hit_record *rec);
+int		hit_cylinder(t_object *obj, t_ray *ray, t_hit_record *rec);
 void	set_face_normal(t_ray *r, t_hit_record *rec);
 #endif

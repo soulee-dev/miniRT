@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:01:12 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/23 17:48:47 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/23 19:34:55 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ t_color	phong_lighting(t_scene *scene)
 	while (lights)
 	{
 		if (lights->type == LIGHT_POINT)
-			light_color = add_vec3(light_color, point_light_get(scene, lights->element));
+			light_color = add_vec3(light_color,
+					point_light_get(scene, lights->element));
 		lights = lights->next;
 	}
 	light_color = add_vec3(light_color, scene->ambient);
