@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   trace.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:52:22 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/20 18:16:28 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/23 17:49:14 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ t_color	ray_color(t_scene *scene);
 
 t_color	phong_lighting(t_scene *scene);
 t_color	point_light_get(t_scene *scene, t_light *light);
+int		in_shadow(t_object *objs, t_ray light_ray, double light_len);
 
 // hit
 int		hit(t_object *objs, t_ray *ray, t_hit_record *rec);
