@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hit.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 14:44:24 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/20 14:55:25 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/20 16:25:43 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	hit_obj(t_object *objs, t_ray *ray, t_hit_record *rec)
 	int	hit_result;
 
 	hit_result = 0;
-	if (objs->type == SHAPE_SPHERE)
+	if (objs->type == SPHERE)
 		hit_result = hit_sphere(objs, ray, rec);
 	return (hit_result);
 }

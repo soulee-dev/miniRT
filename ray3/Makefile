@@ -22,10 +22,13 @@ SRCS+=scene/object_create.c
 SRCS+=scene/scene.c
 
 # trace
-SRCS+=trace/ray.c
 SRCS+=trace/hit/hit_sphere.c
 SRCS+=trace/hit/hit.c
 SRCS+=trace/hit/normal.c
+
+# trace/ray
+SRCS+=trace/ray/ray.c
+SRCS+=trace/ray/phong_lighting.c
 
 # utils
 SRCS+=utils/math1.c

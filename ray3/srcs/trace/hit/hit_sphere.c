@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hit_sphere.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 14:03:00 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/20 15:05:26 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/21 15:46:15 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 #include "trace.h"
 #include "utils.h"
 
-int	hit_sphere(t_object *world, t_ray *ray, t_hit_record *rec)
+int	hit_sphere(t_object *obj, t_ray *ray, t_hit_record *rec)
 {
-	t_vec3	oc;
-	double	a;
-	double	half_b;
-	double	c;
-	double	discriminant;
-	double	sqrtd;
-	double	root;
 	t_sphere	*sp;
+	t_vec3		oc;
+	double		a;
+	double		half_b;
+	double		c;
+	double		discriminant;
+	double		sqrtd;
+	double		root;
 
-	sp = world->element;
+	sp = obj->element;
 	oc = sub_vec3(ray->orig, sp->center);
 	a = length_squared(ray->dir);
 	half_b = dot(oc, ray->dir);
@@ -45,5 +45,6 @@ int	hit_sphere(t_object *world, t_ray *ray, t_hit_record *rec)
 	rec->p = at(ray, root);
 	rec->normal = div_n_vec3(sub_vec3(rec->p, sp->center), sp->radius);
 	set_face_normal(ray, rec);
+	rec->albedo = obj->albedo;
 	return (1);
 }

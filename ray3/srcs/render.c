@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:01:26 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/20 15:02:27 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/20 17:07:24 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,25 +27,24 @@ void	write_color(int x, int y, t_color color, void *mlx, void *mlx_win)
 	mlx_pixel_put(mlx, mlx_win, x, y, converted_color);
 }
 
-void	render(t_canvas *canv, t_camera *cam, void *mlx, void *mlx_win, t_object *world)
+void	render(t_scene *scene, void *mlx, void *mlx_win)
 {
 	int			i;
 	int			j;
 	double		u;
 	double		v;
 	t_color		pixel_color;
-	t_ray		ray;
 
 	i = 0;
-	while (i < canv->width)
+	while (i < scene->canvas.width)
 	{
 		j = 0;
-		while (j < canv->height)
+		while (j < scene->canvas.height)
 		{
-			u = (double)i / canv->width;
-			v = (double)(canv->height - j) / canv->height;
-			ray = ray_primary(cam, u, v);
-			pixel_color = ray_color(&ray, world);
+			u = (double)i / scene->canvas.width;
+			v = (double)(scene->canvas.height - j) / scene->canvas.height;
+			scene->ray = ray_primary(&scene->camera, u, v);
+			pixel_color = ray_color(scene);
 			write_color(i, j, pixel_color, mlx, mlx_win);
 			j++;
 		}

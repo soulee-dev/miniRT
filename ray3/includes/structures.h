@@ -3,18 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   structures.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:46:22 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/20 14:55:15 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/21 15:53:42 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTURES_H
 # define STRUCTURES_H
 
-enum e_shapes {
-	SHAPE_SPHERE = 1,
+# define EPSILON 1e-6
+# define LUMEN 3
+
+enum e_object_type {
+	SPHERE = 1,
+	LIGHT_POINT = 2
 };
 
 typedef struct s_vec3
@@ -58,6 +62,13 @@ typedef struct s_sphere
 	double		radius;
 }				t_sphere;
 
+typedef struct s_light
+{
+	t_point3	orig;
+	t_color		light_color;
+	double		bright_ratio;
+}				t_light;
+
 typedef struct s_hit_record
 {
 	t_point3	p;
@@ -66,12 +77,25 @@ typedef struct s_hit_record
 	double		tmax;
 	double		t;
 	int			front_face;
+	t_color		albedo;
 }				t_hit_record;
 
 typedef struct s_object
 {
 	int		type;
 	void	*element;
+	t_color	albedo;
 	void	*next;
 }			t_object;
+
+typedef struct s_scene
+{
+	t_canvas		canvas;
+	t_camera		camera;
+	t_object		*world;
+	t_object		*lights;
+	t_color			ambient;
+	t_ray			ray;
+	t_hit_record	rec;
+}				t_scene;
 #endif

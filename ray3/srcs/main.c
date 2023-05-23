@@ -3,33 +3,51 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 18:24:44 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/20 15:13:22 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/20 16:53:16 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "scene.h"
 #include "render.h"
 
+t_scene	*scene_init(void)
+{
+	t_scene		*scene;
+	t_object	*world;
+	t_object	*lights;
+	double		ka;
+
+	scene = (t_scene *)malloc(sizeof(t_scene));
+	// Exit when malloc failed
+	if (!scene)
+		;
+	scene->canvas = canvas(400, 300);
+	scene->camera = camera(&scene->canvas, point3(0, 0, 0));
+	world = object(SPHERE, sphere(point3(-2, 0, -5), 2), color(0.5, 0, 0));
+	add_obj(&world, object(SPHERE, sphere(point3(2, 0, -5), 2), color(0, 0.5, 0)));
+	add_obj(&world, object(SPHERE, sphere(point3(0, -1000, 0), 999), color(1, 1, 1)));
+	scene->world = world;
+	lights = object(LIGHT_POINT, light_point(point3(0, 5, 0), color(1, 1, 1), 0.5), color(0, 0, 0));
+	scene->lights = lights;
+	ka = 0.1;
+	scene->ambient = mul_n_vec3(color(1, 1, 1), ka);
+	return (scene);
+}
+
 int	main(void)
 {
-	t_canvas	canv;
-	t_camera	cam;
 	void		*mlx;
 	void		*mlx_win;
-	t_object	*world;
+	t_scene		*scene;
 
-	canv = canvas(400, 300);
-	cam = camera(&canv, point3(0, 0, 0));
-	world = object(SHAPE_SPHERE, sphere(point3(-2, 0, -5), 2));
-	add_obj(&world, object(SHAPE_SPHERE, sphere(point3(2, 0, -5), 2)));
-	add_obj(&world, object(SHAPE_SPHERE, sphere(point3(0, -1000, 0), 990)));
+	scene = scene_init();
 
 	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, canv.width, canv.height, "Ray3");
-	render(&canv, &cam, mlx, mlx_win, world);
+	mlx_win = mlx_new_window(mlx, scene->canvas.width,  scene->canvas.height, "Ray3");
+	render(scene, mlx, mlx_win);
 	mlx_loop(mlx);
 	return (0);
 }
