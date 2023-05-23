@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 13:59:53 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/23 19:28:38 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/23 21:26:48 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,17 @@ t_cylinder	*cylinder(t_point3 center, t_vec3 dir,
 	cy->diameter = diameter;
 	cy->height = height;
 	return (cy);
+}
+
+t_plane	*plane(t_point3 point, t_vec3 normal)
+{
+	t_plane	*pl;
+
+	pl = (t_plane *)malloc(sizeof(t_plane));
+	// Exit error when malloc faield;
+	if (!pl)
+		;
+	pl->point = point;
+	pl->normal = normal;
+	return (pl);
 }

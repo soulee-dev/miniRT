@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:46:22 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/23 19:25:47 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/23 21:23:15 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 enum e_object_type {
 	SP = 1,
 	CY = 2,
-	LIGHT_POINT = 3
+	PL = 3,
+	LIGHT_POINT = 4
 };
 
 typedef struct s_vec3
@@ -70,6 +71,12 @@ typedef struct s_cylinder
 	double		diameter;
 	double		height;
 }				t_cylinder;
+
+typedef struct s_plane
+{
+	t_point3	point;
+	t_vec3		normal;
+}				t_plane;
 
 typedef struct s_light
 {
