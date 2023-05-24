@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:57:29 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/24 18:21:12 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/24 19:16:24 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ t_ray	ray_primary(t_camera *cam, double u, double v)
 	t_ray	ray;
 
 	ray.orig = cam->orig;
-	ray.dir = unit_vector(sub_vec3(add_vec3(add_vec3(\
-		cam->left_bottom, mul_n_vec3(cam->horizontal, u)), \
-			mul_n_vec3(cam->vertical, v)), cam->orig));
+	ray.dir = sub_vec3(add_vec3(cam->lower_left_corner,
+				add_vec3(mul_n_vec3(cam->horizontal, u),
+					mul_n_vec3(cam->vertical, v))), cam->orig);
 	return (ray);
 }
 

@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 13:01:08 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/23 21:26:55 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/24 19:07:13 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 # include "structures.h"
 # include "utils.h"
 
-t_camera	camera(t_canvas *canvas, t_point3 orig);
+t_camera	camera(t_canvas *canvas, t_point3 lookfrom, \
+	t_point3 lookat, double vfov);
 t_canvas	canvas(int width, int height);
 t_object	*object(int type, void *element, t_color albedo);
 t_sphere	*sphere(t_point3 center, double radius);

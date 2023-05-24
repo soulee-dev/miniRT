@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:46:22 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/24 18:17:08 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/24 19:03:30 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,12 @@ typedef struct s_ray
 typedef struct s_camera
 {
 	t_point3	orig;
-	double		viewport_h;
-	double		viewport_w;
+	t_point3	lower_left_corner;
 	t_vec3		horizontal;
 	t_vec3		vertical;
-	double		focal_len;
-	t_point3	left_bottom;
+	t_vec3		u;
+	t_vec3		v;
+	t_vec3		w;
 }				t_camera;
 
 typedef struct s_canvas
