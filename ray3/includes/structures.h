@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:46:22 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/24 20:14:30 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/24 20:49:47 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,25 @@
 # define EPSILON 1e-6
 # define LUMEN 3
 
-enum e_object_type {
+typedef enum e_event
+{
+	KEYDOWN = 2,
+	KEYUP = 3,
+	DESTROY = 17
+}			t_even;
+
+typedef enum e_key
+{
+	KEY_ESC = 0x35
+}			t_key;
+
+typedef enum e_object_type
+{
 	SP = 1,
 	CY = 2,
 	PL = 3,
 	LIGHT_POINT = 4
-};
+}		t_objet_type;
 
 typedef struct s_vec3
 {

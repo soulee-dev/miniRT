@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 18:24:44 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/24 20:22:20 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/24 20:51:21 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,25 @@ t_scene	*scene_init(void)
 	return (scene);
 }
 
+int	quit(void)
+{
+	exit(0);
+}
+
+int	key_down(int key, t_scene *scene)
+{
+	(void) scene;
+	if (key == KEY_ESC)
+		quit();
+	return (0);
+}
+
+void	key_hook(t_scene *scene)
+{
+	mlx_hook(scene->mlx_win, DESTROY, 0, quit, NULL);
+	mlx_hook(scene->mlx_win, KEYDOWN, 0, key_down, scene);
+}
+
 int	main(int argc, char *argv[])
 {
 	t_scene		*scene;
@@ -49,6 +68,7 @@ int	main(int argc, char *argv[])
 	// check_error(argc, argv);
 	// read_file(scene, argv[1]);
 	scene = scene_init();
+	key_hook(scene);
 	render(scene);
 	mlx_loop(scene->mlx);
 	return (0);
