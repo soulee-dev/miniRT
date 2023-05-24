@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:01:12 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/23 19:34:55 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/24 18:14:51 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ t_color	point_light_get(t_scene *scene, t_light *light)
 
 	light_dir = sub_vec3(light->orig, scene->rec.p);
 	light_len = length(light_dir);
-	light_ray = ray(add_vec3(scene->rec.p, mul_n_vec3(scene->rec.normal, EPSILON)), light_dir);
+	light_ray = ray(add_vec3(scene->rec.p, \
+		mul_n_vec3(scene->rec.normal, EPSILON)), light_dir);
 	if (in_shadow(scene->world, light_ray, light_len))
 		return (color(0, 0, 0));
 	light_dir = unit_vector(light_dir);
@@ -60,7 +61,8 @@ t_color	point_light_get(t_scene *scene, t_light *light)
 	spec = pow(fmax(dot(view_dir, reflect_dir), 0.0), ksn);
 	specular = mul_n_vec3(mul_n_vec3(light->light_color, ks), spec);
 	brightness = light->bright_ratio * LUMEN;
-	return (mul_n_vec3(add_vec3(add_vec3(scene->ambient, diffuse), specular), brightness));
+	return (mul_n_vec3(add_vec3(add_vec3(scene->ambient, diffuse), \
+		specular), brightness));
 }
 
 int	in_shadow(t_object *objs, t_ray light_ray, double light_len)

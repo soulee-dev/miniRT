@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:52:19 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/23 20:09:04 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/24 18:15:06 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ t_vec3	get_cylinder_normal(t_cylinder *cy, t_vec3 at_point, double hit_height)
 	return (unit_vector(normal));
 }
 
-int	hit_cylinder_cap(t_object *obj, t_ray *ray, t_hit_record *rec, double height)
+int	hit_cylinder_cap(t_object *obj, t_ray *ray, \
+	t_hit_record *rec, double height)
 {
 	t_cylinder	*cy;
 	double		r;
