@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:47:17 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/24 18:10:08 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/24 18:39:34 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,8 @@ void		check_valid(double val, double min, double max);
 void		check_valid_vec3(t_vec3 vec3, double min, double max);
 void		check_error(int argc, char *argv[]);
 void		exit_error(char *s);
+
+// parser.c
+void		parse_line(t_scene *scene, char *line);
+void		read_file(t_scene *scene, char *file_name);
 #endif
