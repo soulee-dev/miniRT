@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 18:24:44 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/24 18:30:34 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/24 18:41:12 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,14 @@ t_scene	*scene_init(void)
 	return (scene);
 }
 
-int	main(void)
+int	main(int argc, char *argv[])
 {
 	t_scene		*scene;
 
+	(void) argc;
+	(void) argv;
+	// check_error(argc, argv);
+	// read_file(scene, argv[1]);
 	scene = scene_init();
 	render(scene);
 	mlx_loop(scene->mlx);
