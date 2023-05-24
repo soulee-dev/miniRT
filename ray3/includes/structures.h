@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:46:22 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/24 20:49:47 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/24 20:54:40 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ typedef enum e_event
 
 typedef enum e_key
 {
-	KEY_ESC = 0x35
+	KEY_ESC = 53,
+	KEY_Q = 12
 }			t_key;
 
 typedef enum e_object_type

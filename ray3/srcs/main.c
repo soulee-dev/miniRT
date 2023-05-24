@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 18:24:44 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/24 20:51:21 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/24 20:54:53 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	quit(void)
 int	key_down(int key, t_scene *scene)
 {
 	(void) scene;
-	if (key == KEY_ESC)
+	if (key == KEY_ESC || key == KEY_Q)
 		quit();
 	return (0);
 }
