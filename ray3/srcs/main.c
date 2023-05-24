@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 18:24:44 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/23 21:35:32 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/24 18:06:23 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ int	main(void)
 
 	scene = scene_init();
 	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, scene->canvas.width, scene->canvas.height, "Ray3");
+	mlx_win = mlx_new_window(mlx, scene->canvas.width, \
+		scene->canvas.height, TITLE);
 	render(scene, mlx, mlx_win);
 	mlx_loop(mlx);
 	return (0);

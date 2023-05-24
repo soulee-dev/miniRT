@@ -6,13 +6,14 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:46:22 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/23 21:23:15 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/24 18:05:52 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTURES_H
 # define STRUCTURES_H
 
+# define TITLE "miniRT"
 # define EPSILON 1e-6
 # define LUMEN 3
 
