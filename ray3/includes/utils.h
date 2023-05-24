@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:47:17 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/20 14:59:56 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/24 18:10:08 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,16 @@ t_vec3		min_vec3(t_vec3 u, t_vec3 v);
 // object1.c
 void		add_obj(t_object **lst, t_object *new);
 void		*last_obj(t_object *lst);
+
+// parser1.c
+size_t		count_strings(char **strs);
+void		free_strs(char ***strs);
+char		*make_code(const char *set);
+char		**ft_split2(char const *s, const char *set);
+
+// parser2.c
+void		check_valid(double val, double min, double max);
+void		check_valid_vec3(t_vec3 vec3, double min, double max);
+void		check_error(int argc, char *argv[]);
+void		exit_error(char *s);
 #endif

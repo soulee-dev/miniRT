@@ -41,6 +41,8 @@ SRCS+=utils/vec2.c
 SRCS+=utils/vec3.c
 SRCS+=utils/vec4.c
 SRCS+=utils/object1.c
+SRCS+=utils/parser1.c
+SRCS+=utils/parser2.c
 
 LIBFT=$(LIBFT_DIR)/libft.a
 
