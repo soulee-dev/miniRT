@@ -1,4 +1,4 @@
-NAME=minirt-practice
+NAME=miniRT
 CC=cc
 
 MLX_DIR=./libs/mlx
