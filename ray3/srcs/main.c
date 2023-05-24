@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 18:24:44 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/24 20:54:53 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/24 20:58:32 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,3 +75,4 @@ int	main(int argc, char *argv[])
 }
 
 // Normalize input direction vectors when input.
+// Elements which are defined by a capital letter can only be declared once in the scene.
