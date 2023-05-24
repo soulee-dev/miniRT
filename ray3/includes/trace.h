@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:52:22 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/23 21:24:49 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/24 18:16:43 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,7 @@ int		hit_sphere(t_object *obj, t_ray *ray, t_hit_record *rec);
 int		hit_cylinder(t_object *obj, t_ray *ray, t_hit_record *rec);
 int		hit_plane(t_object *obj, t_ray *ray, t_hit_record *rec);
 void	set_face_normal(t_ray *r, t_hit_record *rec);
+
+// render.c
+void	render(t_scene *scene);
 #endif
