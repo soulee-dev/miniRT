@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structures.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:46:22 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/24 20:54:40 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/25 22:04:31 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,16 @@ typedef struct s_object
 	t_color	albedo;
 	void	*next;
 }			t_object;
+
+typedef struct s_count
+{
+	size_t	ambient_light;
+	size_t	camera;
+	size_t	light;
+	size_t	sphere;
+	size_t	plane;
+	size_t	cylinder;
+}				t_count;
 
 typedef struct s_scene
 {
