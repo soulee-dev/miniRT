@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 18:24:44 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/25 21:45:08 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/25 22:05:49 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ t_scene	*scene_init(void)
 	scene = (t_scene *)malloc(sizeof(t_scene));
 	if (!scene)
 		exit_error("error: malloc failed (scene)");
+	ft_bzero(scene, sizeof(t_scene));
 	scene->canvas = canvas(400, 300);
 	scene->mlx = mlx_init();
 	scene->mlx_win = mlx_new_window(scene->mlx, scene->canvas.width, \
