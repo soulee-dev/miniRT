@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:47:17 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/25 21:45:34 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/25 21:47:08 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,7 @@ t_point3	point3(double x, double y, double z);
 
 // vec3.c
 void		print_vec3(t_vec3 vec3);
-int			near_zero(t_vec3 u);
 t_vec3		reflect(t_vec3 v, t_vec3 n);
-t_vec3		refract(t_vec3 uv, t_vec3 n, double etai_over_etat);
 t_vec3		cross(t_vec3 u, t_vec3 v);
 
 // vec4.c
