@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:47:17 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/25 21:47:08 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/25 21:48:04 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,9 @@
 # include <math.h>
 # include <stdlib.h>
 
-// math1.c
+// math.c
 double		length_squared(t_vec3 u);
 double		length(t_vec3 u);
-double		clamp(double x, double min, double max);
 double		degrees_to_radians(double degrees);
 
 // vec1.c

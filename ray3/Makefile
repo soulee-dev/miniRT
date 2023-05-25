@@ -34,7 +34,7 @@ SRCS+=trace/ray/ray.c
 SRCS+=trace/ray/phong_lighting.c
 
 # utils
-SRCS+=utils/math1.c
+SRCS+=utils/math.c
 SRCS+=utils/vec1.c
 SRCS+=utils/vec2.c
 SRCS+=utils/vec3.c

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   math1.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 17:45:27 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/20 13:48:09 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/25 21:48:00 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,6 @@ double	length_squared(t_vec3 u)
 double	length(t_vec3 u)
 {
 	return (sqrt(length_squared(u)));
-}
-
-double	clamp(double x, double min, double max)
-{
-	if (x < min)
-		return (min);
-	if (x > max)
-		return (max);
-	return (x);
 }
 
 double	degrees_to_radians(double degrees)
