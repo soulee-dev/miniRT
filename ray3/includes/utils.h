@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:47:17 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/24 18:39:34 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/25 21:45:34 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,6 @@
 # include <stdio.h>
 # include <math.h>
 # include <stdlib.h>
-
-// random1.c
-double		random_double(void);
-double		random_double2(double min, double max);
-t_vec3		random_vec3(void);
-t_vec3		random_vec3_2(double min, double max);
-t_vec3		random_in_unit_sphere(void);
-
-// random2.c
-t_vec3		random_unit_vector(void);
-t_vec3		random_in_hemisphere(t_vec3 normal);
-int			random_int(int min, int max);
 
 // math1.c
 double		length_squared(t_vec3 u);
@@ -62,21 +50,19 @@ t_vec3		refract(t_vec3 uv, t_vec3 n, double etai_over_etat);
 t_vec3		cross(t_vec3 u, t_vec3 v);
 
 // vec4.c
-t_vec3		random_in_unit_disk(void);
-double		nth_vec3(t_vec3 u, int n);
 t_vec3		min_vec3(t_vec3 u, t_vec3 v);
 
 // object1.c
 void		add_obj(t_object **lst, t_object *new);
 void		*last_obj(t_object *lst);
 
-// parser1.c
+// string.c
 size_t		count_strings(char **strs);
 void		free_strs(char ***strs);
 char		*make_code(const char *set);
 char		**ft_split2(char const *s, const char *set);
 
-// parser2.c
+// error.c
 void		check_valid(double val, double min, double max);
 void		check_valid_vec3(t_vec3 vec3, double min, double max);
 void		check_error(int argc, char *argv[]);

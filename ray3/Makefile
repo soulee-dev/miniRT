@@ -35,15 +35,13 @@ SRCS+=trace/ray/phong_lighting.c
 
 # utils
 SRCS+=utils/math1.c
-SRCS+=utils/random1.c
-SRCS+=utils/random2.c
 SRCS+=utils/vec1.c
 SRCS+=utils/vec2.c
 SRCS+=utils/vec3.c
 SRCS+=utils/vec4.c
 SRCS+=utils/object1.c
-SRCS+=utils/parser1.c
-SRCS+=utils/parser2.c
+SRCS+=utils/string.c
+SRCS+=utils/error.c
 
 LIBFT=$(LIBFT_DIR)/libft.a
 
