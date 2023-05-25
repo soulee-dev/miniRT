@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:47:17 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/25 21:48:04 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/25 21:49:11 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ t_vec3		cross(t_vec3 u, t_vec3 v);
 // vec4.c
 t_vec3		min_vec3(t_vec3 u, t_vec3 v);
 
-// object1.c
+// object.c
 void		add_obj(t_object **lst, t_object *new);
 void		*last_obj(t_object *lst);
 

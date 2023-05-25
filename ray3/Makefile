@@ -39,7 +39,7 @@ SRCS+=utils/vec1.c
 SRCS+=utils/vec2.c
 SRCS+=utils/vec3.c
 SRCS+=utils/vec4.c
-SRCS+=utils/object1.c
+SRCS+=utils/object.c
 SRCS+=utils/string.c
 SRCS+=utils/error.c
 
