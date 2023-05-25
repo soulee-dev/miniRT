@@ -17,6 +17,7 @@
 		"vector": "c",
 		"utils.h": "c",
 		"structures.h": "c",
-		"scene.h": "c"
+		"scene.h": "c",
+		"get_next_line.h": "c"
 	}
 }

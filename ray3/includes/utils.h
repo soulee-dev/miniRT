@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:47:17 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/25 21:53:38 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/25 22:30:19 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ size_t		count_strings(char **strs);
 void		free_strs(char ***strs);
 char		*make_code(const char *set);
 char		**ft_split2(char const *s, const char *set);
+double		ft_atof(const char *str);
 
 // error.c
 void		check_valid(double val, double min, double max);
@@ -66,4 +67,9 @@ void		exit_error(char *s);
 // parser.c
 void		parse_line(t_scene *scene, char *line);
 void		read_file(t_scene *scene, char *file_name);
+
+// parser1.c
+void		add_ambient_light(t_scene *scene, char **strs);
+void		add_camera(t_scene *scene, char **strs);
+void		add_light(t_scene *scene, char **strs);
 #endif

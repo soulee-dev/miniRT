@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   object_create.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 13:59:53 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/24 20:14:55 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/25 22:23:11 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_object	*object(int type, void *element, t_color albedo)
 	return (new);
 }
 
-t_light	*light_point(t_point3 orig, t_color light_color, double bright_ratio)
+t_light	*light_point(t_point3 orig, double bright_ratio, t_color light_color)
 {
 	t_light	*light;
 

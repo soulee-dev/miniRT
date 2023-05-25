@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser1.c                                          :+:      :+:    :+:   */
+/*   string.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:06:56 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/24 18:07:22 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/25 22:11:13 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,21 @@ char	**ft_split2(char const *s, const char *set)
 		buf[len++] = ft_strndup(s + l, r - l);
 	buf[len++] = 0;
 	return (ft_memcpy(malloc(sizeof(char *) * len), buf, sizeof(char *) * len));
+}
+
+double	ft_atof(const char *str)
+{
+	int		sign;
+	char	**strs;
+	double	res;
+
+	sign = 1;
+	if ((*str == '-' || *str == '+') && *str++ == '-')
+		sign = -1;
+	strs = ft_split(str, '.');
+	res = ft_atoi(strs[0]);
+	if (strs[1])
+		res += (ft_atoi(strs[1]) / pow(10, ft_strlen(strs[1])));
+	free_strs(&strs);
+	return (res * sign);
 }

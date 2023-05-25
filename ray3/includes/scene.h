@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   scene.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 13:01:08 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/24 19:07:13 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/25 22:28:23 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ t_sphere	*sphere(t_point3 center, double radius);
 t_cylinder	*cylinder(t_point3 center, t_vec3 dir,
 				double diameter, double height);
 t_plane		*plane(t_point3 point, t_vec3 normal);
-t_light		*light_point(t_point3 orig, t_color light_color,
-				double bright_ratio);
+t_light		*light_point(t_point3 orig, 
+				double bright_ratio, t_color light_color);
 #endif

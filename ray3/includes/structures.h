@@ -6,12 +6,14 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:46:22 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/25 22:07:59 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/25 22:32:30 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTURES_H
 # define STRUCTURES_H
+
+# include <stdio.h>
 
 # define TITLE "miniRT"
 # define CODE_SIZE 256

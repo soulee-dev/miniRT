@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:37:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/24 18:39:06 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/25 22:31:02 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ void	parse_line(t_scene *scene, char *line)
 	if (len == 0)
 		exit_error("error: Invalid file format");
 	if (!ft_strncmp(strs[0], "A", ft_strlen(strs[0])))
-		printf("Ambient Light\n");
+		add_ambient_light(scene, strs);
 	else if (!ft_strncmp(strs[0], "C", ft_strlen(strs[0])))
-		printf("Camera\n");
+		add_camera(scene, strs);
 	else if (!ft_strncmp(strs[0], "L", ft_strlen(strs[0])))
-		printf("Light\n");
+		add_light(scene, strs);
 	else if (!ft_strncmp(strs[0], "sp", ft_strlen(strs[0])))
 		printf("Sphere\n");
 	else if (!ft_strncmp(strs[0], "pl", ft_strlen(strs[0])))
