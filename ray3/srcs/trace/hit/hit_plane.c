@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hit_plane.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 21:20:43 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/24 20:15:22 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/25 19:24:48 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	hit_plane(t_object *obj, t_ray *ray, t_hit_record *rec)
 
 	pl = obj->element;
 	denominator = dot(ray->dir, pl->dir);
-	if (denominator < EPSILON)
+	if (fabs(denominator) < EPSILON)
 		return (0);
 	numrator = dot(sub_vec3(pl->center, ray->orig), pl->dir);
 	root = numrator / denominator;
