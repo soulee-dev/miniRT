@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:46:22 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/25 22:04:31 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/25 22:07:59 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,6 +134,7 @@ typedef struct s_scene
 {
 	void			*mlx;
 	void			*mlx_win;
+	t_count			count;
 	t_canvas		canvas;
 	t_camera		camera;
 	t_object		*world;
