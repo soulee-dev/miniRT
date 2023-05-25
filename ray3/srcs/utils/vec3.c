@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec3.c                                             :+:      :+:    :+:   */
+/*   vec4.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/28 16:46:45 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/25 21:47:00 by soulee           ###   ########.fr       */
+/*   Created: 2023/04/30 00:54:56 by soulee            #+#    #+#             */
+/*   Updated: 2023/05/25 21:52:01 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "structures.h"
 #include "utils.h"
 
-void	print_vec3(t_vec3 vec3)
+t_vec3	unit_vector(t_vec3 u)
 {
-	printf("x:%lf y:%lf z:%lf\n", vec3.x, vec3.y, vec3.z);
+	return (div_n_vec3(u, length(u)));
+}
+
+double	dot(t_vec3 u, t_vec3 v)
+{
+	return (u.x * v.x + u.y * v.y + u.z * v.z);
 }
 
 t_vec3	reflect(t_vec3 v, t_vec3 n)
@@ -32,4 +37,15 @@ t_vec3	cross(t_vec3 u, t_vec3 v)
 			u.x * v.y - u.y * v.x
 		)
 	);
+}
+
+t_vec3	min_vec3(t_vec3 u, t_vec3 v)
+{
+	if (u.x > v.x)
+		u.x = v.x;
+	if (u.y > v.y)
+		u.y = v.y;
+	if (u.z > v.z)
+		u.z = v.z;
+	return (u);
 }
