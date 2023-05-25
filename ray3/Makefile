@@ -15,6 +15,7 @@ LIB=-L$(LIBFT_DIR) -L$(MLX_DIR) -lft -lmlx -framework OpenGL -framework AppKit -
 SRCS:=
 SRCS+=main.c
 SRCS+=render.c
+SRCS+=parser.c
 
 # scene
 SRCS+=scene/canvas.c
