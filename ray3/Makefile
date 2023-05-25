@@ -15,7 +15,6 @@ LIB=-L$(LIBFT_DIR) -L$(MLX_DIR) -lft -lmlx -framework OpenGL -framework AppKit -
 SRCS:=
 SRCS+=main.c
 SRCS+=render.c
-SRCS+=parser.c
 
 # scene
 SRCS+=scene/canvas.c
@@ -41,6 +40,11 @@ SRCS+=utils/vec3.c
 SRCS+=utils/object.c
 SRCS+=utils/string.c
 SRCS+=utils/error.c
+
+# parser
+SRCS+=parser/parser.c
+SRCS+=parser/parser1.c
+SRCS+=parser/parser2.c
 
 LIBFT=$(LIBFT_DIR)/libft.a
 
