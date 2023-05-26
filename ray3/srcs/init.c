@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 19:24:10 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/26 19:24:19 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/26 19:28:53 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,14 @@ void	key_hook(t_scene *scene)
 {
 	mlx_hook(scene->mlx_win, DESTROY, 0, quit, NULL);
 	mlx_hook(scene->mlx_win, KEYDOWN, 0, key_down, scene);
+}
+
+void	print_count(t_scene *scene)
+{
+	printf("Ambient Light:%zu\n", scene->count.ambient_light);
+	printf("Camera:%zu\n", scene->count.camera);
+	printf("Light:%zu\n", scene->count.light);
+	printf("Sphere:%zu\n", scene->count.sphere);
+	printf("Plane:%zu\n", scene->count.plane);
+	printf("Cylinder:%zu\n", scene->count.cylinder);
 }

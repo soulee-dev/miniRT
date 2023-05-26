@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:47:17 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/26 19:25:19 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/26 19:28:37 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,5 @@ t_scene		*scene_init(void);
 int			quit(void);
 int			key_down(int key, t_scene *scene);
 void		key_hook(t_scene *scene);
+void		print_count(t_scene *scene);
 #endif
