@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:37:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/26 19:15:09 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/26 19:31:12 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,10 @@ void	parse_line(t_scene *scene, char *line)
 		add_plane(scene, strs);
 	else if (!ft_strncmp(strs[0], "cy", ft_strlen(strs[0])))
 		add_cylinder(scene, strs);
+	else if (!ft_strncmp(strs[0], "#", ft_strlen(strs[0])))
+		;
+	else
+		exit_error("error: Invalid format");
 	free_strs(&strs);
 }
 
