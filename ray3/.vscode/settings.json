@@ -20,6 +20,7 @@
 		"scene.h": "c",
 		"get_next_line.h": "c",
 		"math.h": "c",
-		"__node_handle": "c"
+		"__node_handle": "c",
+		"trace.h": "c"
 	}
 }

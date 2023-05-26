@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structures.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:46:22 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/25 22:32:30 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/26 20:05:38 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,4 +145,20 @@ typedef struct s_scene
 	t_ray			ray;
 	t_hit_record	rec;
 }				t_scene;
+
+typedef struct s_phong_light
+{
+	t_color	diffuse;
+	t_vec3	light_dir;
+	double	kd;
+	t_color	specular;
+	double	light_len;
+	t_ray	light_ray;
+	t_vec3	view_dir;
+	t_vec3	reflect_dir;
+	double	spec;
+	double	ksn;
+	double	ks;
+	double	brightness;
+}				t_phong_light;
 #endif

@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:01:12 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/24 18:14:51 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/26 20:07:41 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,37 +32,29 @@ t_color	phong_lighting(t_scene *scene)
 
 t_color	point_light_get(t_scene *scene, t_light *light)
 {
-	t_color	diffuse;
-	t_vec3	light_dir;
-	double	kd;
-	t_color	specular;
-	double	light_len;
-	t_ray	light_ray;
-	t_vec3	view_dir;
-	t_vec3	reflect_dir;
-	double	spec;
-	double	ksn;
-	double	ks;
-	double	brightness;
+	t_phong_light	phong_light;
 
-	light_dir = sub_vec3(light->orig, scene->rec.p);
-	light_len = length(light_dir);
-	light_ray = ray(add_vec3(scene->rec.p, \
-		mul_n_vec3(scene->rec.normal, EPSILON)), light_dir);
-	if (in_shadow(scene->world, light_ray, light_len))
+	phong_light.light_dir = sub_vec3(light->orig, scene->rec.p);
+	phong_light.light_len = length(phong_light.light_dir);
+	phong_light.light_ray = ray(add_vec3(scene->rec.p, \
+		mul_n_vec3(scene->rec.normal, EPSILON)), phong_light.light_dir);
+	if (in_shadow(scene->world, phong_light.light_ray, phong_light.light_len))
 		return (color(0, 0, 0));
-	light_dir = unit_vector(light_dir);
-	kd = fmax(dot(scene->rec.normal, light_dir), 0.0);
-	diffuse = mul_n_vec3(light->light_color, kd);
-	view_dir = unit_vector(mul_n_vec3(scene->ray.dir, -1));
-	reflect_dir = reflect(mul_n_vec3(light_dir, -1), scene->rec.normal);
-	ksn = 64;
-	ks = 0.5;
-	spec = pow(fmax(dot(view_dir, reflect_dir), 0.0), ksn);
-	specular = mul_n_vec3(mul_n_vec3(light->light_color, ks), spec);
-	brightness = light->bright_ratio * LUMEN;
-	return (mul_n_vec3(add_vec3(add_vec3(scene->ambient, diffuse), \
-		specular), brightness));
+	phong_light.light_dir = unit_vector(phong_light.light_dir);
+	phong_light.kd = fmax(dot(scene->rec.normal, phong_light.light_dir), 0.0);
+	phong_light.diffuse = mul_n_vec3(light->light_color, phong_light.kd);
+	phong_light.view_dir = unit_vector(mul_n_vec3(scene->ray.dir, -1));
+	phong_light.reflect_dir = reflect(\
+		mul_n_vec3(phong_light.light_dir, -1), scene->rec.normal);
+	phong_light.ksn = 64;
+	phong_light.ks = 0.5;
+	phong_light.spec = pow(fmax(dot(phong_light.view_dir, \
+		phong_light.reflect_dir), 0.0), phong_light.ksn);
+	phong_light.specular = mul_n_vec3(mul_n_vec3(light->light_color, \
+		phong_light.ks), phong_light.spec);
+	phong_light.brightness = light->bright_ratio * LUMEN;
+	return (mul_n_vec3(add_vec3(add_vec3(scene->ambient, phong_light.diffuse), \
+		phong_light.specular), phong_light.brightness));
 }
 
 int	in_shadow(t_object *objs, t_ray light_ray, double light_len)
