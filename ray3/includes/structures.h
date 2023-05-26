@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:46:22 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/26 20:05:38 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/26 20:09:06 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,4 +161,15 @@ typedef struct s_phong_light
 	double	ks;
 	double	brightness;
 }				t_phong_light;
+
+typedef struct s_discriminant
+{
+	t_vec3		oc;
+	double		a;
+	double		half_b;
+	double		c;
+	double		discriminant;
+	double		sqrtd;
+	double		root;
+}				t_discriminant;
 #endif
