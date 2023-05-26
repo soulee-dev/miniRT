@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:47:17 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/26 19:22:41 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/26 19:25:19 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,10 @@ void		add_light(t_scene *scene, char **strs);
 void		add_sphere(t_scene *scene, char **strs);
 void		add_plane(t_scene *scene, char **strs);
 void		add_cylinder(t_scene *scene, char **strs);
+
+// init.c
+t_scene		*scene_init(void);
+int			quit(void);
+int			key_down(int key, t_scene *scene);
+void		key_hook(t_scene *scene);
 #endif

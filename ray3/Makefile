@@ -46,6 +46,8 @@ SRCS+=parser/parser.c
 SRCS+=parser/parser1.c
 SRCS+=parser/parser2.c
 
+SRCS+=init.c
+
 LIBFT=$(LIBFT_DIR)/libft.a
 
 SRC=$(addprefix $(SRC_DIR), $(SRCS))
