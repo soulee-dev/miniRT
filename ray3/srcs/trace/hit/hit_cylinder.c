@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:52:19 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/26 20:22:20 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/26 20:23:01 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ int	hit_cylinder_cap(t_object *obj, t_ray *ray, \
 	double		diameter;
 
 	cy = obj->element;
-	r = cy->diameter / 2;
 	circle_center = add_vec3(cy->center, mul_n_vec3(cy->dir, height));
-	root = dot(sub_vec3(circle_center, ray->orig), cy->dir) / dot(ray->dir, cy->dir);
+	root = dot(sub_vec3(circle_center, ray->orig), \
+		cy->dir) / dot(ray->dir, cy->dir);
 	diameter = length(sub_vec3(circle_center, at(ray, root)));
-	if (fabs(r) < fabs(diameter))
+	if (fabs(cy->diameter / 2) < fabs(diameter))
 		return (0);
 	if (root < rec->tmin || rec->tmax < root)
 		return (0);
