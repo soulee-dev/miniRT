@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:37:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/25 22:31:02 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/26 19:15:09 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ void	parse_line(t_scene *scene, char *line)
 	else if (!ft_strncmp(strs[0], "L", ft_strlen(strs[0])))
 		add_light(scene, strs);
 	else if (!ft_strncmp(strs[0], "sp", ft_strlen(strs[0])))
-		printf("Sphere\n");
+		add_sphere(scene, strs);
 	else if (!ft_strncmp(strs[0], "pl", ft_strlen(strs[0])))
-		printf("Plane\n");
+		add_plane(scene, strs);
 	else if (!ft_strncmp(strs[0], "cy", ft_strlen(strs[0])))
-		printf("Cylinder\n");
+		add_cylinder(scene, strs);
 	free_strs(&strs);
 }
 

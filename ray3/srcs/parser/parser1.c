@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser1.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 21:57:36 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/25 22:32:59 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/26 18:57:53 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 void	add_ambient_light(t_scene *scene, char **strs)
 {
+	t_color	ambient;
 	double	ka;
 
 	if (count_strings(strs) != 5)
@@ -24,10 +25,10 @@ void	add_ambient_light(t_scene *scene, char **strs)
 		exit_error("error: Duplicated identifier (Ambient Light)");
 	ka = ft_atof(strs[1]);
 	check_valid(ka, 0.0, 1.0);
-	scene->ambient = color(ft_atoi(strs[2]), \
+	ambient = color(ft_atoi(strs[2]), \
 		ft_atoi(strs[3]), ft_atoi(strs[4]));
-	check_valid_vec3(scene->ambient, 0, 255);
-	scene->ambient = mul_n_vec3(scene->ambient, ka);
+	check_valid_vec3(ambient, 0, 255);
+	scene->ambient = mul_n_vec3(ambient, ka);
 	scene->count.ambient_light++;
 }
 

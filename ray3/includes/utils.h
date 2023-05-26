@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:47:17 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/25 22:30:19 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/26 19:14:40 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,17 @@ void		check_valid_vec3(t_vec3 vec3, double min, double max);
 void		check_error(int argc, char *argv[]);
 void		exit_error(char *s);
 
-// parser.c
+// parser/arser.c
 void		parse_line(t_scene *scene, char *line);
 void		read_file(t_scene *scene, char *file_name);
 
-// parser1.c
+// parser/parser1.c
 void		add_ambient_light(t_scene *scene, char **strs);
 void		add_camera(t_scene *scene, char **strs);
 void		add_light(t_scene *scene, char **strs);
+
+// parser/parser2.c
+void		add_sphere(t_scene *scene, char **strs);
+void		add_plane(t_scene *scene, char **strs);
+void		add_cylinder(t_scene *scene, char **strs);
 #endif
