@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 21:57:34 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/26 19:14:02 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/26 19:35:38 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ void	add_sphere(t_scene *scene, char **strs)
 	double		radius;
 	t_color		albedo;
 
+	printf("Sphere\n");
 	if (count_strings(strs) != 8)
-		exit_error("error: Invalid file format (Sphere)");
+		exit_error("error: Invalid file format");
 	center = point3(\
 		ft_atof(strs[1]), ft_atof(strs[2]), ft_atof(strs[3]));
 	radius = ft_atof(strs[4]);
@@ -38,8 +39,9 @@ void	add_plane(t_scene *scene, char **strs)
 	t_vec3		dir;
 	t_color		albedo;
 
+	printf("Plane\n");
 	if (count_strings(strs) != 10)
-		exit_error("error: Invalid file format (Plane)");
+		exit_error("error: Invalid file format");
 	center = point3(\
 		ft_atof(strs[1]), ft_atof(strs[2]), ft_atof(strs[3]));
 	dir = vec3(\
@@ -60,8 +62,9 @@ void	add_cylinder(t_scene *scene, char **strs)
 	double		height;
 	t_color		albedo;
 
+	printf("Cylinder\n");
 	if (count_strings(strs) != 12)
-		exit_error("error: Invalid file format (Cylinder)");
+		exit_error("error: Invalid file format");
 	center = point3(\
 		ft_atof(strs[1]), ft_atof(strs[2]), ft_atof(strs[3]));
 	dir = vec3(\

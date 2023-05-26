@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 21:57:36 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/26 18:57:53 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/26 19:34:53 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,11 @@ void	add_ambient_light(t_scene *scene, char **strs)
 	t_color	ambient;
 	double	ka;
 
+	printf("Ambient Light\n");
 	if (count_strings(strs) != 5)
-		exit_error("error: Invalid file format (Ambient Light)");
+		exit_error("error: Invalid file format");
 	if (scene->count.ambient_light)
-		exit_error("error: Duplicated identifier (Ambient Light)");
+		exit_error("error: Duplicated identifier");
 	ka = ft_atof(strs[1]);
 	check_valid(ka, 0.0, 1.0);
 	ambient = color(ft_atoi(strs[2]), \
@@ -38,10 +39,11 @@ void	add_camera(t_scene *scene, char **strs)
 	t_point3	lookat;
 	double		vfov;
 
+	printf("Camera\n");
 	if (count_strings(strs) != 8)
-		exit_error("error: Invalid file format (Camera)");
+		exit_error("error: Invalid file format");
 	if (scene->count.camera)
-		exit_error("error: Duplicated identifier (Camera)");
+		exit_error("error: Duplicated identifier");
 	lookfrom = point3(\
 		ft_atof(strs[1]), ft_atof(strs[2]), ft_atof(strs[3]));
 	lookat = point3(\
@@ -61,10 +63,11 @@ void	add_light(t_scene *scene, char **strs)
 	double		bright_ratio;
 	t_color		light_color;
 
+	printf("Light\n");
 	if (count_strings(strs) != 8)
-		exit_error("error: Invalid file format (Light)");
+		exit_error("error: Invalid file format");
 	if (scene->count.light)
-		exit_error("error: Duplicated identifier (Light)");
+		exit_error("error: Duplicated identifier");
 	orig = point3(\
 		ft_atof(strs[1]), ft_atof(strs[2]), ft_atof(strs[3]));
 	bright_ratio = ft_atof(strs[4]);
