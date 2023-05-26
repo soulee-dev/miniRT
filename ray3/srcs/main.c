@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 18:24:44 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/26 19:20:41 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/26 19:21:45 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,3 @@ int	main(int argc, char *argv[])
 	mlx_loop(scene->mlx);
 	return (0);
 }
-
-// Normalize input direction vectors when input.
