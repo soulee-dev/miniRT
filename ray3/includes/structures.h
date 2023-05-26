@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:46:22 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/26 20:09:06 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/26 20:21:14 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,5 +171,9 @@ typedef struct s_discriminant
 	double		discriminant;
 	double		sqrtd;
 	double		root;
+	t_vec3		delta_p;
+	t_vec3		u;
+	t_vec3		o;
+	double		r;
 }				t_discriminant;
 #endif

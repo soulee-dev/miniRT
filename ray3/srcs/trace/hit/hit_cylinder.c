@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:52:19 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/24 20:21:55 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/26 20:22:20 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,42 +67,33 @@ int	hit_cylinder_cap(t_object *obj, t_ray *ray, \
 
 int	hit_cylinder_side(t_object *obj, t_ray *ray, t_hit_record *rec)
 {
-	t_cylinder	*cy;
-	double		a;
-	double		half_b;
-	double		c;
-	t_vec3		u;
-	t_vec3		o;
-	t_vec3		delta_P;
-	double		r;
-	double		discriminant;
-	double		sqrtd;
-	double		root;
-	double		hit_height;
+	t_discriminant	disc;
+	t_cylinder		*cy;
+	double			hit_height;
 
 	cy = obj->element;
-	u = ray->dir;
-	o = cy->dir;
-	r = cy->diameter / 2;
-	delta_P = sub_vec3(ray->orig, cy->center);
-	a = length_squared(cross(u, o));
-	half_b = dot(cross(u, o), cross(delta_P, o));
-	c = length_squared(cross(delta_P, o)) - pow(r, 2);
-	discriminant = half_b * half_b - a * c;
-	if (discriminant < 0)
+	disc.u = ray->dir;
+	disc.o = cy->dir;
+	disc.r = cy->diameter / 2;
+	disc.delta_p = sub_vec3(ray->orig, cy->center);
+	disc.a = length_squared(cross(disc.u, disc.o));
+	disc.half_b = dot(cross(disc.u, disc.o), cross(disc.delta_p, disc.o));
+	disc.c = length_squared(cross(disc.delta_p, disc.o)) - pow(disc.r, 2);
+	disc.discriminant = disc.half_b * disc.half_b - disc.a * disc.c;
+	if (disc.discriminant < 0)
 		return (0);
-	sqrtd = sqrt(discriminant);
-	root = (-half_b - sqrtd) / a;
-	if (root < rec->tmin || rec->tmax < root)
+	disc.sqrtd = sqrt(disc.discriminant);
+	disc.root = (-disc.half_b - disc.sqrtd) / disc.a;
+	if (disc.root < rec->tmin || rec->tmax < disc.root)
 	{
-	root = (-half_b + sqrtd) / a;
-		if (root < rec->tmin || rec->tmax < root)
+		disc.root = (-disc.half_b + disc.sqrtd) / disc.a;
+		if (disc.root < rec->tmin || rec->tmax < disc.root)
 			return (0);
 	}
-	if (!cy_boundary(cy, at(ray, root), &hit_height))
+	if (!cy_boundary(cy, at(ray, disc.root), &hit_height))
 		return (0);
-	rec->t = root;
-	rec->p = at(ray, root);
+	rec->t = disc.root;
+	rec->p = at(ray, disc.root);
 	rec->normal = get_cylinder_normal(cy, rec->p, hit_height);
 	set_face_normal(ray, rec);
 	rec->albedo = obj->albedo;
