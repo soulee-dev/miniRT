@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:47:17 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/26 19:14:40 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/26 19:22:41 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ double		degrees_to_radians(double degrees);
 
 // vec1.c
 t_vec3		vec3(double x, double y, double z);
-t_color		color(double x, double y, double z);
+t_color		color(double r, double g, double b);
 t_point3	point3(double x, double y, double z);
 
 // vec2.c

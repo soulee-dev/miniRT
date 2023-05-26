@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vec1.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 17:31:28 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/25 21:49:53 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/26 19:22:34 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ t_vec3	vec3(double x, double y, double z)
 	return (vec3);
 }
 
-t_color	color(double x, double y, double z)
+t_color	color(double r, double g, double b)
 {
 	t_color	color;
 
-	color.x = x;
-	color.y = y;
-	color.z = z;
+	color.x = r;
+	color.y = g;
+	color.z = b;
 	return (color);
 }
 
