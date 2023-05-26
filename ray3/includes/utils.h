@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:47:17 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/26 20:02:10 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/26 20:31:55 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,7 @@ int			quit(void);
 int			key_down(int key, t_scene *scene);
 void		key_hook(t_scene *scene);
 void		print_count(t_scene *scene);
+
+// cylinder_util.c
+void		set_parameters(t_object *obj, t_discriminant *disc, t_ray *ray);
 #endif

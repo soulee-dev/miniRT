@@ -24,6 +24,7 @@ SRCS+=scene/scene.c
 # trace
 SRCS+=trace/hit/hit_sphere.c
 SRCS+=trace/hit/hit_cylinder.c
+SRCS+=trace/hit/cylinder_util.c
 SRCS+=trace/hit/hit_plane.c
 SRCS+=trace/hit/hit.c
 SRCS+=trace/hit/normal.c
