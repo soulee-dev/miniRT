@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 17:31:28 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/28 17:38:50 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/28 17:41:13 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ t_point3	point3(double x, double y, double z)
 	return (point3);
 }
 
-t_vec3	print_vec3(t_vec3 vec)
+void	print_vec3(t_vec3 vec)
 {
 	printf("x: %lf, y: %lf, z:%lf\n", vec.x, vec.y, vec.z);
 }
