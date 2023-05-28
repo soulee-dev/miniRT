@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 18:24:44 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/26 19:29:16 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/28 16:18:41 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ int	main(int argc, char *argv[])
 	print_count(scene);
 	render(scene);
 	mlx_loop(scene->mlx);
-	return (0);
+	exit(0);
 }
