@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:46:22 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/26 20:23:30 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/28 17:02:25 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,13 @@ typedef enum e_event
 typedef enum e_key
 {
 	KEY_ESC = 53,
-	KEY_Q = 12
+	KEY_Q = 12,
+	KEY_W = 13,
+	KEY_A = 0,
+	KEY_S = 1,
+	KEY_D = 2,
+	KEY_ARROW_UP = 126,
+	KEY_ARROW_DOWN = 125
 }			t_key;
 
 typedef enum e_object_type
@@ -144,6 +150,7 @@ typedef struct s_scene
 	t_color			ambient;
 	t_ray			ray;
 	t_hit_record	rec;
+	int				is_rendered;
 }				t_scene;
 
 typedef struct s_phong_light
