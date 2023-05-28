@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:46:22 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/28 17:10:30 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/28 17:12:30 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,6 +153,9 @@ typedef struct s_scene
 	t_ray			ray;
 	t_hit_record	rec;
 	int				is_rendered;
+	t_point3		lookfrom;
+	t_point3		lookat;
+	double			vfov;
 }				t_scene;
 
 typedef struct s_phong_light

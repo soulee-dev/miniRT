@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 21:57:36 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/28 16:29:28 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/28 17:12:37 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,9 @@ void	add_camera(t_scene *scene, char **strs)
 	check_valid(vfov, 0, 180);
 	scene->camera = camera(&scene->canvas, \
 		lookfrom, unit_vector(lookat), vfov);
+	scene->lookfrom = lookfrom;
+	scene->lookat = lookat;
+	scene->vfov = vfov;
 	scene->count.camera++;
 }
 
