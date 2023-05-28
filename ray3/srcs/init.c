@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 19:24:10 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/26 19:28:53 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/28 17:57:49 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,50 @@ t_scene	*scene_init(void)
 	return (scene);
 }
 
-int	quit(void)
+int	check_key(t_scene *scene, int key)
 {
-	exit(0);
+	if (key == KEY_Q)
+		scene->lookfrom.z += 0.5;
+	else if (key == KEY_R)
+		scene->lookfrom.z -= 0.5;
+	else if (key == KEY_W)
+		scene->lookfrom.x += 0.5;
+	else if (key == KEY_S)
+		scene->lookfrom.x -= 0.5;
+	else if (key == KEY_A)
+		scene->lookfrom.y += 0.5;
+	else if (key == KEY_D)
+		scene->lookfrom.y -= 0.5;
+	else if (key == KEY_ARROW_UP)
+		scene->lookat.y += 0.5;
+	else if (key == KEY_ARROW_DOWN)
+		scene->lookat.y -= 0.5;
+	else if (key == KEY_ARROW_LEFT)
+		scene->lookat.z += 0.5;
+	else if (key == KEY_ARROW_RIGHT)
+		scene->lookat.z -= 0.5;
+	else
+		return (0);
+	return (1);
 }
 
 int	key_down(int key, t_scene *scene)
 {
-	(void) scene;
-	if (key == KEY_ESC || key == KEY_Q)
+	if (key == KEY_ESC)
 		quit();
+	if (scene->is_rendered)
+	{
+		if (check_key(scene, key))
+		{
+			printf("lookfrom: ");
+			print_vec3(scene->lookfrom);
+			printf("lookat:   ");
+			print_vec3(scene->lookat);
+			scene->camera = camera(&scene->canvas, \
+				scene->lookfrom, scene->lookat, scene->vfov);
+			render(scene);
+		}
+	}
 	return (0);
 }
 
@@ -50,6 +84,7 @@ void	key_hook(t_scene *scene)
 
 void	print_count(t_scene *scene)
 {
+	printf("\n");
 	printf("Ambient Light:%zu\n", scene->count.ambient_light);
 	printf("Camera:%zu\n", scene->count.camera);
 	printf("Light:%zu\n", scene->count.light);
