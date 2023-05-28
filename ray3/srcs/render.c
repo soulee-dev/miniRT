@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:01:26 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/24 18:17:42 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/28 17:03:55 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	render(t_scene *scene)
 	double		v;
 	t_color		pixel_color;
 
+	scene->is_rendered = 0;
 	i = 0;
 	while (i < scene->canvas.width)
 	{
@@ -50,4 +51,5 @@ void	render(t_scene *scene)
 		}
 		i++;
 	}
+	scene->is_rendered = 1;
 }
