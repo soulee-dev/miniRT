@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 21:57:34 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/28 16:20:56 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/28 16:21:36 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	add_cylinder(t_scene *scene, char **strs)
 	diameter = ft_atof(strs[7]);
 	height = ft_atof(strs[8]);
 	albedo = color(\
-		ft_aoti(strs[9]), ft_aoti(strs[10]), ft_aoti(strs[11]));
+		ft_atoi(strs[9]), ft_atoi(strs[10]), ft_atoi(strs[11]));
 	add_obj(&scene->world, object(CY, cylinder(center, unit_vector(dir), \
 		diameter, height), albedo));
 	scene->count.cylinder++;
