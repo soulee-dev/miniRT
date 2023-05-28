@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:46:22 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/28 17:02:25 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/28 17:10:30 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,9 @@ typedef enum e_key
 	KEY_S = 1,
 	KEY_D = 2,
 	KEY_ARROW_UP = 126,
-	KEY_ARROW_DOWN = 125
+	KEY_ARROW_DOWN = 125,
+	KEY_ARROW_LEFT = 123,
+	KEY_ARROW_RIGHT = 124
 }			t_key;
 
 typedef enum e_object_type
