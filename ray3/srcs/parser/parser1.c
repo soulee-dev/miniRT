@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 21:57:36 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/26 19:34:53 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/28 16:29:28 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	add_ambient_light(t_scene *scene, char **strs)
 	ambient = color(ft_atoi(strs[2]), \
 		ft_atoi(strs[3]), ft_atoi(strs[4]));
 	check_valid_vec3(ambient, 0, 255);
+	ambient = div_n_vec3(ambient, 255);
 	scene->ambient = mul_n_vec3(ambient, ka);
 	scene->count.ambient_light++;
 }
@@ -75,6 +76,7 @@ void	add_light(t_scene *scene, char **strs)
 	light_color = color(\
 		ft_atoi(strs[5]), ft_atoi(strs[6]), ft_atoi(strs[7]));
 	check_valid_vec3(light_color, 0, 255);
+	light_color = div_n_vec3(light_color, 255);
 	lights = object(LIGHT_POINT, \
 		light_point(orig, bright_ratio, light_color), color(0, 0, 0));
 	scene->lights = lights;
