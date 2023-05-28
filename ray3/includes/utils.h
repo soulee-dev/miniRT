@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:47:17 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/28 17:41:19 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/28 17:52:31 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void		check_valid(double val, double min, double max);
 void		check_valid_vec3(t_vec3 vec3, double min, double max);
 void		check_error(int argc, char *argv[]);
 void		exit_error(char *s);
+int			quit(void);
 
 // parser/arser.c
 void		parse_line(t_scene *scene, char *line);
