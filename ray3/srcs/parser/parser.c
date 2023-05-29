@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:37:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/26 19:44:52 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/29 17:01:01 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	parse_line(t_scene *scene, char *line)
 	size_t	len;
 	char	**strs;
 
-	(void) scene;
 	strs = ft_split2(line, " \t\n\v\f\r,");
 	len = count_strings(strs);
 	if (len == 0)
