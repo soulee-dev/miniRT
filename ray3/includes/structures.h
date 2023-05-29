@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:46:22 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/28 17:36:31 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/29 17:45:17 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # define CODE_SIZE 256
 # define EPSILON 1e-6
 # define LUMEN 3
+# define CAM_NORMAL_RATIO 50
 
 typedef enum e_event
 {

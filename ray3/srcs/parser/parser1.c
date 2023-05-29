@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 21:57:36 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/28 17:12:37 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/29 17:44:23 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,9 @@ void	add_camera(t_scene *scene, char **strs)
 	check_valid_vec3(lookat, -1.0, 1.0);
 	vfov = ft_atoi(strs[7]);
 	check_valid(vfov, 0, 180);
+	lookat = mul_n_vec3(lookat, CAM_NORMAL_RATIO);
 	scene->camera = camera(&scene->canvas, \
-		lookfrom, unit_vector(lookat), vfov);
+		lookfrom, lookat, vfov);
 	scene->lookfrom = lookfrom;
 	scene->lookat = lookat;
 	scene->vfov = vfov;
