@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 21:57:34 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/29 16:53:58 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/29 16:54:17 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	add_cylinder(t_scene *scene, char **strs)
 	dir = vec3(\
 		ft_atof(strs[4]), ft_atof(strs[5]), ft_atof(strs[6]));
 	check_valid_vec3(dir, -1.0, 1.0);
-	if (dir.x == 0 && dir.y == 0 && dir.y == 0)
+	if (dir.x == 0 && dir.y == 0 && dir.z == 0)
 		exit_error("error: Zero direction for cylinder");
 	diameter = ft_atof(strs[7]);
 	height = ft_atof(strs[8]);
