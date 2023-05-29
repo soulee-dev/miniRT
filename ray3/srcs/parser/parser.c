@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 18:37:16 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/29 17:01:01 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/29 17:04:24 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,11 @@ void	read_file(t_scene *scene, char *file_name)
 		line = get_next_line(fd);
 		if (!line)
 			break ;
+		if (line[0] == '\n')
+		{
+			free(line);
+			continue ;
+		}
 		if (line[0] != '\0')
 			parse_line(scene, line);
 		free(line);
