@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@student.42.fr>              +#+  +:+       +#+        */
+/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 14:54:43 by soulee            #+#    #+#             */
-/*   Updated: 2022/11/08 20:02:26 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/29 17:14:06 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_atoi(const char *str)
 {
@@ -31,7 +33,10 @@ int	ft_atoi(const char *str)
 			str++;
 		}
 		else
-			return (sign * num);
+		{
+			ft_putendl_fd("error: Invalid value", 2);
+			exit(1);
+		}
 	}
 	return (sign * num);
 }
