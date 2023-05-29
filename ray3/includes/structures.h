@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 12:46:22 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/29 17:45:17 by soulee           ###   ########.fr       */
+/*   Updated: 2023/05/29 18:08:48 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef enum e_event
 	KEYDOWN = 2,
 	KEYUP = 3,
 	DESTROY = 17
-}			t_even;
+}			t_event;
 
 typedef enum e_key
 {
