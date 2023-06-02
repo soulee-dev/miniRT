@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 21:57:36 by soulee            #+#    #+#             */
-/*   Updated: 2023/06/02 14:54:32 by soulee           ###   ########.fr       */
+/*   Updated: 2023/06/02 15:12:42 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,10 @@ void	add_camera(t_scene *scene, char **strs)
 	lookat = point3(\
 		ft_atof(strs[4]), ft_atof(strs[5]), ft_atof(strs[6]));
 	check_valid_vec3(lookat, -1.0, 1.0);
+	if (lookat.x == 0 && lookat.y == 0 && lookat.z == 0)
+		exit_error("error: Zero direction");
 	vfov = ft_atoi(strs[7]);
 	check_valid(vfov, 0, 180);
-	lookat = mul_n_vec3(lookat, CAM_NORMAL_RATIO);
 	scene->camera = camera(&scene->canvas, \
 		lookfrom, unit_vector(lookat), vfov);
 	scene->lookfrom = lookfrom;

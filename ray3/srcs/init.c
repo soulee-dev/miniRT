@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 19:24:10 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/29 17:58:35 by soulee           ###   ########.fr       */
+/*   Updated: 2023/06/02 15:10:20 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ t_scene	*scene_init(void)
 		exit_error("error: malloc failed (scene)");
 	ft_bzero(scene, sizeof(t_scene));
 	ft_bzero(&scene->count, sizeof(t_count));
-	scene->canvas = canvas(1000, 560);
+	// scene->canvas = canvas(1000, 560);
+	scene->canvas = canvas(400, 300);
 	scene->mlx = mlx_init();
 	scene->mlx_win = mlx_new_window(scene->mlx, scene->canvas.width, \
 		scene->canvas.height, TITLE);
@@ -31,18 +32,14 @@ t_scene	*scene_init(void)
 
 int	check_key(t_scene *scene, int key)
 {
-	if (key == KEY_Q)
-		scene->lookfrom.z += 0.5;
-	else if (key == KEY_R)
-		scene->lookfrom.z -= 0.5;
-	else if (key == KEY_W)
-		scene->lookfrom.x += 0.5;
-	else if (key == KEY_S)
+	if (key == KEY_W)
 		scene->lookfrom.x -= 0.5;
+	else if (key == KEY_S)
+		scene->lookfrom.x += 0.5;
 	else if (key == KEY_A)
-		scene->lookfrom.y += 0.5;
+		scene->lookfrom.z += 0.5;
 	else if (key == KEY_D)
-		scene->lookfrom.y -= 0.5;
+		scene->lookfrom.z -= 0.5;
 	else if (key == KEY_ARROW_UP)
 		scene->lookat.y += 0.5;
 	else if (key == KEY_ARROW_DOWN)
