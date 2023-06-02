@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser1.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 21:57:36 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/29 17:44:23 by soulee           ###   ########.fr       */
+/*   Updated: 2023/06/02 14:54:32 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	add_camera(t_scene *scene, char **strs)
 	check_valid(vfov, 0, 180);
 	lookat = mul_n_vec3(lookat, CAM_NORMAL_RATIO);
 	scene->camera = camera(&scene->canvas, \
-		lookfrom, lookat, vfov);
+		lookfrom, unit_vector(lookat), vfov);
 	scene->lookfrom = lookfrom;
 	scene->lookat = lookat;
 	scene->vfov = vfov;
