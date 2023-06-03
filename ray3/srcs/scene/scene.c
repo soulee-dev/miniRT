@@ -3,14 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   scene.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 18:29:13 by soulee            #+#    #+#             */
-/*   Updated: 2023/05/24 21:08:07 by soulee           ###   ########.fr       */
+/*   Updated: 2023/06/03 10:52:41 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "scene.h"
+
+t_vec3	up_vec3(t_vec3 vec)
+{
+	if (vec.x == 0 && vec.y == 1 && vec.z == 0)
+		return (vec3(0, 0, 1));
+	else if (vec.x == 0 && vec.y == -1 && vec.z == 0)
+		return (vec3(0, 0, -1));
+	return (vec3(0, 1, 0));
+}
 
 t_camera	camera(t_canvas *canvas, t_point3 lookfrom, \
 	t_point3 lookat, double vfov)
@@ -26,7 +35,7 @@ t_camera	camera(t_canvas *canvas, t_point3 lookfrom, \
 	viewport_height = 2.0 * h;
 	viewport_width = canvas->aspect_ratio * viewport_height;
 	cam.w = unit_vector(sub_vec3(lookfrom, lookat));
-	cam.u = unit_vector(cross(vec3(0, 1, 0), cam.w));
+	cam.u = unit_vector(cross(up_vec3(cam.w), cam.w));
 	cam.v = cross(cam.w, cam.u);
 	cam.orig = lookfrom;
 	cam.horizontal = mul_n_vec3(cam.u, viewport_width);
