@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 18:29:13 by soulee            #+#    #+#             */
-/*   Updated: 2023/06/05 08:07:28 by soulee           ###   ########.fr       */
+/*   Updated: 2023/06/05 08:12:33 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_vec3	up_vec3(t_vec3 vec)
 {
 	if (vec.y != 0 && (vec.x == 0 && vec.z == 0))
-		return (vec3(0, 0, 1));
+		return (vec3(0, vec.y, 0.001));
 	return (vec3(0, 1, 0));
 }
 
@@ -33,7 +33,7 @@ t_camera	camera(t_canvas *canvas, t_point3 lookfrom, \
 	viewport_height = 2.0 * h;
 	viewport_width = canvas->aspect_ratio * viewport_height;
 	cam.w = unit_vector(mul_n_vec3(lookat, -1));
-	cam.u = unit_vector(cross(up_vec3(cam.w), cam.w));
+	cam.u = unit_vector(cross(up_vec3(lookat), cam.w));
 	cam.v = cross(cam.w, cam.u);
 	cam.orig = lookfrom;
 	cam.horizontal = mul_n_vec3(cam.u, viewport_width);
