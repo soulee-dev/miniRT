@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 19:24:10 by soulee            #+#    #+#             */
-/*   Updated: 2023/06/02 15:10:20 by soulee           ###   ########.fr       */
+/*   Updated: 2023/06/05 07:14:20 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ t_scene	*scene_init(void)
 		exit_error("error: malloc failed (scene)");
 	ft_bzero(scene, sizeof(t_scene));
 	ft_bzero(&scene->count, sizeof(t_count));
-	// scene->canvas = canvas(1000, 560);
-	scene->canvas = canvas(400, 300);
+	scene->canvas = canvas(1000, 560);
 	scene->mlx = mlx_init();
 	scene->mlx_win = mlx_new_window(scene->mlx, scene->canvas.width, \
 		scene->canvas.height, TITLE);
