@@ -6,7 +6,7 @@
 /*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 18:29:13 by soulee            #+#    #+#             */
-/*   Updated: 2023/06/05 07:48:33 by soulee           ###   ########.fr       */
+/*   Updated: 2023/06/05 08:07:28 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_camera	camera(t_canvas *canvas, t_point3 lookfrom, \
 	h = tan(theta / 2.0);
 	viewport_height = 2.0 * h;
 	viewport_width = canvas->aspect_ratio * viewport_height;
-	cam.w = unit_vector(sub_vec3(lookfrom, lookat));
+	cam.w = unit_vector(mul_n_vec3(lookat, -1));
 	cam.u = unit_vector(cross(up_vec3(cam.w), cam.w));
 	cam.v = cross(cam.w, cam.u);
 	cam.orig = lookfrom;
