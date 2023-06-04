@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   scene.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soulee <soulee@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: soulee <soulee@studnet.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 18:29:13 by soulee            #+#    #+#             */
-/*   Updated: 2023/06/03 10:52:41 by soulee           ###   ########.fr       */
+/*   Updated: 2023/06/05 07:48:33 by soulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 
 t_vec3	up_vec3(t_vec3 vec)
 {
-	if (vec.x == 0 && vec.y == 1 && vec.z == 0)
+	if (vec.y != 0 && (vec.x == 0 && vec.z == 0))
 		return (vec3(0, 0, 1));
-	else if (vec.x == 0 && vec.y == -1 && vec.z == 0)
-		return (vec3(0, 0, -1));
 	return (vec3(0, 1, 0));
 }
 
